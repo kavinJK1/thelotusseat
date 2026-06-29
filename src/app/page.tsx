@@ -1,4 +1,4 @@
-import Hero from '@/components/home/Hero'
+import ShowcaseLoader from '@/components/showcase/ShowcaseLoader'
 import ProductIntro from '@/components/home/ProductIntro'
 import ProblemSection from '@/components/home/ProblemSection'
 import WhySection from '@/components/home/WhySection'
@@ -12,7 +12,7 @@ import CTASection from '@/components/home/CTASection'
 export default function Home() {
   return (
     <>
-      <Hero />
+      <ShowcaseLoader />
       <ProductIntro />
       <ProblemSection />
       <WhySection />

@@ -13,8 +13,8 @@ const chapters = [
     label: '',
     headline: 'The Lotus Seat',
     sub: 'A meditation seat engineered from the ground up. Every layer, every curve, every angle — intentional.',
-    rotY: 0.4,
-    rotX: -0.2,
+    rotY: 0.5,
+    rotX: 0.05,
     explode: 0,
     highlight: 0,
     annotations: [],
@@ -105,11 +105,12 @@ const chapters = [
 ]
 
 // ── Animated camera ──────────────────────────────────────────────────────────
-function AnimatedCamera({ targetZ }: { targetZ: number }) {
+function AnimatedCamera({ targetZ, targetY }: { targetZ: number; targetY: number }) {
   const { camera } = useThree()
   useFrame(() => {
     camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, 0.05)
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, 0.3, 0.05)
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetY, 0.05)
+    camera.lookAt(0, 0, 0)
   })
   return null
 }
@@ -144,7 +145,8 @@ export default function ProductShowcase() {
   }, [chapterCount])
 
   const current = chapters[chapter]
-  const cameraZ = chapter === 3 ? 3.8 : chapter === 4 ? 3.2 : 4.2
+  const cameraZ = chapter === 3 ? 3.6 : chapter === 4 ? 3.0 : 3.8
+  const cameraY = chapter === 4 ? 1.2 : 0.9
 
   return (
     <section
@@ -158,22 +160,23 @@ export default function ProductShowcase() {
         {/* 3D Canvas */}
         <div className="absolute inset-0">
           <Canvas
-            camera={{ position: [0, 0.3, 4.2], fov: 42 }}
+            camera={{ position: [0, 0.9, 3.8], fov: 40 }}
             dpr={[1, 2]}
             shadows
           >
-            <AnimatedCamera targetZ={cameraZ} />
+            <AnimatedCamera targetZ={cameraZ} targetY={cameraY} />
 
-            {/* Lighting */}
-            <ambientLight intensity={0.4} />
+            {/* Lighting — warm studio setup */}
+            <ambientLight intensity={0.55} />
             <directionalLight
-              position={[3, 5, 3]}
-              intensity={1.8}
+              position={[4, 6, 4]}
+              intensity={2.2}
               castShadow
               shadow-mapSize={[2048, 2048]}
             />
-            <directionalLight position={[-3, 2, -2]} intensity={0.5} color="#C4A882" />
-            <pointLight position={[0, 3, 0]} intensity={0.6} color="#FFF5E6" />
+            <directionalLight position={[-4, 3, -2]} intensity={0.7} color="#C4A882" />
+            <directionalLight position={[0, -2, 3]} intensity={0.3} color="#FFEEDD" />
+            <pointLight position={[0, 4, 1]} intensity={0.8} color="#FFF5E6" />
 
             <Suspense fallback={null}>
               <CushionModel

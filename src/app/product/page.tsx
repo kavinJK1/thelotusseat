@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
-import ShowcaseLoader from '@/components/showcase/ShowcaseLoader'
 
 export const metadata: Metadata = {
   title: 'The Product — The Lotus Seat',
@@ -55,12 +54,41 @@ const features = [
 
 export default function ProductPage() {
   return (
-    <div className="bg-warm-white">
-      {/* Apple-style scroll showcase */}
-      <ShowcaseLoader />
+    <div className="bg-warm-white pt-24">
+      {/* Hero */}
+      <section className="py-20 text-center max-w-3xl mx-auto px-6">
+        <FadeIn>
+          <p className="text-sand text-xs font-medium tracking-[0.2em] uppercase mb-5">The Product</p>
+          <h1 className="font-serif text-4xl md:text-6xl font-medium text-near-black leading-tight mb-6">
+            The Lotus Seat
+          </h1>
+          <p className="text-warm-grey text-lg leading-relaxed mb-10">
+            A premium ergonomic meditation seat. Inclined cork base. Natural latex cushion system. Designed for serious practitioners and total beginners alike.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center bg-near-black text-warm-white px-8 py-4 rounded-full text-sm font-medium hover:bg-near-black/80 transition-colors"
+          >
+            Pre-Order Now
+          </Link>
+        </FadeIn>
+      </section>
+
+      {/* Visual */}
+      <section className="max-w-4xl mx-auto px-6 mb-24">
+        <FadeIn>
+          <div
+            className="w-full h-80 md:h-[480px] rounded-3xl overflow-hidden"
+            style={{
+              background: 'linear-gradient(160deg, #E8D9C4 0%, #C4A882 45%, #A8865C 100%)',
+              boxShadow: '0 40px 80px -20px rgba(196,168,130,0.4)',
+            }}
+          />
+        </FadeIn>
+      </section>
 
       {/* Features */}
-      <section className="py-20 bg-surface">
+      <section className="py-16 bg-surface">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="text-center mb-16">
