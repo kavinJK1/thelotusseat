@@ -39,24 +39,27 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* Product visual placeholder */}
+        {/* Real product image */}
         <div className="max-w-lg mx-auto">
           <div
-            className="w-full h-64 md:h-80 rounded-3xl"
+            className="w-full overflow-hidden rounded-3xl px-8 pt-8"
             style={{
-              background: 'linear-gradient(160deg, #D9C5A8 0%, #C4A882 40%, #A8865C 100%)',
-              boxShadow: '0 40px 80px -20px rgba(196,168,130,0.4)',
+              background: 'linear-gradient(160deg, #F5F0E8 0%, #EDE6D8 100%)',
+              boxShadow: '0 40px 80px -20px rgba(196,168,130,0.35)',
             }}
           >
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="text-center">
-                <div
-                  className="w-32 h-20 mx-auto rounded-2xl mb-3 opacity-40"
-                  style={{ background: 'rgba(255,255,255,0.3)' }}
-                />
-                <p className="text-warm-white/60 text-xs tracking-widest uppercase">Product Photo</p>
-              </div>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/product/cushion-full.jpg"
+              alt="The Lotus Seat — ergonomic meditation seat"
+              style={{
+                width: '100%',
+                maxHeight: 300,
+                objectFit: 'contain',
+                objectPosition: '50% 100%',
+                display: 'block',
+              }}
+            />
           </div>
         </div>
       </div>

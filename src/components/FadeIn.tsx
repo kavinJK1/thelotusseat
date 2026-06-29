@@ -31,10 +31,13 @@ export default function FadeIn({ children, className = '', delay = 0 }: FadeInPr
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      } ${className}`}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        filter: visible ? 'blur(0px)' : 'blur(6px)',
+        transform: visible ? 'translateY(0)' : 'translateY(16px)',
+        transition: `opacity 700ms ease ${delay}ms, filter 700ms ease ${delay}ms, transform 700ms ease ${delay}ms`,
+      }}
     >
       {children}
     </div>
