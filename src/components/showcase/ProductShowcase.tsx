@@ -1,93 +1,71 @@
 'use client'
 
-import { useRef, useState, useEffect, Suspense } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import * as THREE from 'three'
-import CushionModel from './CushionModel'
+import { useRef, useState, useEffect } from 'react'
+import Link from 'next/link'
 
-// ── Chapter definitions ──────────────────────────────────────────────────────
 const chapters = [
   {
     id: 'intro',
     label: '',
     headline: 'The Lotus Seat',
     sub: 'A meditation seat engineered from the ground up. Every layer, every curve, every angle — intentional.',
-    rotY: 0.5,
-    rotX: 0.05,
-    explode: 0,
-    highlight: 0,
+    image: '/images/product/cushion-full.jpg',
+    // Scale applied to the image for this chapter (zoom level)
+    scale: 1.08,
+    // transformOrigin controls which part of the image is the zoom anchor
+    origin: '50% 55%',
     annotations: [],
   },
   {
     id: 'cork',
     label: '01',
     headline: '8° Ergonomic Tilt',
-    sub: 'The cork composite base is inclined at exactly 8°. That single angle tips the pelvis forward into its natural lordotic position — realigning the entire spine without effort.',
-    rotY: 0.6,
-    rotX: -0.15,
-    explode: 0.3,
-    highlight: 5,
+    sub: 'The cork composite base is inclined at exactly 8°. That single angle tips the pelvis forward — realigning the entire spine without effort.',
+    image: '/images/product/cushion-full.jpg',
+    scale: 1.9,
+    origin: '50% 80%',
     annotations: [
-      { label: '8° tilt', x: 62, y: 78, align: 'right' },
-      { label: 'Cork composite', x: 38, y: 85, align: 'left' },
+      { label: '8° tilt', x: 62, y: 72, align: 'right' as const },
+      { label: 'Cork composite', x: 38, y: 80, align: 'left' as const },
     ],
   },
   {
     id: 'layer1',
     label: '02',
     headline: 'Base Support Layer',
-    sub: '70 mm of soft natural latex (ILD 75–85) provides the structural foundation. Flat, firm, and consistent — it holds its form across hours of sitting.',
-    rotY: 0.2,
-    rotX: -0.1,
-    explode: 0.6,
-    highlight: 1,
+    sub: '70 mm of natural latex at ILD 75–85. The structural foundation — firm, flat, and consistent across hours of sitting.',
+    image: '/images/product/layer1-base.jpg',
+    scale: 1.12,
+    origin: '50% 50%',
     annotations: [
-      { label: '70 mm thick', x: 65, y: 55, align: 'right' },
-      { label: 'Natural latex · ILD 75–85', x: 35, y: 62, align: 'left' },
+      { label: '70 mm thick', x: 66, y: 48, align: 'right' as const },
+      { label: 'Natural latex · ILD 75–85', x: 34, y: 56, align: 'left' as const },
     ],
   },
   {
     id: 'layer2',
     label: '03',
     headline: 'Ramped Comfort Layer',
-    sub: 'The top layer is 32 mm at the front and 50 mm at the back — an 18 mm ramp that supports the sacrum, encourages an upright spine, and works in harmony with the base tilt.',
-    rotY: -0.1,
-    rotX: -0.25,
-    explode: 0.75,
-    highlight: 2,
+    sub: '32 mm at the front, 50 mm at the rear. An 18 mm ramp that cradles the sacrum and amplifies the base tilt.',
+    image: '/images/product/layer2-top.jpg',
+    scale: 1.12,
+    origin: '50% 50%',
     annotations: [
-      { label: '50 mm rear', x: 30, y: 38, align: 'left' },
-      { label: '32 mm front', x: 68, y: 48, align: 'right' },
-      { label: 'ILD 45–55', x: 50, y: 30, align: 'left' },
-    ],
-  },
-  {
-    id: 'channel',
-    label: '04',
-    headline: 'Central Relief Channel',
-    sub: 'A 10–15 mm sculpted channel lifts the coccyx away from contact with the surface — eliminating tailbone pressure, the most common reason meditation sessions end early.',
-    rotY: 0.05,
-    rotX: -0.5,
-    explode: 0.5,
-    highlight: 4,
-    annotations: [
-      { label: '10–15 mm depth', x: 50, y: 30, align: 'left' },
-      { label: 'Coccyx relief', x: 52, y: 35, align: 'left' },
+      { label: '50 mm rear', x: 28, y: 42, align: 'left' as const },
+      { label: '32 mm front', x: 70, y: 54, align: 'right' as const },
     ],
   },
   {
     id: 'cover',
-    label: '05',
+    label: '04',
     headline: 'Breathable Cover',
-    sub: 'Upholstery-grade cotton-poly and linen blend at 300–350 GSM. Warm ivory. Tone-on-tone lotus embroidery on the back panel. The only decoration on an otherwise minimal form.',
-    rotY: 0.8,
-    rotX: -0.1,
-    explode: 0.2,
-    highlight: 3,
+    sub: 'Cotton-poly linen at 300–350 GSM. Warm ivory. Tone-on-tone lotus embroidery — the only ornament on an otherwise minimal form.',
+    image: '/images/product/cushion-close.jpg',
+    scale: 1.22,
+    origin: '50% 42%',
     annotations: [
-      { label: 'Cotton-poly linen · 300–350 GSM', x: 62, y: 42, align: 'right' },
-      { label: 'Lotus embroidery', x: 38, y: 35, align: 'left' },
+      { label: '300–350 GSM linen', x: 63, y: 36, align: 'right' as const },
+      { label: 'Lotus embroidery', x: 37, y: 28, align: 'left' as const },
     ],
   },
   {
@@ -95,31 +73,19 @@ const chapters = [
     label: '',
     headline: 'One seat. Designed to last.',
     sub: 'Pre-orders are open now — limited to the first production run.',
-    rotY: 0.4,
-    rotX: -0.18,
-    explode: 0,
-    highlight: 0,
+    image: '/images/product/cushion-full.jpg',
+    scale: 1.08,
+    origin: '50% 50%',
     annotations: [],
     cta: true,
   },
 ]
 
-// ── Animated camera ──────────────────────────────────────────────────────────
-function AnimatedCamera({ targetZ, targetY }: { targetZ: number; targetY: number }) {
-  const { camera } = useThree()
-  useFrame(() => {
-    camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, 0.05)
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetY, 0.05)
-    camera.lookAt(0, 0, 0)
-  })
-  return null
-}
-
-// ── Main showcase ────────────────────────────────────────────────────────────
 export default function ProductShowcase() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [chapter, setChapter] = useState(0)
-  const [visible, setVisible] = useState(false)
+  const [prevChapter, setPrevChapter] = useState(0)
+  const [entered, setEntered] = useState(false)
   const chapterCount = chapters.length
 
   useEffect(() => {
@@ -131,12 +97,12 @@ export default function ProductShowcase() {
       const totalHeight = container.scrollHeight - window.innerHeight
       const scrolled = -rect.top
       const progress = Math.max(0, Math.min(1, scrolled / totalHeight))
-      const chapterIndex = Math.min(
-        chapterCount - 1,
-        Math.floor(progress * chapterCount)
-      )
-      setChapter(chapterIndex)
-      setVisible(scrolled > -100)
+      const idx = Math.min(chapterCount - 1, Math.floor(progress * chapterCount))
+      setChapter((prev) => {
+        if (prev !== idx) setPrevChapter(prev)
+        return idx
+      })
+      setEntered(scrolled > -80)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -145,8 +111,6 @@ export default function ProductShowcase() {
   }, [chapterCount])
 
   const current = chapters[chapter]
-  const cameraZ = chapter === 3 ? 3.6 : chapter === 4 ? 3.0 : 3.8
-  const cameraY = chapter === 4 ? 1.2 : 0.9
 
   return (
     <section
@@ -154,87 +118,106 @@ export default function ProductShowcase() {
       className="relative"
       style={{ height: `${chapterCount * 100}vh` }}
     >
-      {/* Sticky canvas area */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#0E0B08] flex items-center justify-center">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#0D0B08]">
 
-        {/* 3D Canvas */}
-        <div className="absolute inset-0">
-          <Canvas
-            camera={{ position: [0, 0.9, 3.8], fov: 40 }}
-            dpr={[1, 2]}
-            shadows
-          >
-            <AnimatedCamera targetZ={cameraZ} targetY={cameraY} />
-
-            {/* Lighting — warm studio setup */}
-            <ambientLight intensity={0.55} />
-            <directionalLight
-              position={[4, 6, 4]}
-              intensity={2.2}
-              castShadow
-              shadow-mapSize={[2048, 2048]}
-            />
-            <directionalLight position={[-4, 3, -2]} intensity={0.7} color="#C4A882" />
-            <directionalLight position={[0, -2, 3]} intensity={0.3} color="#FFEEDD" />
-            <pointLight position={[0, 4, 1]} intensity={0.8} color="#FFF5E6" />
-
-            <Suspense fallback={null}>
-              <CushionModel
-                explode={current.explode}
-                highlightLayer={current.highlight}
-                rotationY={current.rotY}
-                rotationX={current.rotX}
+        {/* ── Image layers ────────────────────────────────────────────── */}
+        {chapters.map((ch, i) => {
+          const isActive = i === chapter
+          return (
+            <div
+              key={ch.id}
+              className="absolute inset-0 flex items-center justify-center"
+              style={{
+                opacity: isActive ? 1 : 0,
+                transition: 'opacity 800ms ease-in-out',
+                zIndex: isActive ? 1 : 0,
+              }}
+            >
+              {/* Image with zoom transition */}
+              <img
+                src={ch.image}
+                alt={ch.headline}
+                className="pointer-events-none select-none"
+                style={{
+                  width: '90%',
+                  maxWidth: 900,
+                  maxHeight: '72vh',
+                  objectFit: 'contain',
+                  objectPosition: '50% 50%',
+                  transform: `scale(${isActive ? ch.scale : ch.scale * 0.96})`,
+                  transformOrigin: ch.origin,
+                  transition: 'transform 1600ms cubic-bezier(0.22, 1, 0.36, 1)',
+                  willChange: 'transform',
+                }}
               />
-              {/* Ground plane receives shadows */}
-              <mesh position={[0, -0.76, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-                <planeGeometry args={[6, 6]} />
-                <shadowMaterial opacity={0.25} />
-              </mesh>
-            </Suspense>
-          </Canvas>
-        </div>
+            </div>
+          )
+        })}
 
-        {/* Annotations overlay */}
-        <div className="absolute inset-0 pointer-events-none">
+        {/* ── Radial vignette — blends image edges into dark background ── */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            zIndex: 2,
+            background: `
+              radial-gradient(ellipse 68% 72% at 50% 46%,
+                transparent 35%,
+                rgba(13,11,8,0.55) 58%,
+                rgba(13,11,8,0.88) 74%,
+                #0D0B08 90%
+              )
+            `,
+          }}
+        />
+
+        {/* ── Annotation callouts ────────────────────────────────────── */}
+        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 3 }}>
           {current.annotations.map((ann, i) => (
             <div
               key={`${current.id}-${i}`}
-              className="absolute flex items-center gap-2 transition-all duration-700"
+              className="absolute flex items-center gap-1.5"
               style={{
                 left: `${ann.x}%`,
                 top: `${ann.y}%`,
                 transform: `translate(${ann.align === 'right' ? '-100%' : '0'}, -50%)`,
-                opacity: visible ? 1 : 0,
+                opacity: entered ? 1 : 0,
+                transition: `opacity 600ms ease ${i * 120}ms`,
               }}
             >
               {ann.align === 'right' && (
-                <span className="text-[10px] font-medium tracking-widest text-sand uppercase text-right leading-tight">
+                <span className="text-[10px] font-medium tracking-[0.16em] text-[#C4A882] uppercase leading-tight text-right">
                   {ann.label}
                 </span>
               )}
-              <span className="block w-8 h-px bg-sand/60 shrink-0" />
-              <span className="block w-1.5 h-1.5 rounded-full bg-sand shrink-0" />
+              <span className="block w-7 h-px bg-[#C4A882]/50 shrink-0" />
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#C4A882] shrink-0" />
               {ann.align === 'left' && (
-                <span className="block w-8 h-px bg-sand/60 shrink-0" />
-              )}
-              {ann.align === 'left' && (
-                <span className="text-[10px] font-medium tracking-widest text-sand uppercase leading-tight">
-                  {ann.label}
-                </span>
+                <>
+                  <span className="block w-7 h-px bg-[#C4A882]/50 shrink-0" />
+                  <span className="text-[10px] font-medium tracking-[0.16em] text-[#C4A882] uppercase leading-tight">
+                    {ann.label}
+                  </span>
+                </>
               )}
             </div>
           ))}
         </div>
 
-        {/* Chapter number */}
+        {/* ── Chapter number (large watermark) ──────────────────────── */}
         {current.label && (
-          <div className="absolute top-8 right-8 font-serif text-7xl font-medium text-white/5 select-none">
+          <div
+            className="absolute top-8 right-10 font-serif text-[7rem] font-medium leading-none select-none"
+            style={{ zIndex: 3, color: 'rgba(255,255,255,0.04)' }}
+          >
             {current.label}
           </div>
         )}
 
-        {/* Progress dots */}
-        <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2">
+        {/* ── Progress dots ─────────────────────────────────────────── */}
+        <div
+          className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2.5"
+          style={{ zIndex: 4 }}
+        >
           {chapters.map((c, i) => (
             <button
               key={c.id}
@@ -244,43 +227,62 @@ export default function ProductShowcase() {
                 const target = (i / chapterCount) * (container.scrollHeight - window.innerHeight)
                 window.scrollTo({ top: container.offsetTop + target, behavior: 'smooth' })
               }}
-              className={`w-1.5 rounded-full transition-all duration-300 ${
-                i === chapter ? 'h-6 bg-sand' : 'h-1.5 bg-white/20'
-              }`}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: 6,
+                height: i === chapter ? 24 : 6,
+                background: i === chapter ? '#C4A882' : 'rgba(255,255,255,0.18)',
+              }}
             />
           ))}
         </div>
 
-        {/* Text panel */}
-        <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-12 pt-20 bg-gradient-to-t from-[#0E0B08] via-[#0E0B08]/80 to-transparent">
+        {/* ── Text panel ────────────────────────────────────────────── */}
+        <div
+          className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-14 pt-28"
+          style={{
+            zIndex: 4,
+            background: 'linear-gradient(to top, #0D0B08 55%, rgba(13,11,8,0.7) 80%, transparent)',
+          }}
+        >
           <div
             key={current.id}
-            className="max-w-lg transition-all duration-500"
-            style={{ opacity: visible ? 1 : 0 }}
+            style={{
+              opacity: entered ? 1 : 0,
+              transform: entered ? 'translateY(0)' : 'translateY(12px)',
+              transition: 'opacity 500ms ease, transform 500ms ease',
+              maxWidth: 480,
+            }}
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-warm-white leading-tight mb-3">
+            <h2 className="font-serif text-3xl md:text-[2.6rem] font-medium leading-tight mb-3"
+              style={{ color: '#F5F0E8' }}>
               {current.headline}
             </h2>
-            <p className="text-white/50 text-sm md:text-base leading-relaxed max-w-md">
+            <p className="text-sm md:text-base leading-relaxed max-w-sm"
+              style={{ color: 'rgba(255,255,255,0.42)' }}>
               {current.sub}
             </p>
-            {current.cta && (
-              <a
+            {(current as typeof chapters[number] & { cta?: boolean }).cta && (
+              <Link
                 href="/contact"
-                className="inline-flex items-center mt-6 bg-sand text-near-black px-7 py-3.5 rounded-full text-sm font-medium hover:bg-sand-light transition-colors"
+                className="inline-flex items-center mt-7 px-7 py-3.5 rounded-full text-sm font-medium transition-opacity hover:opacity-80"
+                style={{ background: '#C4A882', color: '#1A1A1A' }}
               >
                 Pre-Order Now
-              </a>
+              </Link>
             )}
           </div>
         </div>
 
-        {/* Scroll hint — only on first chapter */}
+        {/* ── Scroll hint (first chapter only) ──────────────────────── */}
         {chapter === 0 && (
-          <div className="absolute bottom-6 right-10 flex items-center gap-2 text-white/25 text-xs tracking-widest uppercase animate-pulse">
+          <div
+            className="absolute bottom-6 right-12 flex items-center gap-2 text-xs tracking-[0.18em] uppercase"
+            style={{ zIndex: 4, color: 'rgba(255,255,255,0.2)' }}
+          >
             <span>Scroll</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 1v10M2.5 7l3.5 4 3.5-4" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         )}
