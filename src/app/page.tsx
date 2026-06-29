@@ -4,6 +4,7 @@ import ProblemSection from '@/components/home/ProblemSection'
 import WhySection from '@/components/home/WhySection'
 import Benefits from '@/components/home/Benefits'
 import Features from '@/components/home/Features'
+import Materials from '@/components/home/Materials'
 import Specs from '@/components/home/Specs'
 import Lifestyle from '@/components/home/Lifestyle'
 import HomeFAQ from '@/components/home/HomeFAQ'
@@ -18,6 +19,7 @@ export default function Home() {
       <WhySection />
       <Benefits />
       <Features />
+      <Materials />
       <Specs />
       <Lifestyle />
       <HomeFAQ />
