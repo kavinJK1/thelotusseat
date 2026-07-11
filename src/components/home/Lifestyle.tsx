@@ -28,7 +28,7 @@ export default function Lifestyle() {
             you and the stillness you came for.
           </p>
           <Link
-            href="/contact"
+            href="/checkout"
             className="mt-10 inline-flex items-center gap-2 bg-paper text-graphite px-6 py-3.5 rounded-[3px] text-sm font-medium hover:bg-white transition-colors"
           >
             Pre-Order Now

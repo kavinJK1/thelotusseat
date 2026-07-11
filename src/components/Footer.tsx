@@ -70,7 +70,7 @@ export default function Footer() {
             © {new Date().getFullYear()} THE LOTUS SEAT · ALL RIGHTS RESERVED
           </p>
           <Link
-            href="/contact"
+            href="/checkout"
             className="inline-flex items-center gap-2 bg-cork text-graphite text-sm px-5 py-2.5 rounded-[3px] hover:bg-cork-bright transition-colors font-medium"
           >
             Pre-Order Now

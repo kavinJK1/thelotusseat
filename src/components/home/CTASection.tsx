@@ -21,7 +21,7 @@ export default function CTASection() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link
-                href="/contact"
+                href="/checkout"
                 className="inline-flex items-center justify-center gap-2 bg-ink text-paper px-8 py-4 rounded-[3px] text-sm font-medium hover:bg-graphite-soft transition-colors"
               >
                 Pre-Order Now

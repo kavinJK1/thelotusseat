@@ -66,7 +66,7 @@ export default function ProductPage() {
             A premium ergonomic meditation seat. Inclined cork base. Natural latex cushion system. Designed for serious practitioners and total beginners alike.
           </p>
           <Link
-            href="/contact"
+            href="/checkout"
             className="inline-flex items-center bg-near-black text-warm-white px-8 py-4 rounded-full text-sm font-medium hover:bg-near-black/80 transition-colors"
           >
             Pre-Order Now
@@ -157,7 +157,7 @@ export default function ProductPage() {
             Pre-orders are open. Limited to our first production run.
           </p>
           <Link
-            href="/contact"
+            href="/checkout"
             className="inline-flex items-center bg-sand text-near-black px-8 py-4 rounded-full text-sm font-medium hover:bg-sand-light transition-colors"
           >
             Pre-Order Now

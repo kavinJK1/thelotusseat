@@ -83,7 +83,7 @@ export default function SciencePage() {
             Pre-orders come with a 30-day satisfaction guarantee.
           </p>
           <Link
-            href="/contact"
+            href="/checkout"
             className="inline-flex items-center bg-near-black text-warm-white px-8 py-4 rounded-full text-sm font-medium hover:bg-near-black/80 transition-colors"
           >
             Pre-Order Now
