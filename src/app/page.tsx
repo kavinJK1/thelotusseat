@@ -1,5 +1,6 @@
 import Hero from '@/components/home/Hero'
 import ProductIntro from '@/components/home/ProductIntro'
+import CushionScrollShowcase from '@/components/showcase/CushionScrollShowcase'
 import ProblemSection from '@/components/home/ProblemSection'
 import WhySection from '@/components/home/WhySection'
 import Benefits from '@/components/home/Benefits'
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <Hero />
       <ProductIntro />
+      <CushionScrollShowcase />
       <ProblemSection />
       <WhySection />
       <Benefits />
