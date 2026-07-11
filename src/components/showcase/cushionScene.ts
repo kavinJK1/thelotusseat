@@ -10,6 +10,8 @@ import { CAMERA_KEYS, type CameraKey } from './cushionKeys'
 
 export type CushionScene = {
   render: (progress: number) => void
+  /** 1 = white-line engineering drawing, 0 = the finished object in its materials. */
+  setWireframe: (w: number) => void
   resize: (width: number, height: number) => void
   dispose: () => void
 }
@@ -183,7 +185,8 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   renderer.toneMappingExposure = 0.95
 
   const scene = new THREE.Scene()
-  scene.background = new THREE.Color(0xf4efe6)
+  // The dark stage (--color-paper on .stage). The seat is the only warm thing in frame.
+  scene.background = new THREE.Color(0x17181c)
   const camera = new THREE.PerspectiveCamera(38, width / height, 1, 6000)
 
   scene.add(new THREE.HemisphereLight(0xfff3e4, 0x7a6c5a, 0.5))
@@ -216,6 +219,8 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   const textures: THREE.Texture[] = []
   const geometries: THREE.BufferGeometry[] = []
   const materials: THREE.Material[] = []
+  /** Meshes whose silhouette gets an edge-drawing twin for the wireframe chapter. */
+  const wireSources: THREE.Mesh[] = []
   const track = <T extends THREE.BufferGeometry>(g: T) => {
     geometries.push(g)
     return g
@@ -350,6 +355,7 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
     const mesh = new THREE.Mesh(geo, KEEP[o.name])
     mesh.castShadow = mesh.receiveShadow = true
     ;(o.name === 'Unnamed-0' ? root : cushion).add(mesh)
+    wireSources.push(mesh)
   }
 
   // ---------- top surface, sampled from the real body mesh ----------
@@ -587,6 +593,7 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
     const mSheet = new THREE.Mesh(sheet, M_SOFT)
     mSheet.castShadow = mSheet.receiveShadow = true
     cushion.add(mSheet)
+    wireSources.push(mSheet)
 
     // one continuous strip: overlap flap -> quarter roll -> wall -> bottom tuck
     const per = densify(roundedRect(CXP, 0, 2 * HX, 2 * HY, RC, 16), 5)
@@ -644,6 +651,7 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
       const mSkirt = new THREE.Mesh(skirt, skirtMats[mi])
       mSkirt.castShadow = mSkirt.receiveShadow = true
       cushion.add(mSkirt)
+      wireSources.push(mSkirt)
     }
   })()
 
@@ -791,6 +799,43 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   ground.receiveShadow = true
   scene.add(ground)
 
+  // ---------- the engineering drawing ----------
+  // Edge lines rather than a triangle mesh overlay: a 22° crease threshold keeps
+  // the contours and drops the tessellation, so it reads as a drawing, not a net.
+  const WIRE = new THREE.LineBasicMaterial({
+    color: 0xffffff,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false,
+  })
+  materials.push(WIRE)
+  for (const src of wireSources) {
+    const edges = track(new THREE.EdgesGeometry(src.geometry, 22))
+    const lines = new THREE.LineSegments(edges, WIRE)
+    // The source meshes carry no local transform — their group does — so the edge
+    // geometry drops straight into the same parent and inherits the same tilt.
+    src.parent?.add(lines)
+  }
+
+  /** The textured materials that dissolve as the drawing takes over. */
+  const objectMats: THREE.Material[] = [
+    M_CREAM, M_TERRA, M_DOME, M_CORK, M_SOFT, CREASE, THREADMAT, DARKTHREAD, GOLD,
+  ]
+  objectMats.forEach((m) => {
+    m.transparent = true
+  })
+
+  function setWireframe(w: number) {
+    const wire = Math.max(0, Math.min(1, w))
+    WIRE.opacity = wire
+    const solid = 1 - wire
+    objectMats.forEach((m) => {
+      m.opacity = solid
+      m.visible = solid > 0.002
+    })
+    SHADOW.opacity = 0.24 * solid
+  }
+
   // ---------- scroll-driven camera ----------
   const LIFT_BASE = cushion.position.z,
     LIFT_MM = 175
@@ -827,5 +872,5 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
     renderer.dispose()
   }
 
-  return { render, resize, dispose }
+  return { render, setWireframe, resize, dispose }
 }

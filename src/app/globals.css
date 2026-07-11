@@ -1,24 +1,189 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+/*
+  The Lotus Seat — "instrument-grade" design system.
+  Register: brand. Aesthetic lane: technical documentation / measured drawing.
+  Near-monochrome graphite on cool drafting-paper, with a single earned cork
+  material accent. Warmth lives in the accent + imagery, never the body bg.
+  All colours in OKLCH.
+*/
 
-  --color-warm-white: #FAFAF8;
-  --color-sand: #C4A882;
-  --color-sand-light: #D9C5A8;
-  --color-sand-dark: #A8865C;
-  --color-near-black: #1A1A1A;
-  --color-warm-grey: #6B6560;
-  --color-warm-border: #E5E0DC;
-  --color-surface: #F2EDE8;
+@theme {
+  /* Type — engineered grotesque + a technical mono reserved for real data */
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
+  /* Back-compat: legacy `font-serif` usages now resolve to the grotesque,
+     not Playfair. No serif ships anywhere on the site. */
+  --font-serif: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  /* Core palette */
+  --color-paper: oklch(0.985 0.002 250);   /* cool drafting-paper page bg */
+  --color-surface: oklch(0.958 0.004 250);  /* raised / alternating band */
+  --color-ink: oklch(0.22 0.008 264);       /* graphite near-black text */
+  --color-ink-soft: oklch(0.455 0.008 264); /* secondary text — AA on paper */
+  --color-line: oklch(0.9 0.004 264);       /* hairline rules */
+  --color-line-strong: oklch(0.8 0.005 264);/* emphasised rule / borders */
+  --color-graphite: oklch(0.205 0.008 264); /* dark section bg */
+  --color-graphite-soft: oklch(0.27 0.008 264);
+
+  /* The one accent — natural cork / clay */
+  --color-cork: oklch(0.63 0.108 52);
+  --color-cork-bright: oklch(0.7 0.12 55);
+  --color-cork-deep: oklch(0.5 0.1 48);     /* AA cork text on paper */
+
+  /* Back-compat aliases so untouched inner pages don't visually break.
+     Old warm names now point at the cool clinical values. */
+  --color-warm-white: var(--color-paper);
+  --color-near-black: var(--color-ink);
+  --color-warm-grey: var(--color-ink-soft);
+  --color-warm-border: var(--color-line);
+  --color-sand: var(--color-cork);
+  --color-sand-light: var(--color-cork-bright);
+  --color-sand-dark: var(--color-cork-deep);
+
+  --radius-tech: 3px;
+
+  /* Semantic z-scale — no arbitrary 9999s */
+  --z-sticky: 30;
+  --z-nav: 50;
+  --z-overlay: 60;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: #FAFAF8;
-  color: #1A1A1A;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* Long-form prose measure + orphan control */
+.prose p { max-width: 68ch; text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+
+/* ---- Technical documentation primitives ---- */
+
+/* Faint measured-grid backdrop (hero / diagram plinths) */
+.tech-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--color-line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--color-line) 55%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.tech-grid-fade {
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 40%, transparent 100%);
+}
+
+/* Mono label used in place of the banned tracked-uppercase eyebrow —
+   a datasheet field marker, applied deliberately, not above every heading. */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Corner registration ticks for framed technical panels */
+.reg-frame { position: relative; }
+.reg-frame::before,
+.reg-frame::after {
+  content: "";
+  position: absolute;
+  width: 9px; height: 9px;
+  border-color: var(--color-line-strong);
+  border-style: solid;
+  pointer-events: none;
+}
+.reg-frame::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.reg-frame::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+/* ---- The dark stage ----
+   Every utility in this project compiles to var(--color-*), so re-pointing the
+   variables on one wrapper inverts the whole surface without touching a single
+   component class. The object is the only warm thing on screen; the stage is
+   near-black and the cork accent brightens so it still carries on dark. */
+.stage {
+  --color-paper: oklch(0.16 0.004 264);        /* the black stage */
+  --color-surface: oklch(0.205 0.005 264);     /* raised band */
+  --color-ink: oklch(0.97 0.002 250);          /* type, inverted */
+  --color-ink-soft: oklch(0.72 0.006 264);     /* secondary — AA on the stage */
+  --color-line: oklch(0.32 0.006 264);         /* hairline */
+  --color-line-strong: oklch(0.46 0.008 264);  /* emphasised rule */
+  --color-graphite: oklch(0.115 0.004 264);    /* the darkest band, still readable */
+  --color-graphite-soft: oklch(0.24 0.006 264);
+  --color-cork: oklch(0.72 0.125 55);          /* the one warm signal */
+  --color-cork-bright: oklch(0.8 0.13 58);
+  --color-cork-deep: oklch(0.75 0.13 56);      /* on dark, "deep" must go brighter */
+
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Viewfinder chrome: the corner brackets that frame the stage */
+.viewfinder::before,
+.viewfinder::after,
+.viewfinder > .vf-b::before,
+.viewfinder > .vf-b::after {
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-color: var(--color-line-strong);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 2;
+}
+.viewfinder::before { top: 18px; left: 18px; border-width: 1px 0 0 1px; }
+.viewfinder::after { top: 18px; right: 18px; border-width: 1px 1px 0 0; }
+.viewfinder > .vf-b::before { bottom: 18px; left: 18px; border-width: 0 0 1px 1px; }
+.viewfinder > .vf-b::after { bottom: 18px; right: 18px; border-width: 0 1px 1px 0; }
+
+@layer components {
+/* The one shouting voice on the site: the stage's display line. */
+.display-xl {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.86;
+  font-size: clamp(2.6rem, 8vw, 6rem);
+}
+
+/* Marker hand for the sketch chapter — the designer's own annotations */
+.hand {
+  font-family: var(--font-hand), 'Comic Sans MS', cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+}
+
+/* Accessible focus ring on every interactive element */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-cork-deep);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Hide scrollbars on the horizontal material strip without losing scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Motion is opt-in to health: honour user preference globally */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

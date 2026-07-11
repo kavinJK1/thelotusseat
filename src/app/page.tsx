@@ -1,9 +1,8 @@
 import Hero from '@/components/home/Hero'
 import ProductIntro from '@/components/home/ProductIntro'
-import CushionScrollShowcase from '@/components/showcase/CushionScrollShowcase'
 import ProblemSection from '@/components/home/ProblemSection'
+import CushionScrollShowcase from '@/components/showcase/CushionScrollShowcase'
 import WhySection from '@/components/home/WhySection'
-import Benefits from '@/components/home/Benefits'
 import Features from '@/components/home/Features'
 import Materials from '@/components/home/Materials'
 import Specs from '@/components/home/Specs'
@@ -11,15 +10,22 @@ import Lifestyle from '@/components/home/Lifestyle'
 import HomeFAQ from '@/components/home/HomeFAQ'
 import CTASection from '@/components/home/CTASection'
 
+/**
+ * The homepage argues in one order: state the claim, diagnose why ordinary cushions
+ * fail, *show* the postural mechanism (the scroll scene and its measured plate),
+ * then open the object up — construction, systems, materials, specification.
+ *
+ * The old Benefits grid is deliberately gone: the posture proof demonstrates what
+ * that grid asserted, and repeating it in six cells weakened both.
+ */
 export default function Home() {
   return (
     <>
       <Hero />
       <ProductIntro />
-      <CushionScrollShowcase />
       <ProblemSection />
+      <CushionScrollShowcase />
       <WhySection />
-      <Benefits />
       <Features />
       <Materials />
       <Specs />

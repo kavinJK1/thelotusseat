@@ -3,29 +3,37 @@ import FadeIn from '@/components/FadeIn'
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-surface">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section className="py-20 md:py-28 bg-surface border-t border-line">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <FadeIn>
-          <p className="text-sand text-xs font-medium tracking-[0.2em] uppercase mb-6">Ready to begin</p>
-          <h2 className="font-serif text-3xl md:text-5xl font-medium text-near-black leading-snug mb-6">
-            Ready to transform your meditation?
-          </h2>
-          <p className="text-warm-grey text-lg leading-relaxed mb-10">
-            Join the waitlist and be among the first to receive The Lotus Seat. Pre-orders are open now — limited to our first production run.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="bg-near-black text-warm-white px-10 py-4 rounded-full text-sm font-medium hover:bg-near-black/80 transition-colors w-full sm:w-auto text-center"
-            >
-              Pre-Order Now
-            </Link>
-            <Link
-              href="/product"
-              className="border border-near-black/30 text-near-black px-10 py-4 rounded-full text-sm font-medium hover:border-near-black transition-colors w-full sm:w-auto text-center"
-            >
-              View Full Specifications
-            </Link>
+          <div className="reg-frame border border-line-strong bg-paper px-6 sm:px-12 py-14 text-center">
+            <p className="mono-label text-[0.66rem] mb-6 flex items-center justify-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cork inline-block" />
+              <span className="text-cork-deep">PRE-ORDER OPEN</span>
+              <span>· FIRST PRODUCTION RUN</span>
+            </p>
+            <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.02] text-[clamp(2rem,4.6vw,3.25rem)] max-w-2xl mx-auto">
+              Reserve the seat your practice deserves.
+            </h2>
+            <p className="mt-6 text-ink-soft text-lg leading-relaxed max-w-lg mx-auto">
+              Join the first run of The Lotus Seat. We’ll confirm your shipping window by
+              email — no charge until your unit is ready.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-ink text-paper px-8 py-4 rounded-[3px] text-sm font-medium hover:bg-graphite-soft transition-colors"
+              >
+                Pre-Order Now
+                <span className="text-paper/55">↗</span>
+              </Link>
+              <Link
+                href="/product"
+                className="inline-flex items-center justify-center border border-line-strong text-ink px-8 py-4 rounded-[3px] text-sm font-medium hover:border-ink transition-colors"
+              >
+                View full specifications
+              </Link>
+            </div>
           </div>
         </FadeIn>
       </div>

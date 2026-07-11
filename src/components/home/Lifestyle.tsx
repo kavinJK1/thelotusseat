@@ -3,49 +3,39 @@ import FadeIn from '@/components/FadeIn'
 
 export default function Lifestyle() {
   return (
-    <section className="py-0 overflow-hidden">
-      <FadeIn>
-        <div
-          className="relative w-full min-h-[520px] flex items-center justify-center"
-          style={{
-            background: 'linear-gradient(135deg, #2C1F14 0%, #4A3220 30%, #C4A882 70%, #E8D9C4 100%)',
-          }}
-        >
-          {/* Ambient light effect */}
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              background: 'radial-gradient(ellipse at 60% 50%, rgba(196,168,130,0.25) 0%, transparent 70%)',
-            }}
-          />
+    <section className="relative bg-graphite overflow-hidden">
+      <div aria-hidden className="absolute inset-0 tech-grid opacity-[0.12]" />
+      {/* single, purposeful glow — the one place ambience earns its keep */}
+      <div
+        aria-hidden
+        className="absolute -right-32 top-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full"
+        style={{ background: 'radial-gradient(circle, oklch(0.63 0.108 52 / 0.22), transparent 70%)' }}
+      />
 
-          {/* Decorative circles */}
-          <div
-            aria-hidden
-            className="absolute right-0 top-0 w-96 h-96 rounded-full opacity-10"
-            style={{ background: 'radial-gradient(circle, #C4A882, transparent)' }}
-          />
-
-          <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
-            <p className="text-sand-light text-xs font-medium tracking-[0.25em] uppercase mb-6 opacity-80">
-              The Practice
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-medium text-warm-white leading-snug mb-6">
-              When sitting is effortless, meditation becomes possible.
-            </h2>
-            <p className="text-warm-white/60 text-lg leading-relaxed mb-10">
-              The Lotus Seat is designed for anyone who takes their practice seriously — from first-time meditators to experienced practitioners. Every component exists to remove one more obstacle between you and the stillness you're seeking.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center bg-warm-white text-near-black px-8 py-4 rounded-full text-sm font-medium hover:bg-warm-white/90 transition-colors"
-            >
-              Pre-Order Now
-            </Link>
-          </div>
-        </div>
-      </FadeIn>
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 py-24 md:py-32">
+        <FadeIn>
+          <p className="mono-label text-[0.66rem] mb-7 flex items-center gap-2 text-ink-soft">
+            <span className="text-cork-bright">THE PRACTICE</span>
+            <span className="w-6 h-px bg-line-strong" />
+            WHY IT MATTERS
+          </p>
+          <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.02] text-[clamp(2rem,5vw,3.75rem)] max-w-3xl">
+            When sitting is effortless, the practice is all that’s left.
+          </h2>
+          <p className="mt-7 text-ink-soft text-lg leading-relaxed max-w-xl">
+            The Lotus Seat is built for anyone who takes the sit seriously — first session
+            or ten-thousandth. Every component exists to remove one more obstacle between
+            you and the stillness you came for.
+          </p>
+          <Link
+            href="/contact"
+            className="mt-10 inline-flex items-center gap-2 bg-paper text-graphite px-6 py-3.5 rounded-[3px] text-sm font-medium hover:bg-white transition-colors"
+          >
+            Pre-Order Now
+            <span className="text-paper/60">↗</span>
+          </Link>
+        </FadeIn>
+      </div>
     </section>
   )
 }

@@ -2,15 +2,15 @@ import FadeIn from '@/components/FadeIn'
 
 export default function ProductIntro() {
   return (
-    <section id="product" className="py-24 bg-warm-white">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section id="product" className="py-20 md:py-28 bg-paper">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <FadeIn>
-          <p className="text-sand text-xs font-medium tracking-[0.2em] uppercase mb-6">The Lotus Seat</p>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-near-black leading-snug mb-8">
-            A meditation seat built around how your body actually works.
-          </h2>
-          <p className="text-warm-grey text-lg leading-relaxed">
-            Most meditation cushions offer nothing more than padding. The Lotus Seat is different — it is an ergonomically engineered system that tilts your pelvis, supports your sacrum, and distributes your weight so that sitting still feels effortless. Because when your body is aligned, your mind can go deeper.
+          <p className="font-display font-medium text-ink tracking-[-0.02em] leading-[1.15] text-[clamp(1.5rem,3.6vw,2.5rem)] text-balance">
+            Most meditation cushions offer nothing but padding.{' '}
+            <span className="text-ink-soft">
+              The Lotus Seat is an engineered system — it tilts the pelvis, supports the
+              sacrum, and distributes weight so that sitting still stops being the hard part.
+            </span>
           </p>
         </FadeIn>
       </div>

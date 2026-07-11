@@ -1,171 +1,100 @@
 'use client'
 
-import { useRef } from 'react'
-import FadeIn from '@/components/FadeIn'
+import Image from 'next/image'
 
 const materials = [
   {
-    id: 'cork',
-    name: 'Natural Cork Composite',
-    part: 'Base',
+    id: 'M-01',
+    name: 'Natural cork composite',
+    part: 'BASE',
     claim:
-      'Sustainably harvested. Cork bark regenerates after every harvest — no trees are cut. Naturally antimicrobial, lightweight, and built to last decades.',
-    detail: 'Antimicrobial · Lightweight · Excellent grip · Sustainably harvested',
-    // Warm earthy cork tones
-    gradient: 'linear-gradient(145deg, #7A5C38 0%, #9A7248 40%, #C49A6C 80%, #DEB88A 100%)',
-    texture: [
-      { size: 120, x: 15, y: 20, opacity: 0.08 },
-      { size: 80, x: 60, y: 55, opacity: 0.06 },
-      { size: 50, x: 75, y: 15, opacity: 0.05 },
-    ],
-    accent: '#9A7248',
+      'Sustainably harvested — cork bark regenerates after every harvest, so no trees are cut. Naturally antimicrobial, lightweight, and built to last decades.',
+    spec: 'ANTIMICROBIAL · LIGHTWEIGHT · GRIP · RENEWABLE',
+    swatch: 'linear-gradient(145deg, #7A5C38 0%, #9A7248 45%, #C49A6C 100%)',
+    ink: '#F3E7D6',
+    photo: '/images/product/cork-tray.jpg',
+    alt: 'The bare cork tray, its grain and moulded rim visible in raking light',
   },
   {
-    id: 'latex',
-    name: 'Natural Latex',
-    part: 'Cushion Layers',
+    id: 'M-02',
+    name: 'Natural latex',
+    part: 'CUSHION',
     claim:
-      'Tapped from rubber trees, not synthesised. Responds instantly unlike memory foam, which allows the body to sink and lose posture. Biodegradable and breathable.',
-    detail: 'ILD 45–85 · Instant response · Breathable · Hypoallergenic · Biodegradable',
-    // Soft cream latex tones
-    gradient: 'linear-gradient(145deg, #C8B488 0%, #D9C8A0 40%, #EDE0C4 80%, #F5EDD8 100%)',
-    texture: [
-      { size: 160, x: 10, y: 10, opacity: 0.06 },
-      { size: 90, x: 65, y: 60, opacity: 0.05 },
-    ],
-    accent: '#A89060',
+      'Tapped from rubber trees, not synthesised. Responds instantly — unlike memory foam, which lets the body sink and lose posture. Biodegradable and breathable.',
+    spec: 'ILD 45–85 · INSTANT RESPONSE · BREATHABLE',
+    swatch: 'linear-gradient(145deg, #B8A478 0%, #D2C097 45%, #E9DCBE 100%)',
+    ink: '#33301f',
+    photo: '/images/product/seat-stack.jpg',
+    alt: 'The latex cushion resting on its cork tray, seen from the side — the full depth of the core',
   },
   {
-    id: 'cotton',
-    name: 'Cotton-Poly Upholstery',
-    part: 'Cover',
+    id: 'M-03',
+    name: 'Cotton-poly upholstery',
+    part: 'COVER',
     claim:
-      '300–350 GSM woven fabric in warm ivory. Low-stretch, pre-shrunk, and breathable across long sessions. Finished with a tone-on-tone lotus embroidery.',
-    detail: '300–350 GSM · Warm ivory · Lotus embroidery · Pre-shrunk · Low-stretch',
-    // Warm ivory fabric tones
-    gradient: 'linear-gradient(145deg, #E8DCC8 0%, #F0E8D8 40%, #F8F2E8 80%, #FFFCF8 100%)',
-    texture: [
-      { size: 200, x: 5, y: 5, opacity: 0.04 },
-      { size: 60, x: 70, y: 65, opacity: 0.04 },
-    ],
-    accent: '#C4A882',
+      '300–350 GSM woven fabric in warm ivory. Low-stretch, pre-shrunk, breathable across long sessions — finished with a tone-on-tone lotus embroidery.',
+    spec: '300–350 GSM · IVORY · PRE-SHRUNK · LOTUS DETAIL',
+    swatch: 'linear-gradient(145deg, #DED0BB 0%, #ECE1CE 45%, #F7EFE1 100%)',
+    ink: '#37332a',
+    photo: '/images/product/seat-back.jpg',
+    alt: 'The woven cover from above: quilted contour seams, terracotta yoke and the gold lotus embroidery',
   },
 ]
 
 export default function Materials() {
-  const stripRef = useRef<HTMLDivElement>(null)
-
   return (
-    <section className="py-24 bg-near-black overflow-hidden">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 mb-14">
-        <FadeIn>
-          <p className="text-sand text-xs font-medium tracking-[0.2em] uppercase mb-4">
-            Natural by Design
+    <section className="py-20 md:py-28 bg-graphite overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-12">
+        <p className="mono-label text-[0.66rem] mb-5 flex items-center gap-2 text-ink-soft">
+          <span className="text-cork-bright">FIG. 04</span>
+          <span className="w-6 h-px bg-line-strong" />
+          MATERIALS
+        </p>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+          <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.03] text-[clamp(1.9rem,4vw,3rem)] max-w-md">
+            Three materials, each chosen on the merits.
+          </h2>
+          <p className="text-ink-soft text-sm max-w-xs leading-relaxed">
+            No synthetics, no shortcuts. Cork, latex, and woven cotton — selected for
+            durability, breathability, and environmental honesty.
           </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-            <h2 className="font-serif text-3xl md:text-4xl font-medium leading-snug max-w-md"
-              style={{ color: '#F5F0E8' }}>
-              Every material chosen<br />with intention.
-            </h2>
-            <p className="text-sm max-w-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
-              No synthetics, no shortcuts. Cork, latex, and woven cotton — each selected for durability,
-              breathability, and environmental responsibility.
-            </p>
-          </div>
-        </FadeIn>
+        </div>
       </div>
 
-      {/* Horizontal scroll strip */}
-      <div
-        ref={stripRef}
-        className="flex gap-5 px-6 md:px-[max(1.5rem,calc((100vw-80rem)/2))] overflow-x-auto pb-4 snap-x snap-mandatory"
-        style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
-      >
-        {materials.map((mat, i) => (
-          <div
+      {/* Horizontal material strip */}
+      <div className="flex gap-4 px-5 sm:px-8 md:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] overflow-x-auto pb-4 snap-x snap-mandatory no-scrollbar">
+        {materials.map((mat) => (
+          <article
             key={mat.id}
-            className="shrink-0 snap-start w-[85vw] md:w-[420px] rounded-3xl overflow-hidden border border-white/[0.07]"
+            className="shrink-0 snap-start w-[82vw] sm:w-[380px] border border-line bg-surface/50"
           >
-            {/* Texture area */}
-            <div
-              className="relative w-full overflow-hidden"
-              style={{ height: 220, background: mat.gradient }}
-            >
-              {/* Organic texture blobs */}
-              {mat.texture.map((blob, j) => (
-                <div
-                  key={j}
-                  className="absolute rounded-full"
-                  style={{
-                    width: blob.size,
-                    height: blob.size,
-                    left: `${blob.x}%`,
-                    top: `${blob.y}%`,
-                    background: 'rgba(255,255,255,1)',
-                    opacity: blob.opacity,
-                    filter: 'blur(32px)',
-                  }}
-                />
-              ))}
-              {/* Part label */}
-              <div className="absolute top-5 left-6">
-                <span
-                  className="text-[10px] font-medium tracking-[0.18em] uppercase px-3 py-1 rounded-full"
-                  style={{
-                    background: 'rgba(255,255,255,0.18)',
-                    color: 'rgba(255,255,255,0.85)',
-                    backdropFilter: 'blur(8px)',
-                  }}
-                >
-                  {mat.part}
-                </span>
-              </div>
-              {/* Index */}
-              <div
-                className="absolute bottom-5 right-6 font-serif font-medium leading-none select-none"
-                style={{ fontSize: 72, color: 'rgba(255,255,255,0.07)' }}
-              >
-                0{i + 1}
-              </div>
+            {/* The material itself, photographed — not a gradient standing in for one */}
+            <div className="relative h-52 overflow-hidden" style={{ background: mat.swatch }}>
+              <Image src={mat.photo} alt={mat.alt} fill sizes="(min-width: 640px) 380px, 82vw" className="object-cover" />
+              <span className="absolute top-4 left-4 mono-label text-[0.62rem] px-2 py-1 bg-graphite/85 text-ink">
+                {mat.part}
+              </span>
+              <span className="absolute bottom-3 right-4 font-mono text-[0.72rem] tabular-nums px-1.5 py-0.5 bg-graphite/85 text-ink">
+                {mat.id}
+              </span>
             </div>
 
             {/* Content */}
-            <div className="px-7 py-6" style={{ background: 'rgba(255,255,255,0.04)' }}>
-              <h3 className="font-serif text-xl font-medium mb-3" style={{ color: '#F5F0E8' }}>
-                {mat.name}
-              </h3>
-              <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.48)' }}>
-                {mat.claim}
-              </p>
-              <p
-                className="text-[10px] font-medium tracking-wider uppercase border-t pt-4"
-                style={{ color: mat.accent, borderColor: 'rgba(255,255,255,0.1)' }}
-              >
-                {mat.detail}
+            <div className="px-6 py-6">
+              <h3 className="font-display font-semibold text-ink text-lg tracking-[-0.01em] mb-3">{mat.name}</h3>
+              <p className="text-ink-soft text-sm leading-relaxed mb-6">{mat.claim}</p>
+              <p className="font-mono text-[0.66rem] text-cork-bright tracking-[0.02em] border-t border-line pt-4">
+                {mat.spec}
               </p>
             </div>
-          </div>
+          </article>
         ))}
-
-        {/* End spacer so last card snaps fully into view */}
-        <div className="shrink-0 w-6 md:w-12" />
+        <div className="shrink-0 w-2 sm:w-8" />
       </div>
 
-      {/* Scroll hint */}
-      <div className="flex items-center gap-3 px-6 md:px-[max(1.5rem,calc((100vw-80rem)/2))] mt-6">
-        <div className="flex gap-1">
-          {materials.map((_, i) => (
-            <div
-              key={i}
-              className="rounded-full"
-              style={{ width: 6, height: 6, background: 'rgba(196,168,130,0.35)' }}
-            />
-          ))}
-        </div>
-        <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: 'rgba(255,255,255,0.2)' }}>
-          Scroll to explore
-        </span>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 mt-6 flex items-center gap-3">
+        <span className="h-px w-10 bg-line-strong" />
+        <span className="mono-label text-[0.62rem] text-ink-soft">SCROLL TO COMPARE →</span>
       </div>
     </section>
   )
