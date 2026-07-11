@@ -69,7 +69,7 @@ export default function Materials() {
             className="shrink-0 snap-start w-[82vw] sm:w-[380px] border border-line bg-surface/50"
           >
             {/* The material itself, photographed — not a gradient standing in for one */}
-            <div className="relative h-52 overflow-hidden" style={{ background: mat.swatch }}>
+            <div className="relative aspect-square overflow-hidden" style={{ background: mat.swatch }}>
               <Image src={mat.photo} alt={mat.alt} fill sizes="(min-width: 640px) 380px, 82vw" className="object-cover" />
               <span className="absolute top-4 left-4 mono-label text-[0.62rem] px-2 py-1 bg-graphite/85 text-ink">
                 {mat.part}

@@ -13,7 +13,7 @@ const features = [
     detail: 'NATURAL CORK COMPOSITE · 8° · ANTI-SLIP BASE',
     image: '/images/product/seat-wedge.jpg',
     alt: 'Side elevation of The Lotus Seat: the cushion rises front to back over a solid cork base, forming the 8° wedge',
-    zoom: { scale: 1.15, origin: '50% 60%' },
+    zoom: { scale: 1, origin: '50% 50%' },
   },
   {
     id: 'latex',
@@ -24,7 +24,7 @@ const features = [
     detail: 'NATURAL LATEX · ILD 75–85 · 70 mm',
     image: '/images/product/seat-stack.jpg',
     alt: 'The cushion lifted clear of its cork tray, showing the full depth of the latex base beneath the cover',
-    zoom: { scale: 1.14, origin: '50% 50%' },
+    zoom: { scale: 1, origin: '50% 50%' },
   },
   {
     id: 'ramp',
@@ -35,7 +35,7 @@ const features = [
     detail: 'NATURAL LATEX · ILD 45–55 · 32→50 mm',
     image: '/images/product/seat-profile.jpg',
     alt: 'Three-quarter side view of the seat, the comfort layer ramping from a thin front edge up to the raised rear crest',
-    zoom: { scale: 1.12, origin: '50% 50%' },
+    zoom: { scale: 1, origin: '50% 50%' },
   },
   {
     id: 'channel',
@@ -46,7 +46,7 @@ const features = [
     detail: '10–15 mm DEPTH · COCCYX OFF-LOAD',
     image: '/images/product/seat-back.jpg',
     alt: 'Top view of the seat, the sculpted oval relief channel visible at the centre of the quilted cover',
-    zoom: { scale: 1.3, origin: '50% 58%' },
+    zoom: { scale: 1, origin: '50% 50%' },
   },
   {
     id: 'cover',
@@ -56,8 +56,8 @@ const features = [
       'Upholstery-grade cotton-poly linen at 300–350 GSM in warm ivory. A tone-on-tone lotus embroidery on the rear panel — the only ornament.',
     detail: 'COTTON-POLY LINEN · 300–350 GSM · IVORY',
     image: '/images/product/seat-elevation.jpg',
-    alt: 'Close elevation of the woven cotton-linen cover, terracotta yoke and gold lotus embroidery on the raised rear panel',
-    zoom: { scale: 1.45, origin: '50% 34%' },
+    alt: 'The woven cotton-linen cover in front elevation: terracotta yoke, quilted contour seams and the gold lotus on the raised back',
+    zoom: { scale: 1, origin: '50% 50%' },
   },
 ]
 
@@ -99,7 +99,7 @@ export default function Features() {
           {/* Sticky figure — desktop */}
           <div className="hidden md:block md:w-1/2 shrink-0">
             <div className="sticky top-20 h-[calc(100vh-6rem)] flex items-center">
-              <figure className="reg-frame relative w-full border border-line bg-paper overflow-hidden" style={{ aspectRatio: '4 / 3' }}>
+              <figure className="reg-frame relative w-full max-w-[520px] mx-auto border border-line bg-paper overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
                 <div aria-hidden className="absolute inset-0 tech-grid opacity-30" />
                 {features.map((f, i) => (
                   <div
@@ -115,11 +115,12 @@ export default function Features() {
                       pointerEvents: 'none',
                     }}
                   >
-                    <Image src={f.image} alt={f.alt} fill sizes="(min-width: 768px) 46vw, 100vw" className="object-cover" />
+                    <Image src={f.image} alt={f.alt} fill sizes="(min-width: 768px) 520px, 100vw" className="object-cover" />
                   </div>
                 ))}
 
-                <figcaption className="absolute top-2.5 left-3 mono-label text-[0.62rem] z-10">
+                {/* Chipped: the photograph is the brightest thing on the stage. */}
+                <figcaption className="absolute top-2.5 left-3 z-10 mono-label text-[0.62rem] bg-paper/85 text-ink px-1.5 py-0.5 rounded-[2px]">
                   {features[active].label} · DETAIL
                 </figcaption>
 
@@ -150,7 +151,7 @@ export default function Features() {
                 className="md:min-h-screen flex flex-col justify-center py-12 md:py-20"
               >
                 {/* Mobile figure */}
-                <figure className="md:hidden mb-7 relative reg-frame border border-line bg-paper overflow-hidden" style={{ aspectRatio: '4 / 3' }}>
+                <figure className="md:hidden mb-7 relative reg-frame border border-line bg-paper overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
                   <div aria-hidden className="absolute inset-0 tech-grid opacity-30" />
                   <div
                     className="absolute inset-0"
@@ -158,7 +159,9 @@ export default function Features() {
                   >
                     <Image src={feature.image} alt={feature.alt} fill sizes="100vw" className="object-cover" />
                   </div>
-                  <figcaption className="absolute top-2.5 left-3 mono-label text-[0.62rem]">{feature.label}</figcaption>
+                  <figcaption className="absolute top-2.5 left-3 mono-label text-[0.62rem] bg-paper/85 text-ink px-1.5 py-0.5 rounded-[2px]">
+                    {feature.label}
+                  </figcaption>
                 </figure>
 
                 <div

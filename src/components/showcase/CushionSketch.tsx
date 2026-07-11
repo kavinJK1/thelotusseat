@@ -25,45 +25,41 @@ type Stroke = { d: string; start: number; span: number; w?: number; accent?: boo
 
 const STROKES: Stroke[] = [
   // The cork tray — drawn first, the thing everything else sits on
-  { d: 'M206,492 L728,486 L716,542 L216,548 Z', start: 0.0, span: 0.13 },
-  { d: 'M216,548 L206,492', start: 0.08, span: 0.04, w: 1.6 },
+  { d: 'M196,494 L708,488 L696,548 L206,554 Z', start: 0.0, span: 0.12 },
+  { d: 'M206,554 L196,494', start: 0.07, span: 0.04, w: 1.6 },
 
-  // The cushion's front wall, sitting down into the tray
+  // The cushion in front elevation. The seat's whole silhouette is its SCULPTED
+  // RAISED BACK: the rear rises and rolls over into the back panel, which is what
+  // carries the yoke and the lotus. Drawing it as a flat slab lost the object.
   {
-    d: 'M222,432 L228,486 Q230,500 250,499 L700,492 Q716,491 716,478 L718,424',
+    d: 'M214,470 C204,380 214,300 246,268 C292,224 608,224 654,268 C688,300 696,380 686,470 C620,494 290,494 214,470 Z',
     start: 0.1,
-    span: 0.16,
+    span: 0.24,
     w: 2.4,
   },
 
-  // The top face: a rounded square in perspective — back edge shorter and higher,
-  // front edge wider and lower. Drawn as a trapezoid, not a dome.
-  {
-    d: 'M300,304 L636,304 Q712,318 720,400 Q724,424 700,432 L250,440 Q216,440 214,406 Q212,318 300,304 Z',
-    start: 0.16,
-    span: 0.22,
-    w: 2.4,
-  },
+  // Where the raised back rolls forward into the seat
+  { d: 'M232,318 C300,300 600,300 668,318', start: 0.3, span: 0.1, w: 1.4 },
 
-  // The terracotta yoke: a crescent dipping forward, framing the cream rear panel
-  { d: 'M330,318 C400,378 546,378 614,318', start: 0.32, span: 0.13, accent: true },
-  { d: 'M316,328 C392,398 552,398 628,328', start: 0.36, span: 0.13, accent: true },
+  // The terracotta yoke: a crescent across the raised back, framing the cream panel
+  { d: 'M238,300 C304,384 596,384 662,300', start: 0.34, span: 0.13, accent: true },
+  { d: 'M248,326 C314,412 586,412 652,326', start: 0.38, span: 0.13, accent: true },
 
-  // The relief channel — foreshortened by the angle of the top face
+  // The relief channel, centred in the seat
   {
-    d: 'M444,388 C424,392 418,404 424,414 C430,424 450,428 472,426 C494,424 510,414 508,402 C506,390 490,384 472,384 C462,384 452,386 444,388 Z',
-    start: 0.44,
+    d: 'M420,404 C404,412 400,432 404,450 C408,468 428,476 450,476 C472,476 492,468 496,450 C500,432 496,412 480,404 C464,396 436,396 420,404 Z',
+    start: 0.46,
     span: 0.14,
   },
 
-  // Contour seams sweeping up from the front corners toward the yoke
-  { d: 'M272,428 C332,414 392,404 432,396', start: 0.5, span: 0.11 },
-  { d: 'M664,424 C610,412 552,402 514,396', start: 0.54, span: 0.11 },
+  // Contour seams sweeping from the lower corners up toward the yoke
+  { d: 'M268,472 C300,440 344,418 394,406', start: 0.52, span: 0.11 },
+  { d: 'M632,472 C600,440 556,418 506,406', start: 0.56, span: 0.11 },
 
-  // The lotus, hand-set in gold on the rear panel
+  // The lotus, hand-set in gold on the raised back panel
   {
-    d: 'M472,344 C468,330 472,322 472,316 C472,322 476,330 472,344 M458,346 C450,336 446,328 444,322 C450,328 458,336 458,346 M486,346 C494,336 498,328 500,322 C494,328 486,336 486,346 M448,352 C436,348 428,344 422,342 C430,346 440,350 448,352 M496,352 C508,348 516,344 522,342 C514,346 504,350 496,352',
-    start: 0.6,
+    d: 'M450,296 C446,280 450,268 450,262 C450,268 454,280 450,296 M434,298 C424,286 420,276 418,268 C426,276 434,286 434,298 M466,298 C476,286 480,276 482,268 C474,276 466,286 466,298 M422,304 C408,298 398,292 392,288 C402,294 412,300 422,304 M478,304 C492,298 502,292 508,288 C498,294 488,300 478,304',
+    start: 0.62,
     span: 0.14,
     w: 1.7,
     accent: true,
@@ -81,24 +77,18 @@ type Callout = {
 }
 
 const CALLOUTS: Callout[] = [
-  { label: 'Gold lotus, hand-set', x: 150, y: 186, leader: 'M304,198 C356,236 414,290 452,330', start: 0.66 },
+  { label: 'Sculpted raised back', x: 116, y: 156, leader: 'M258,168 C296,196 318,224 338,250', start: 0.66 },
+  { label: 'Gold lotus, hand-set', x: 866, y: 168, leader: 'M812,180 C700,216 540,252 470,272', start: 0.71, anchor: 'end' },
   {
     label: 'Relief channel — coccyx clear',
-    x: 858,
-    y: 214,
-    leader: 'M812,236 C716,296 600,364 518,400',
-    start: 0.72,
+    x: 876,
+    y: 336,
+    leader: 'M812,348 C700,382 570,414 508,436',
+    start: 0.76,
     anchor: 'end',
   },
-  {
-    label: 'Ramped latex 32→50mm',
-    x: 872,
-    y: 468,
-    leader: 'M812,478 C784,482 752,486 722,488',
-    start: 0.78,
-    anchor: 'end',
-  },
-  { label: 'Solid cork base — 8° wedge', x: 76, y: 580, leader: 'M200,570 C264,560 324,546 376,530', start: 0.84 },
+  { label: 'Ramped latex 32→50mm', x: 880, y: 494, leader: 'M812,486 C766,482 722,478 694,476', start: 0.81, anchor: 'end' },
+  { label: 'Solid cork base — 8° wedge', x: 60, y: 586, leader: 'M186,576 C240,562 296,548 344,534', start: 0.86 },
 ]
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n))
@@ -132,7 +122,7 @@ export default function CushionSketch({ ref, staticT }: CushionSketchProps) {
   const cork = 'var(--color-cork)'
 
   return (
-    <svg viewBox="0 0 900 600" className="w-full h-full" role="img" aria-label="The Lotus Seat as a designer's sketch: the cushion drawn in marker over its cork base, with handwritten callouts naming the hand-set gold lotus, the central relief channel that keeps the coccyx clear, the ramped latex core tapering from 32 to 50 millimetres, and the solid cork base that forms the 8-degree wedge.">
+    <svg viewBox="0 0 900 600" className="w-full h-full" role="img" aria-label="The Lotus Seat as a designer's sketch: the cushion drawn in marker over its cork base, with handwritten callouts naming the sculpted raised back, the hand-set gold lotus, the central relief channel that keeps the coccyx clear, the ramped latex core tapering from 32 to 50 millimetres, and the solid cork base that forms the 8-degree wedge.">
       <defs>
         {/* Clean geometry in, marker wobble out. */}
         <filter id={`sketch-${uid}`} x="-12%" y="-12%" width="124%" height="124%">

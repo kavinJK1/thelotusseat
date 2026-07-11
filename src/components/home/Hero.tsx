@@ -70,13 +70,13 @@ export default function Hero() {
             FIG.&nbsp;A — ELEVATION
           </figcaption>
 
-          <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <div className="relative aspect-square w-full overflow-hidden">
             <Image
               src="/images/product/seat-elevation.jpg"
               alt="The Lotus Seat in three-quarter elevation: a cream cotton-linen cushion with a terracotta yoke and gold lotus embroidery, seated on a solid cork base"
               fill
               priority
-              sizes="(min-width: 1024px) 46vw, 100vw"
+              sizes="(min-width: 1024px) 44vw, 100vw"
               className="object-cover"
             />
 
