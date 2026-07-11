@@ -24,41 +24,46 @@ type CushionSketchProps = {
 type Stroke = { d: string; start: number; span: number; w?: number; accent?: boolean }
 
 const STROKES: Stroke[] = [
-  // The cork tray — drawn first, the thing everything else sits on
-  { d: 'M196,494 L708,488 L696,548 L206,554 Z', start: 0.0, span: 0.12 },
-  { d: 'M206,554 L196,494', start: 0.07, span: 0.04, w: 1.6 },
+  // Traced from the front elevation. The cushion is a rounded TRAPEZOID — narrower
+  // across the raised back, wider at the seat — not a rounded rectangle.
+  // The cork tray, drawn first: everything else sits on it.
+  { d: 'M258,492 L668,490 L658,534 L266,536 Z', start: 0.0, span: 0.12 },
 
-  // The cushion in front elevation. The seat's whole silhouette is its SCULPTED
-  // RAISED BACK: the rear rises and rolls over into the back panel, which is what
-  // carries the yoke and the lotus. Drawing it as a flat slab lost the object.
+  // The cushion's silhouette
   {
-    d: 'M214,470 C204,380 214,300 246,268 C292,224 608,224 654,268 C688,300 696,380 686,470 C620,494 290,494 214,470 Z',
-    start: 0.1,
+    d: 'M268,244 C272,186 322,152 386,150 L534,150 C598,152 648,186 652,244 C662,312 668,404 660,478 C596,498 324,498 262,478 C254,404 258,312 268,244 Z',
+    start: 0.08,
     span: 0.24,
     w: 2.4,
   },
 
-  // Where the raised back rolls forward into the seat
-  { d: 'M232,318 C300,300 600,300 668,318', start: 0.3, span: 0.1, w: 1.4 },
+  // The seam where the raised back meets the seat — a near-horizontal rule right
+  // across the object. This is the line that makes the yoke read as a band.
+  { d: 'M280,268 C380,278 540,278 634,268', start: 0.3, span: 0.1, accent: true },
 
-  // The terracotta yoke: a crescent across the raised back, framing the cream panel
-  { d: 'M238,300 C304,384 596,384 662,300', start: 0.34, span: 0.13, accent: true },
-  { d: 'M248,326 C314,412 586,412 652,326', start: 0.38, span: 0.13, accent: true },
+  // The cream back panel, cut out of that band: a deep U dipping almost to the seam.
+  // The terracotta is what's LEFT of the band — thick wings at the shoulders,
+  // pinched to a thin strip at the centre. Two parallel arcs never read as this.
+  { d: 'M330,155 C360,290 560,290 594,161', start: 0.34, span: 0.14, accent: true },
 
-  // The relief channel, centred in the seat
+  // The relief channel: a tall rounded oval, directly beneath the seam
   {
-    d: 'M420,404 C404,412 400,432 404,450 C408,468 428,476 450,476 C472,476 492,468 496,450 C500,432 496,412 480,404 C464,396 436,396 420,404 Z',
-    start: 0.46,
+    d: 'M463,279 C438,279 427,300 427,341 C427,382 440,403 463,403 C486,403 499,382 499,341 C499,300 488,279 463,279 Z',
+    start: 0.44,
     span: 0.14,
   },
 
-  // Contour seams sweeping from the lower corners up toward the yoke
-  { d: 'M268,472 C300,440 344,418 394,406', start: 0.52, span: 0.11 },
-  { d: 'M632,472 C600,440 556,418 506,406', start: 0.56, span: 0.11 },
+  // The contour seams: long sweeps from the lower corners up to the seam, bowing
+  // outward, framing the channel
+  { d: 'M310,455 C300,398 330,322 397,276', start: 0.5, span: 0.12 },
+  { d: 'M616,455 C626,398 596,322 529,276', start: 0.54, span: 0.12 },
 
-  // The lotus, hand-set in gold on the raised back panel
+  // Piping along the bottom edge
+  { d: 'M276,470 C380,486 548,486 650,470', start: 0.58, span: 0.08, w: 1.3 },
+
+  // The lotus, hand-set in gold on the back panel
   {
-    d: 'M450,296 C446,280 450,268 450,262 C450,268 454,280 450,296 M434,298 C424,286 420,276 418,268 C426,276 434,286 434,298 M466,298 C476,286 480,276 482,268 C474,276 466,286 466,298 M422,304 C408,298 398,292 392,288 C402,294 412,300 422,304 M478,304 C492,298 502,292 508,288 C498,294 488,300 478,304',
+    d: 'M463,196 C459,180 463,168 463,162 C463,168 467,180 463,196 M447,198 C437,186 433,176 431,168 C439,176 447,186 447,198 M479,198 C489,186 493,176 495,168 C487,176 479,186 479,198 M435,204 C421,198 411,192 405,188 C415,194 425,200 435,204 M491,204 C505,198 515,192 521,188 C511,194 501,200 491,204',
     start: 0.62,
     span: 0.14,
     w: 1.7,
@@ -77,18 +82,18 @@ type Callout = {
 }
 
 const CALLOUTS: Callout[] = [
-  { label: 'Sculpted raised back', x: 116, y: 156, leader: 'M258,168 C296,196 318,224 338,250', start: 0.66 },
-  { label: 'Gold lotus, hand-set', x: 866, y: 168, leader: 'M812,180 C700,216 540,252 470,272', start: 0.71, anchor: 'end' },
+  { label: 'Sculpted raised back', x: 116, y: 130, leader: 'M262,142 C282,152 296,164 308,182', start: 0.66 },
+  { label: 'Gold lotus, hand-set', x: 866, y: 168, leader: 'M812,180 C712,196 570,190 504,186', start: 0.71, anchor: 'end' },
   {
     label: 'Relief channel — coccyx clear',
     x: 876,
     y: 336,
-    leader: 'M812,348 C700,382 570,414 508,436',
+    leader: 'M812,348 C716,352 592,346 504,342',
     start: 0.76,
     anchor: 'end',
   },
-  { label: 'Ramped latex 32→50mm', x: 880, y: 494, leader: 'M812,486 C766,482 722,478 694,476', start: 0.81, anchor: 'end' },
-  { label: 'Solid cork base — 8° wedge', x: 60, y: 586, leader: 'M186,576 C240,562 296,548 344,534', start: 0.86 },
+  { label: 'Ramped latex 32→50mm', x: 880, y: 452, leader: 'M812,444 C766,436 706,428 666,424', start: 0.81, anchor: 'end' },
+  { label: 'Solid cork base — 8° wedge', x: 60, y: 580, leader: 'M190,570 C240,552 300,528 366,514', start: 0.86 },
 ]
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n))

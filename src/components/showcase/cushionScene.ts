@@ -221,6 +221,13 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   const materials: THREE.Material[] = []
   /** Meshes whose silhouette gets an edge-drawing twin for the wireframe chapter. */
   const wireSources: THREE.Mesh[] = []
+  /**
+   * Ruled wireframe segments, in cushion space. Crease edges alone leave the seat's
+   * back and walls blank — they're smooth surfaces, so EdgesGeometry finds nothing
+   * to draw there and the object reads as an open shell. These are the surface's own
+   * u/v rulings, which is what makes a wireframe read as a closed form.
+   */
+  const gridSegs: number[] = []
   const track = <T extends THREE.BufferGeometry>(g: T) => {
     geometries.push(g)
     return g
@@ -595,6 +602,18 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
     cushion.add(mSheet)
     wireSources.push(mSheet)
 
+    // Rulings across the top sheet, every 9th row/column of the 90×90 grid.
+    const at3 = (src: number[], k: number) => [src[3 * k], src[3 * k + 1], src[3 * k + 2]]
+    const STEP = 9
+    for (let j = 0; j <= ny; j += STEP)
+      for (let i = 0; i < nx; i++) {
+        gridSegs.push(...at3(pos, j * (nx + 1) + i), ...at3(pos, j * (nx + 1) + i + 1))
+      }
+    for (let i = 0; i <= nx; i += STEP)
+      for (let j = 0; j < ny; j++) {
+        gridSegs.push(...at3(pos, j * (nx + 1) + i), ...at3(pos, (j + 1) * (nx + 1) + i))
+      }
+
     // one continuous strip: overlap flap -> quarter roll -> wall -> bottom tuck
     const per = densify(roundedRect(CXP, 0, 2 * HX, 2 * HY, RC, 16), 5)
     const wpos: number[] = [],
@@ -639,6 +658,18 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
         idxs[r2 <= NA ? mi : 0].push(a, c, b, b, c, d2)
       }
     }
+    // Rulings around the skirt: every cross-section ring, plus verticals every 24
+    // steps of the perimeter. This is what draws the back wall and the rolled edge.
+    const wAt = (k: number) => [wpos[3 * k], wpos[3 * k + 1], wpos[3 * k + 2]]
+    for (let r = 0; r < CN; r++)
+      for (let i = 0; i < per.length - 1; i++) {
+        gridSegs.push(...wAt(i * CN + r), ...wAt((i + 1) * CN + r))
+      }
+    for (let i = 0; i < per.length; i += 24)
+      for (let r = 0; r < CN - 1; r++) {
+        gridSegs.push(...wAt(i * CN + r), ...wAt(i * CN + r + 1))
+      }
+
     const posAttr = new THREE.Float32BufferAttribute(wpos, 3)
     const skirtMats = [M_SOFT, M_TERRA, M_DOME]
     for (let mi = 0; mi < 3; mi++) {
@@ -816,6 +847,11 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
     // geometry drops straight into the same parent and inherits the same tilt.
     src.parent?.add(lines)
   }
+
+  // The surface rulings: crease edges give the silhouette, these give it a body.
+  const gridGeo = track(new THREE.BufferGeometry())
+  gridGeo.setAttribute('position', new THREE.Float32BufferAttribute(gridSegs, 3))
+  cushion.add(new THREE.LineSegments(gridGeo, WIRE))
 
   /** The textured materials that dissolve as the drawing takes over. */
   const objectMats: THREE.Material[] = [
