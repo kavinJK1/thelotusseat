@@ -1,10 +1,22 @@
 import Link from 'next/link'
 
+/**
+ * The footer is the site's internal-link backbone. Each keyword cluster page is
+ * linked from every other page with descriptive anchor text — a page nothing
+ * links to accrues no authority no matter how good the copy is, and the anchor
+ * text is itself a ranking signal, which is why these read as phrases rather than
+ * as menu labels.
+ */
 const footerLinks = {
   Product: [
     { href: '/product', label: 'The Seat' },
     { href: '/science', label: 'The Science' },
     { href: '/faq', label: 'FAQ' },
+  ],
+  Guides: [
+    { href: '/meditation-cushion-guide', label: 'Meditation Cushion Guide' },
+    { href: '/meditation-cushion-for-back-pain', label: 'Cushions for Back Pain' },
+    { href: '/vipassana-meditation-cushion', label: 'Vipassana & Retreat Sitting' },
   ],
   Company: [
     { href: '/about', label: 'About' },
@@ -21,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="bg-surface text-ink border-t border-line">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 mb-14">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="font-display text-lg font-semibold tracking-[-0.01em] uppercase block mb-4">
               Lotus&thinsp;Seat

@@ -1,11 +1,18 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
+import JsonLd from '@/components/seo/JsonLd'
+import { pageMetadata } from '@/lib/seo/metadata'
+import { breadcrumbSchema, graph, productSchema } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
-  title: 'The Product — The Lotus Seat',
-  description: 'Explore the full specifications, materials, and engineering behind The Lotus Seat.',
-}
+const PATH = '/product'
+
+export const metadata = pageMetadata({
+  title: 'The Meditation Seat — Full Specification, Materials & Dimensions',
+  description:
+    'Every figure in The Lotus Seat: the 8° cork base tilt, a 70 mm ILD 75–85 latex base, a ramped 50→32 mm ILD 45–55 top layer, and a 10–15 mm coccyx relief channel. €199, pre-order.',
+  path: PATH,
+  image: '/images/product/seat-stack.jpg',
+})
 
 const features = [
   {
@@ -55,6 +62,15 @@ const features = [
 export default function ProductPage() {
   return (
     <div className="bg-warm-white pt-24">
+      <JsonLd
+        data={graph(
+          productSchema(),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'The Product', path: PATH },
+          ]),
+        )}
+      />
       {/* Hero */}
       <section className="py-20 text-center max-w-3xl mx-auto px-6">
         <FadeIn>

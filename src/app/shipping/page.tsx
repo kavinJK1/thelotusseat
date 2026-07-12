@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
+import { pageMetadata } from '@/lib/seo/metadata'
 
-export const metadata: Metadata = {
-  title: 'Shipping & Returns — The Lotus Seat',
-  description: 'Shipping information and returns policy for The Lotus Seat.',
-}
+export const metadata = pageMetadata({
+  title: 'Shipping & Returns',
+  description:
+    'Shipping information, the 30-day satisfaction guarantee, and the 2-year warranty for The Lotus Seat.',
+  path: '/shipping',
+})
 
 export default function ShippingPage() {
   return (

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { CheckoutForm } from './CheckoutForm'
 
 export const metadata: Metadata = {
-  title: 'Reserve — The Lotus Seat',
+  title: 'Reserve',
   description: 'Pre-order The Lotus Seat.',
   // A checkout page has no business being indexed or shared as a preview.
   robots: { index: false, follow: false },

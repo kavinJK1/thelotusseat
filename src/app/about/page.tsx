@@ -1,11 +1,13 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
+import { pageMetadata } from '@/lib/seo/metadata'
 
-export const metadata: Metadata = {
-  title: 'About — The Lotus Seat',
-  description: 'The story behind The Lotus Seat and why we built it.',
-}
+export const metadata = pageMetadata({
+  title: 'About',
+  description:
+    'Why we built The Lotus Seat: meditation discomfort is postural, and the wellness market answers a postural problem with softer foam. We applied workplace seating ergonomics instead.',
+  path: '/about',
+})
 
 export default function AboutPage() {
   return (

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { SHIP_ESTIMATE } from '@/lib/commerce/product'
 
 export const metadata: Metadata = {
-  title: 'Reserved — The Lotus Seat',
+  title: 'Reserved',
   robots: { index: false, follow: false },
 }
 

@@ -1,24 +1,60 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
+import AnswerBlock from '@/components/seo/AnswerBlock'
+import JsonLd from '@/components/seo/JsonLd'
+import { pageMetadata } from '@/lib/seo/metadata'
+import { articleSchema, breadcrumbSchema, graph } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
-  title: 'The Science — The Lotus Seat',
-  description: 'The biomechanics and ergonomic principles behind The Lotus Seat.',
-}
+const PATH = '/science'
+
+export const metadata = pageMetadata({
+  title: 'The Science of Meditation Posture — Pelvic Tilt & the Lumbar Curve',
+  description:
+    'The biomechanics behind The Lotus Seat: how a posterior pelvic tilt flattens the lumbar curve and loads the postural muscles, why seated-ergonomics research points to 5–15° of seat inclination, and why the seat uses 8°.',
+  path: PATH,
+  image: '/images/product/seat-profile.jpg',
+})
 
 export default function SciencePage() {
   return (
     <div className="bg-warm-white pt-24">
+      <JsonLd
+        data={graph(
+          articleSchema({
+            path: PATH,
+            headline: 'The Biomechanics of Sitting: Pelvic Tilt and the Lumbar Curve',
+            description:
+              'Why the pelvis determines meditation comfort, and why 8° of seat inclination is the operating point.',
+            datePublished: '2026-07-13',
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'The Science', path: PATH },
+          ]),
+        )}
+      />
       <section className="py-20 max-w-3xl mx-auto px-6">
         <FadeIn>
           <p className="text-sand text-xs font-medium tracking-[0.2em] uppercase mb-5">The Science</p>
           <h1 className="font-serif text-4xl md:text-6xl font-medium text-near-black leading-tight mb-6">
             The biomechanics of sitting.
           </h1>
-          <p className="text-warm-grey text-xl leading-relaxed">
+          <p className="text-warm-grey text-xl leading-relaxed mb-10">
             Understanding why the body struggles in meditation — and what to do about it.
           </p>
+        </FadeIn>
+
+        <FadeIn delay={100}>
+          <AnswerBlock>
+            Meditation discomfort is postural, not a matter of surface softness. Sitting cross-legged
+            on a flat surface tips the pelvis into a posterior tilt, which flattens the lumbar curve,
+            forces the thoracic spine to round and pushes the head forward — a chain of compensation
+            the postural muscles must then hold for the length of the sit. Seated-ergonomics research
+            consistently identifies a seat inclination of 5–15° as the range that reduces lumbar
+            muscle activity and disc pressure. The Lotus Seat uses 8°: enough to rotate the pelvis
+            anteriorly and restore the lumbar curve, but not so steep that it causes forward slide or
+            compresses the thighs.
+          </AnswerBlock>
         </FadeIn>
       </section>
 

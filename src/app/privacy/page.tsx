@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo/metadata'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy — The Lotus Seat',
+export const metadata = pageMetadata({
+  title: 'Privacy Policy',
   description: 'Privacy policy for The Lotus Seat website and services.',
-}
+  path: '/privacy',
+})
 
 export default function PrivacyPage() {
   return (

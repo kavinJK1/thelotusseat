@@ -5,8 +5,12 @@ import Link from 'next/link'
 
 const navLinks = [
   { href: '/product', label: 'Product' },
-  { href: '/about', label: 'About' },
   { href: '/science', label: 'The Science' },
+  // The guide is the hub of the keyword cluster: linking it from the primary nav
+  // (rather than only from the footer) is what tells a crawler it is a top-level
+  // section and not a stray marketing page.
+  { href: '/meditation-cushion-guide', label: 'Cushion Guide' },
+  { href: '/about', label: 'About' },
   { href: '/faq', label: 'FAQ' },
 ]
 
