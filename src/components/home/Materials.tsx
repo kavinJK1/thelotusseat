@@ -46,7 +46,7 @@ export default function Materials() {
     <section className="py-20 md:py-28 bg-paper overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-12">
         <p className="mono-label text-[0.66rem] mb-5 flex items-center gap-2 text-ink-soft">
-          <span className="text-cork-deep">FIG. 04</span>
+          <span className="text-cork-deep">FIG. 05</span>
           <span className="w-6 h-px bg-line-strong" />
           MATERIALS
         </p>

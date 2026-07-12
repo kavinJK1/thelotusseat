@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
+import { ASSURANCES } from './assurances'
 
 export default function CTASection() {
   return (
@@ -16,8 +17,8 @@ export default function CTASection() {
               Reserve the seat your practice deserves.
             </h2>
             <p className="mt-6 text-ink-soft text-lg leading-relaxed max-w-lg mx-auto">
-              Join the first run of The Lotus Seat. We’ll confirm your shipping window by
-              email — no charge until your unit is ready.
+              Join the first run of The Lotus Seat. Your card is charged today to reserve a
+              unit — and you can cancel for a full refund any time before it ships.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link
@@ -34,6 +35,17 @@ export default function CTASection() {
                 View full specifications
               </Link>
             </div>
+
+            {/* The terms, at the point of decision. A pre-order asks for money and a
+                wait; this is what the buyer gets back for accepting both. */}
+            <dl className="mt-12 pt-8 border-t border-line grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6 text-left">
+              {ASSURANCES.map((a) => (
+                <div key={a.term}>
+                  <dt className="mono-label text-[0.66rem] text-ink">{a.term}</dt>
+                  <dd className="mt-1.5 text-ink-soft text-[0.85rem] leading-relaxed">{a.detail}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </FadeIn>
       </div>

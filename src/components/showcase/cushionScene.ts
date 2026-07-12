@@ -816,9 +816,13 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
         ca = Math.cos(a),
         sa = Math.sin(a),
         pts: THREE.Vector3[] = []
+      // Every petal used to start at the flower's exact centre, so nine 2 mm tubes
+      // crossed at one point and knotted into a blob. They now spring from a calyx
+      // ring, which is both how the flower actually grows and how it reads.
+      const R0 = 9
       for (let i = 0; i <= 40; i++) {
         const tt = i <= 20 ? i / 20 : (40 - i) / 20
-        const uu = tt * len,
+        const uu = R0 + tt * (len - R0),
           ww = Math.sin(Math.PI * Math.min(tt, 1)) * wid * (i <= 20 ? 1 : -1)
         const x = cx + uu * ca - ww * sa,
           y = cy + uu * sa + ww * ca

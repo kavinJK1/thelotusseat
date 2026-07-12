@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { SHIP_ESTIMATE, formatMinorUnits, priceFor } from '@/lib/commerce/product'
 
 export default function Hero() {
   return (
@@ -25,10 +26,14 @@ export default function Hero() {
             Sit better.<br />Meditate longer.
           </h1>
 
+          {/* Leads with a subject-predicate definition on purpose: "The Lotus Seat is
+              an ergonomic meditation seat…" is the sentence an answer engine lifts
+              when asked what this product is. "An ergonomic seat engineered…" was
+              true but unattributable — it never named the entity being defined. */}
           <p className="mt-7 text-ink-soft text-lg leading-relaxed max-w-md">
-            An ergonomic meditation seat engineered around the biomechanics of
-            posture — an 8° base tilt, a ramped natural-latex system, and a central
-            relief channel. Comfort by design, not by softness.
+            The Lotus Seat is an ergonomic meditation seat engineered around the
+            biomechanics of posture — an 8° base tilt, a ramped natural-latex system,
+            and a central relief channel. Comfort by design, not by softness.
           </p>
 
           <div className="mt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
@@ -46,6 +51,19 @@ export default function Hero() {
               See the engineering
             </Link>
           </div>
+
+          {/* The terms a first-time visitor would otherwise have to reach the bottom of
+              the page — or the checkout — to find. A pre-order's price and its exit are
+              the two facts that decide whether the rest of the page is worth reading. */}
+          <p className="mt-5 mono-label text-[0.66rem] flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+            <span className="text-ink">
+              {formatMinorUnits(priceFor('EUR').itemMinorUnits, 'EUR')}
+            </span>
+            <span aria-hidden className="text-line-strong">·</span>
+            <span>{SHIP_ESTIMATE.label.toUpperCase()}</span>
+            <span aria-hidden className="text-line-strong">·</span>
+            <span>CANCEL ANY TIME BEFORE DISPATCH</span>
+          </p>
 
           {/* Spec ticker — real data, mono */}
           <dl className="mt-11 grid grid-cols-3 gap-px bg-line border border-line max-w-md">

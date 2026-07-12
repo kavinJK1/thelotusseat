@@ -97,7 +97,7 @@ export default function WhySection() {
           {/* Text */}
           <div>
             <p className="mono-label text-[0.66rem] mb-5 flex items-center gap-2">
-              <span className="text-cork-deep">FIG. 01</span>
+              <span className="text-cork-deep">FIG. 03</span>
               <span className="w-6 h-px bg-line-strong" />
               CONSTRUCTION
             </p>

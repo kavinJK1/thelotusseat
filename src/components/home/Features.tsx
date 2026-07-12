@@ -85,7 +85,7 @@ export default function Features() {
     <section className="bg-surface border-b border-line">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-20 md:pt-28 pb-6">
         <p className="mono-label text-[0.66rem] mb-5 flex items-center gap-2">
-          <span className="text-cork-deep">FIG. 03</span>
+          <span className="text-cork-deep">FIG. 04</span>
           <span className="w-6 h-px bg-line-strong" />
           SYSTEMS
         </p>
