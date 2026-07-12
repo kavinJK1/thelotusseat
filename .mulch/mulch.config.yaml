@@ -3,6 +3,7 @@ domains:
   - backend
   - tools
   - frontend
+  - marketing
 governance:
   max_entries: 100
   warn_entries: 150
