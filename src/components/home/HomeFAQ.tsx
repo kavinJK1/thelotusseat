@@ -42,7 +42,7 @@ export default function HomeFAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className="py-20 md:py-28 bg-paper">
+    <section className="py-20 md:py-28 bg-surface">
       <div className="max-w-3xl mx-auto px-5 sm:px-8">
         <FadeIn>
           <p className="mono-label text-[0.66rem] mb-5 flex items-center gap-2">

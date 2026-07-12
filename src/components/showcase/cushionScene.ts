@@ -185,12 +185,16 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   renderer.toneMappingExposure = 0.95
 
   const scene = new THREE.Scene()
-  // The dark stage (--color-paper on .stage). The seat is the only warm thing in frame.
-  scene.background = new THREE.Color(0x17181c)
+  // The stage is the page's own drafting-paper (--color-paper): the object sits in a
+  // lit room, not a black chamber, and is anchored to it by its contact shadow.
+  scene.background = new THREE.Color(0xf5f6f8)
   const camera = new THREE.PerspectiveCamera(38, width / height, 1, 6000)
 
-  scene.add(new THREE.HemisphereLight(0xfff3e4, 0x7a6c5a, 0.5))
-  const sun = new THREE.DirectionalLight(0xffedd6, 1.15)
+  // Bright bounce off a near-white floor is the dominant term here — on the dark
+  // stage the hemisphere was a whisper (0.5) and the key carried the whole image.
+  // Reversed: lift the ambient, ease the key, or the seat reads as a cutout.
+  scene.add(new THREE.HemisphereLight(0xfff6ea, 0xd8d4cd, 0.95))
+  const sun = new THREE.DirectionalLight(0xffedd6, 0.85)
   sun.position.set(420, 520, 640)
   sun.castShadow = true
   sun.shadow.mapSize.set(2048, 2048)
@@ -199,10 +203,12 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   sc.right = sc.top = 450
   sc.far = 2500
   scene.add(sun)
-  const fill = new THREE.DirectionalLight(0xd8e2f0, 0.28)
+  const fill = new THREE.DirectionalLight(0xd8e2f0, 0.35)
   fill.position.set(-500, 300, -300)
   scene.add(fill)
-  const rim = new THREE.DirectionalLight(0xffe2c2, 0.22)
+  // The rim was there to cut the seat off the black. On paper it only washes the
+  // silhouette out, so it drops to a trace.
+  const rim = new THREE.DirectionalLight(0xffe2c2, 0.1)
   rim.position.set(-200, 260, 620)
   scene.add(rim)
 
@@ -270,7 +276,16 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   const CREASE = new THREE.MeshStandardMaterial({ color: 0x9d8b74, roughness: 1, metalness: 0 })
   const THREADMAT = new THREE.MeshStandardMaterial({ color: 0x94816b, roughness: 0.8, metalness: 0 })
   const DARKTHREAD = new THREE.MeshStandardMaterial({ color: 0x74513a, roughness: 0.7, metalness: 0 })
-  const GOLD = new THREE.MeshStandardMaterial({ color: 0xb08d55, roughness: 0.85 })
+  // Goldwork on cream is a value problem, not a hue problem: the old 0xb08d55 at
+  // roughness 0.85 sat within a few points of the fabric and dissolved into it. A
+  // deeper, more saturated gold with real metallic specular separates on both the
+  // lit face and the shaded one.
+  const GOLD = new THREE.MeshStandardMaterial({
+    color: 0x8f6420,
+    roughness: 0.42,
+    metalness: 0.55,
+    emissive: 0x2a1c06, // keeps the thread legible where the panel falls into shade
+  })
   const SHADOW = new THREE.ShadowMaterial({ opacity: 0.24 })
   materials.push(M_CREAM, M_TERRA, M_DOME, M_CORK, M_SOFT, CREASE, THREADMAT, DARKTHREAD, GOLD, SHADOW)
 
@@ -808,19 +823,24 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
         const x = cx + uu * ca - ww * sa,
           y = cy + uu * sa + ww * ca
         const nn = surfN(x, y),
-          lo = domeOff(x, y) + 1.5 // proud of the fabric, visible at grazing angles
+          lo = domeOff(x, y) + 2.8 // proud of the fabric, visible at grazing angles
         pts.push(new THREE.Vector3(x + nn[0] * lo, y + nn[1] * lo, surfZ(x, y) + nn[2] * lo))
       }
-      const tg = track(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 80, 1.05, 6, false))
+      // A 1 mm thread vanishes into the cream at the distances this camera actually
+      // sits at. Real goldwork is a couched bundle, not a single strand — so it reads.
+      const tg = track(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 80, 2.1, 8, false))
       cushion.add(new THREE.Mesh(tg, GOLD))
     }
+    // The full bloom — same nine-petal ring the sketch inks on.
     petal(0, 66, 13)
-    petal(30, 56, 12)
-    petal(-30, 56, 12)
-    petal(62, 46, 10)
-    petal(-62, 46, 10)
-    petal(92, 36, 8)
-    petal(-92, 36, 8)
+    petal(26, 60, 12)
+    petal(-26, 60, 12)
+    petal(52, 52, 11)
+    petal(-52, 52, 11)
+    petal(78, 43, 9)
+    petal(-78, 43, 9)
+    petal(102, 35, 8)
+    petal(-102, 35, 8)
   })()
 
   // ---------- stage ----------
@@ -834,7 +854,8 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   // Edge lines rather than a triangle mesh overlay: a 22° crease threshold keeps
   // the contours and drops the tessellation, so it reads as a drawing, not a net.
   const WIRE = new THREE.LineBasicMaterial({
-    color: 0xffffff,
+    // Graphite on paper — the drawing is inked, not projected.
+    color: 0x2b2d33,
     transparent: true,
     opacity: 0,
     depthWrite: false,

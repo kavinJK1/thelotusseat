@@ -24,8 +24,8 @@
   --color-ink-soft: oklch(0.455 0.008 264); /* secondary text — AA on paper */
   --color-line: oklch(0.9 0.004 264);       /* hairline rules */
   --color-line-strong: oklch(0.8 0.005 264);/* emphasised rule / borders */
-  --color-graphite: oklch(0.205 0.008 264); /* dark section bg */
-  --color-graphite-soft: oklch(0.27 0.008 264);
+  --color-graphite: oklch(0.205 0.008 264); /* ink-dark fill: buttons, chips */
+  --color-graphite-soft: oklch(0.27 0.008 264); /* their hover state */
 
   /* The one accent — natural cork / clay */
   --color-cork: oklch(0.63 0.108 52);
@@ -106,29 +106,7 @@ h1, h2, h3 { text-wrap: balance; }
 .reg-frame::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
 .reg-frame::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
 
-/* ---- The dark stage ----
-   Every utility in this project compiles to var(--color-*), so re-pointing the
-   variables on one wrapper inverts the whole surface without touching a single
-   component class. The object is the only warm thing on screen; the stage is
-   near-black and the cork accent brightens so it still carries on dark. */
-.stage {
-  --color-paper: oklch(0.16 0.004 264);        /* the black stage */
-  --color-surface: oklch(0.205 0.005 264);     /* raised band */
-  --color-ink: oklch(0.97 0.002 250);          /* type, inverted */
-  --color-ink-soft: oklch(0.72 0.006 264);     /* secondary — AA on the stage */
-  --color-line: oklch(0.32 0.006 264);         /* hairline */
-  --color-line-strong: oklch(0.46 0.008 264);  /* emphasised rule */
-  --color-graphite: oklch(0.115 0.004 264);    /* the darkest band, still readable */
-  --color-graphite-soft: oklch(0.24 0.006 264);
-  --color-cork: oklch(0.72 0.125 55);          /* the one warm signal */
-  --color-cork-bright: oklch(0.8 0.13 58);
-  --color-cork-deep: oklch(0.75 0.13 56);      /* on dark, "deep" must go brighter */
-
-  background-color: var(--color-paper);
-  color: var(--color-ink);
-}
-
-/* Viewfinder chrome: the corner brackets that frame the stage */
+/* Viewfinder chrome: the corner brackets that frame the showcase */
 .viewfinder::before,
 .viewfinder::after,
 .viewfinder > .vf-b::before,

@@ -34,9 +34,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${archivo.variable} ${splineMono.variable} ${caveat.variable}`}>
-      {/* `stage` re-points every colour token to the dark set, so the whole surface
-          inverts from one class and every component keeps its semantic classes. */}
-      <body className="stage font-sans antialiased">
+      <body className="font-sans antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />

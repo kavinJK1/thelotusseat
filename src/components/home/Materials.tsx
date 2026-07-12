@@ -43,10 +43,10 @@ const materials = [
 
 export default function Materials() {
   return (
-    <section className="py-20 md:py-28 bg-graphite overflow-hidden">
+    <section className="py-20 md:py-28 bg-paper overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-12">
         <p className="mono-label text-[0.66rem] mb-5 flex items-center gap-2 text-ink-soft">
-          <span className="text-cork-bright">FIG. 04</span>
+          <span className="text-cork-deep">FIG. 04</span>
           <span className="w-6 h-px bg-line-strong" />
           MATERIALS
         </p>
@@ -71,10 +71,12 @@ export default function Materials() {
             {/* The material itself, photographed — not a gradient standing in for one */}
             <div className="relative aspect-square overflow-hidden" style={{ background: mat.swatch }}>
               <Image src={mat.photo} alt={mat.alt} fill sizes="(min-width: 640px) 380px, 82vw" className="object-cover" />
-              <span className="absolute top-4 left-4 mono-label text-[0.62rem] px-2 py-1 bg-graphite/85 text-ink">
+              {/* Sat on a photograph, so these carry their own contrast rather than
+                  inheriting the section's — a paper chip with graphite type. */}
+              <span className="absolute top-4 left-4 mono-label text-[0.62rem] px-2 py-1 bg-paper/90 text-ink">
                 {mat.part}
               </span>
-              <span className="absolute bottom-3 right-4 font-mono text-[0.72rem] tabular-nums px-1.5 py-0.5 bg-graphite/85 text-ink">
+              <span className="absolute bottom-3 right-4 font-mono text-[0.72rem] tabular-nums px-1.5 py-0.5 bg-paper/90 text-ink">
                 {mat.id}
               </span>
             </div>
@@ -83,7 +85,7 @@ export default function Materials() {
             <div className="px-6 py-6">
               <h3 className="font-display font-semibold text-ink text-lg tracking-[-0.01em] mb-3">{mat.name}</h3>
               <p className="text-ink-soft text-sm leading-relaxed mb-6">{mat.claim}</p>
-              <p className="font-mono text-[0.66rem] text-cork-bright tracking-[0.02em] border-t border-line pt-4">
+              <p className="font-mono text-[0.66rem] text-cork-deep tracking-[0.02em] border-t border-line pt-4">
                 {mat.spec}
               </p>
             </div>

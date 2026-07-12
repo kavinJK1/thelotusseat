@@ -3,10 +3,10 @@ import FadeIn from '@/components/FadeIn'
 
 export default function CTASection() {
   return (
-    <section className="py-20 md:py-28 bg-surface border-t border-line">
+    <section className="py-20 md:py-28 bg-paper border-t border-line">
       <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <FadeIn>
-          <div className="reg-frame border border-line-strong bg-paper px-6 sm:px-12 py-14 text-center">
+          <div className="reg-frame border border-line-strong bg-surface px-6 sm:px-12 py-14 text-center">
             <p className="mono-label text-[0.66rem] mb-6 flex items-center justify-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cork inline-block" />
               <span className="text-cork-deep">PRE-ORDER OPEN</span>

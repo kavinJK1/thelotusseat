@@ -23,6 +23,38 @@ type CushionSketchProps = {
 /** Each stroke draws over a slice of the chapter, in the order a hand would draw it. */
 type Stroke = { d: string; start: number; span: number; w?: number; accent?: boolean }
 
+/**
+ * One lotus petal: a closed teardrop from the flower's base out to its tip, bowed
+ * either side of its own axis. Angles run clockwise from straight up.
+ */
+function petal(cx: number, cy: number, deg: number, len: number): string {
+  const a = (deg * Math.PI) / 180
+  const [dx, dy] = [Math.sin(a), -Math.cos(a)] // along the petal
+  const [px, py] = [Math.cos(a), Math.sin(a)] // across it
+  const w = len * 0.23
+  const belly = 0.42 // where the petal is widest, along its length
+  const tip = [cx + dx * len, cy + dy * len]
+  const l = [cx + dx * len * belly + px * w, cy + dy * len * belly + py * w]
+  const r = [cx + dx * len * belly - px * w, cy + dy * len * belly - py * w]
+  const n = (v: number) => Math.round(v * 10) / 10
+  return `M${n(cx)},${n(cy)} Q${n(l[0])},${n(l[1])} ${n(tip[0])},${n(tip[1])} Q${n(r[0])},${n(r[1])} ${n(cx)},${n(cy)} Z`
+}
+
+/** The full bloom: a crown petal, then matched pairs opening out to the near-horizontal. */
+const LOTUS = (() => {
+  const [cx, cy] = [463, 228]
+  const ring: Array<[number, number]> = [
+    [0, 62],
+    [26, 57],
+    [52, 49],
+    [78, 41],
+    [102, 33],
+  ]
+  return ring
+    .flatMap(([deg, len]) => (deg === 0 ? [petal(cx, cy, 0, len)] : [petal(cx, cy, -deg, len), petal(cx, cy, deg, len)]))
+    .join(' ')
+})()
+
 const STROKES: Stroke[] = [
   // Traced from the front elevation. The cushion is a rounded TRAPEZOID — narrower
   // across the raised back, wider at the seat — not a rounded rectangle.
@@ -61,14 +93,8 @@ const STROKES: Stroke[] = [
   // Piping along the bottom edge
   { d: 'M276,470 C380,486 548,486 650,470', start: 0.58, span: 0.08, w: 1.3 },
 
-  // The lotus, hand-set in gold on the back panel
-  {
-    d: 'M463,196 C459,180 463,168 463,162 C463,168 467,180 463,196 M447,198 C437,186 433,176 431,168 C439,176 447,186 447,198 M479,198 C489,186 493,176 495,168 C487,176 479,186 479,198 M435,204 C421,198 411,192 405,188 C415,194 425,200 435,204 M491,204 C505,198 515,192 521,188 C511,194 501,200 491,204',
-    start: 0.62,
-    span: 0.14,
-    w: 1.7,
-    accent: true,
-  },
+  // The lotus, hand-set in gold on the back panel — the full bloom, nine petals.
+  { d: LOTUS, start: 0.62, span: 0.14, w: 1.7, accent: true },
 ]
 
 type Callout = {
