@@ -2,6 +2,16 @@
 
 import Image from 'next/image'
 import { useRef, useState, useEffect } from 'react'
+import FeatureDiagram from './FeatureDiagram'
+import FeatureScene from './FeatureScene'
+
+/**
+ * `photo` is what ships: a photograph of the real unit, with a measured inset for
+ * the claims a camera cannot state. `model` swaps the figure for a live 3D scene
+ * that flies to each system's view — rendered at /preview/features-3d so the two
+ * can be compared without either being committed to.
+ */
+type FigureMode = 'photo' | 'model'
 
 const features = [
   {
@@ -61,9 +71,10 @@ const features = [
   },
 ]
 
-export default function Features() {
+export default function Features({ figure = 'photo' }: { figure?: FigureMode }) {
   const [active, setActive] = useState(0)
   const panelRefs = useRef<(HTMLDivElement | null)[]>([])
+  const isModel = figure === 'model'
 
   useEffect(() => {
     const observers = features.map((_, i) => {
@@ -101,28 +112,36 @@ export default function Features() {
             <div className="sticky top-20 h-[calc(100vh-6rem)] flex items-center">
               <figure className="reg-frame relative w-full max-w-[520px] mx-auto border border-line bg-paper overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
                 <div aria-hidden className="absolute inset-0 tech-grid opacity-30" />
-                {features.map((f, i) => (
-                  <div
-                    key={f.id}
-                    aria-hidden={i !== active}
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      opacity: i === active ? 1 : 0,
-                      transform: `scale(${i === active ? f.zoom.scale : f.zoom.scale * 0.97})`,
-                      transformOrigin: f.zoom.origin,
-                      transition: 'opacity 600ms ease, transform 900ms cubic-bezier(0.22,1,0.36,1)',
-                      pointerEvents: 'none',
-                    }}
-                  >
-                    <Image src={f.image} alt={f.alt} fill sizes="(min-width: 768px) 520px, 100vw" className="object-cover" />
-                  </div>
-                ))}
+
+                {isModel ? (
+                  <FeatureScene activeId={features[active].id} />
+                ) : (
+                  features.map((f, i) => (
+                    <div
+                      key={f.id}
+                      aria-hidden={i !== active}
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        opacity: i === active ? 1 : 0,
+                        transform: `scale(${i === active ? f.zoom.scale : f.zoom.scale * 0.97})`,
+                        transformOrigin: f.zoom.origin,
+                        transition: 'opacity 600ms ease, transform 900ms cubic-bezier(0.22,1,0.36,1)',
+                        pointerEvents: 'none',
+                      }}
+                    >
+                      <Image src={f.image} alt={f.alt} fill sizes="(min-width: 768px) 520px, 100vw" className="object-cover" />
+                    </div>
+                  ))
+                )}
 
                 {/* Chipped: the photograph is the brightest thing on the stage. */}
                 <figcaption className="absolute top-2.5 left-3 z-10 mono-label text-[0.62rem] bg-paper/85 text-ink px-1.5 py-0.5 rounded-[2px]">
-                  {features[active].label} · DETAIL
+                  {features[active].label} · {isModel ? 'MODEL' : 'DETAIL'}
                 </figcaption>
+
+                {/* The photo proves the object; this states the measurement it can't. */}
+                <FeatureDiagram id={features[active].id} />
 
                 {/* Progress ticks */}
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 flex flex-col gap-1.5 z-10">
@@ -162,6 +181,7 @@ export default function Features() {
                   <figcaption className="absolute top-2.5 left-3 mono-label text-[0.62rem] bg-paper/85 text-ink px-1.5 py-0.5 rounded-[2px]">
                     {feature.label}
                   </figcaption>
+                  <FeatureDiagram id={feature.id} />
                 </figure>
 
                 <div

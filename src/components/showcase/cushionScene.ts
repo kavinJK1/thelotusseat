@@ -8,8 +8,18 @@ import { CAMERA_KEYS, type CameraKey } from './cushionKeys'
  * wedge profile instead of floating above a guessed surface.
  */
 
+/** A camera placement, free of any scroll position. */
+export type CameraPose = Omit<CameraKey, 'p'>
+
 export type CushionScene = {
+  /** Scroll-driven: interpolates CAMERA_KEYS at `progress` (0..1). */
   render: (progress: number) => void
+  /**
+   * Camera-driven: frames the model from an explicit pose. Callers that are not a
+   * scroll timeline should use this — reusing `render(progress)` to reach an angle
+   * silently couples them to keyframes tuned for a different canvas aspect.
+   */
+  renderPose: (pose: CameraPose) => void
   /** 1 = white-line engineering drawing, 0 = the finished object in its materials. */
   setWireframe: (w: number) => void
   resize: (width: number, height: number) => void
@@ -901,6 +911,13 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
   const LIFT_BASE = cushion.position.z,
     LIFT_MM = 175
 
+  function renderPose({ th, ph, d, ty, lift }: CameraPose) {
+    camera.position.set(d * Math.sin(ph) * Math.cos(th), ty + d * Math.cos(ph), d * Math.sin(ph) * Math.sin(th))
+    camera.lookAt(0, ty, 0)
+    cushion.position.z = LIFT_BASE + lift * LIFT_MM // root is x-rotated: local z is world up
+    renderer.render(scene, camera)
+  }
+
   function render(p: number) {
     let i = 0
     while (i < CAMERA_KEYS.length - 2 && p >= CAMERA_KEYS[i + 1].p) i++
@@ -908,15 +925,7 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
       b = CAMERA_KEYS[i + 1]
     const t = ease(Math.max(0, Math.min(1, (p - a.p) / (b.p - a.p))))
     const L = (k: keyof CameraKey) => a[k] + (b[k] - a[k]) * t
-    const th = L('th'),
-      ph = L('ph'),
-      d = L('d'),
-      ty = L('ty'),
-      lift = L('lift')
-    camera.position.set(d * Math.sin(ph) * Math.cos(th), ty + d * Math.cos(ph), d * Math.sin(ph) * Math.sin(th))
-    camera.lookAt(0, ty, 0)
-    cushion.position.z = LIFT_BASE + lift * LIFT_MM // root is x-rotated: local z is world up
-    renderer.render(scene, camera)
+    renderPose({ th: L('th'), ph: L('ph'), d: L('d'), ty: L('ty'), lift: L('lift') })
   }
 
   function resize(w: number, h: number) {
@@ -933,5 +942,5 @@ export function createCushionScene(canvas: HTMLCanvasElement, objText: string, w
     renderer.dispose()
   }
 
-  return { render, setWireframe, resize, dispose }
+  return { render, renderPose, setWireframe, resize, dispose }
 }
