@@ -6,12 +6,15 @@ import FeatureDiagram from './FeatureDiagram'
 import FeatureScene from './FeatureScene'
 
 /**
- * `photo` is what ships: a photograph of the real unit, with a measured inset for
- * the claims a camera cannot state. `model` swaps the figure for a live 3D scene
- * that flies to each system's view — rendered at /preview/features-3d so the two
- * can be compared without either being committed to.
+ * The figure is a photograph of the real unit, plus a measured inset for the claims
+ * a camera cannot state.
+ *
+ * F-02 is the exception. "70 mm of latex under you" is the one claim no photograph of
+ * an assembled cushion can make — the core is inside the thing. So that panel alone
+ * gets the live model, which lifts the seat clear of the cork tray. The other four
+ * stay photographs: they prove the object is real, which a render cannot.
  */
-type FigureMode = 'photo' | 'model'
+const MODEL_ID = 'latex'
 
 const features = [
   {
@@ -71,10 +74,21 @@ const features = [
   },
 ]
 
-export default function Features({ figure = 'photo' }: { figure?: FigureMode }) {
+const modelIndex = features.findIndex((f) => f.id === MODEL_ID)
+
+export default function Features() {
   const [active, setActive] = useState(0)
   const panelRefs = useRef<(HTMLDivElement | null)[]>([])
-  const isModel = figure === 'model'
+
+  // Don't pay for the model unless the reader actually gets to F-02 — and once they
+  // have, keep it mounted so scrolling back past it doesn't rebuild the scene.
+  const [modelMounted, setModelMounted] = useState(false)
+  const [modelReady, setModelReady] = useState(false)
+  const isModelActive = active === modelIndex
+
+  useEffect(() => {
+    if (isModelActive) setModelMounted(true)
+  }, [isModelActive])
 
   useEffect(() => {
     const observers = features.map((_, i) => {
@@ -113,31 +127,44 @@ export default function Features({ figure = 'photo' }: { figure?: FigureMode }) 
               <figure className="reg-frame relative w-full max-w-[520px] mx-auto border border-line bg-paper overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
                 <div aria-hidden className="absolute inset-0 tech-grid opacity-30" />
 
-                {isModel ? (
-                  <FeatureScene activeId={features[active].id} />
-                ) : (
-                  features.map((f, i) => (
-                    <div
-                      key={f.id}
-                      aria-hidden={i !== active}
-                      style={{
-                        position: 'absolute',
-                        inset: 0,
-                        opacity: i === active ? 1 : 0,
-                        transform: `scale(${i === active ? f.zoom.scale : f.zoom.scale * 0.97})`,
-                        transformOrigin: f.zoom.origin,
-                        transition: 'opacity 600ms ease, transform 900ms cubic-bezier(0.22,1,0.36,1)',
-                        pointerEvents: 'none',
-                      }}
-                    >
-                      <Image src={f.image} alt={f.alt} fill sizes="(min-width: 768px) 520px, 100vw" className="object-cover" />
-                    </div>
-                  ))
+                {features.map((f, i) => (
+                  <div
+                    key={f.id}
+                    aria-hidden={i !== active}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      opacity: i === active ? 1 : 0,
+                      transform: `scale(${i === active ? f.zoom.scale : f.zoom.scale * 0.97})`,
+                      transformOrigin: f.zoom.origin,
+                      transition: 'opacity 600ms ease, transform 900ms cubic-bezier(0.22,1,0.36,1)',
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    <Image src={f.image} alt={f.alt} fill sizes="(min-width: 768px) 520px, 100vw" className="object-cover" />
+                  </div>
+                ))}
+
+                {/* F-02 only: the model rides on top of its own photograph, so the frame
+                    is never empty while the mesh is still being fetched and built. */}
+                {modelMounted && (
+                  <div
+                    aria-hidden
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      opacity: isModelActive && modelReady ? 1 : 0,
+                      transition: 'opacity 600ms ease',
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    <FeatureScene active={isModelActive} onReady={() => setModelReady(true)} />
+                  </div>
                 )}
 
-                {/* Chipped: the photograph is the brightest thing on the stage. */}
+                {/* Chipped: the figure is the brightest thing on the stage. */}
                 <figcaption className="absolute top-2.5 left-3 z-10 mono-label text-[0.62rem] bg-paper/85 text-ink px-1.5 py-0.5 rounded-[2px]">
-                  {features[active].label} · {isModel ? 'MODEL' : 'DETAIL'}
+                  {features[active].label} · {isModelActive && modelReady ? 'MODEL' : 'DETAIL'}
                 </figcaption>
 
                 {/* The photo proves the object; this states the measurement it can't. */}
