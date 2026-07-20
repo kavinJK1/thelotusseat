@@ -27,6 +27,10 @@ export const homeFaqs: readonly Faq[] = [
     a: 'All seated cross-legged postures: Siddhasana, Sukhasana (easy pose), Burmese, Half Lotus, and variations. It works equally for mindfulness, breathwork, and Vipassana-style practice. It is not designed for kneeling or seiza practice, where a kneeling bench is the correct tool.',
   },
   {
+    q: 'Does it work for full lotus (Padmasana)?',
+    a: 'Yes. Full lotus is the most demanding seated posture, and it is where pelvic support matters most — the deep fold makes an upright spine harder to hold. The 8° forward tilt and firm latex base take that postural load off the hips, so an advanced seat becomes sustainable rather than something you endure. It supports Half Lotus, Siddhasana, Sukhasana and Burmese equally.',
+  },
+  {
     q: 'Is it suitable for beginners?',
     a: 'Especially so. Beginners often abandon practice because of discomfort. The ergonomic support makes sitting immediately more accessible, letting you build a consistent habit before the body has fully adapted to the posture.',
   },

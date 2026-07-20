@@ -11,7 +11,9 @@ const specs = [
   { label: 'Cover fabric', value: 'Cotton-poly / linen · 300–350 GSM' },
   { label: 'Cover colour', value: 'Warm ivory / natural cream' },
   { label: 'Detail', value: 'Tone-on-tone lotus embroidery' },
+  { label: 'Weight', value: '≈ 2 kg' },
   { label: 'Postures', value: 'Siddhasana · Sukhasana · Burmese · Half Lotus' },
+  { label: 'Warranty', value: '2 years · 30-day return' },
 ]
 
 export default function Specs() {

@@ -3,9 +3,11 @@
 /*
   The Lotus Seat — "instrument-grade" design system.
   Register: brand. Aesthetic lane: technical documentation / measured drawing.
-  Near-monochrome graphite on cool drafting-paper, with a single earned cork
-  material accent. Warmth lives in the accent + imagery, never the body bg.
-  All colours in OKLCH.
+  Graphite ink on a *warm* drafting-paper — ivory/soft-sand rather than cool grey —
+  with an earned natural-cork accent leaned into. The measured-drawing rigour of the
+  old cool system is kept; only the temperature moved, toward the master brief's
+  warm-white / ivory / natural-beige palette. Warmth now lives in the ground *and*
+  the accent, never in decoration. All colours in OKLCH.
 */
 
 @theme {
@@ -17,20 +19,22 @@
      not Playfair. No serif ships anywhere on the site. */
   --font-serif: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 
-  /* Core palette */
-  --color-paper: oklch(0.985 0.002 250);   /* cool drafting-paper page bg */
-  --color-surface: oklch(0.958 0.004 250);  /* raised / alternating band */
-  --color-ink: oklch(0.22 0.008 264);       /* graphite near-black text */
-  --color-ink-soft: oklch(0.455 0.008 264); /* secondary text — AA on paper */
-  --color-line: oklch(0.9 0.004 264);       /* hairline rules */
-  --color-line-strong: oklch(0.8 0.005 264);/* emphasised rule / borders */
-  --color-graphite: oklch(0.205 0.008 264); /* ink-dark fill: buttons, chips */
-  --color-graphite-soft: oklch(0.27 0.008 264); /* their hover state */
+  /* Core palette — warm ivory ground, graphite ink kept near-black (matte-black
+     accent per brief). Hue ~85 = ivory/sand; ink carries a whisper of the same
+     warmth so black-on-ivory never reads blue. Contrast held at WCAG AA. */
+  --color-paper: oklch(0.987 0.007 90);     /* warm ivory / warm-white page bg */
+  --color-surface: oklch(0.957 0.011 86);   /* soft sand — raised / alt band */
+  --color-ink: oklch(0.225 0.006 72);       /* graphite matte-black text */
+  --color-ink-soft: oklch(0.452 0.012 68);  /* secondary text — AA on ivory */
+  --color-line: oklch(0.9 0.008 84);        /* hairline rules */
+  --color-line-strong: oklch(0.8 0.012 82); /* emphasised rule / borders */
+  --color-graphite: oklch(0.21 0.006 72);   /* ink-dark fill: buttons, chips */
+  --color-graphite-soft: oklch(0.27 0.007 72); /* their hover state */
 
-  /* The one accent — natural cork / clay */
-  --color-cork: oklch(0.63 0.108 52);
-  --color-cork-bright: oklch(0.7 0.12 55);
-  --color-cork-deep: oklch(0.5 0.1 48);     /* AA cork text on paper */
+  /* The one accent — natural cork / clay, leaned into a touch more */
+  --color-cork: oklch(0.635 0.116 52);
+  --color-cork-bright: oklch(0.7 0.125 55);
+  --color-cork-deep: oklch(0.5 0.104 48);   /* AA cork text on paper */
 
   /* Back-compat aliases so untouched inner pages don't visually break.
      Old warm names now point at the cool clinical values. */

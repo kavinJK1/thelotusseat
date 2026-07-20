@@ -6,6 +6,8 @@ import CushionScrollShowcase from '@/components/showcase/CushionScrollShowcase'
 import WhySection from '@/components/home/WhySection'
 import Features from '@/components/home/Features'
 import Materials from '@/components/home/Materials'
+import MeditationPostures from '@/components/home/MeditationPostures'
+import Gallery from '@/components/home/Gallery'
 import Specs from '@/components/home/Specs'
 import Lifestyle from '@/components/home/Lifestyle'
 import HomeFAQ from '@/components/home/HomeFAQ'
@@ -39,6 +41,10 @@ export default function Home() {
       <WhySection />
       <Features />
       <Materials />
+      {/* Brief §6–7: introduce the classical seated postures, then show the object
+          from every angle, before the specification closes the argument. */}
+      <MeditationPostures />
+      <Gallery />
       <Specs />
       <Lifestyle />
       <HomeFAQ />
