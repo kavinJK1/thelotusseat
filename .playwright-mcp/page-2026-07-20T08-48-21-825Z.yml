@@ -1,0 +1,399 @@
+- generic [active] [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - link "Lotus Seat LS‑01" [ref=f2e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f2e5]: Lotus Seat
+        - generic [ref=f2e6]: LS‑01
+      - navigation [ref=f2e7]:
+        - link "Product" [ref=f2e8] [cursor=pointer]:
+          - /url: /product
+        - link "The Science" [ref=f2e9] [cursor=pointer]:
+          - /url: /science
+        - link "Cushion Guide" [ref=f2e10] [cursor=pointer]:
+          - /url: /meditation-cushion-guide
+        - link "About" [ref=f2e11] [cursor=pointer]:
+          - /url: /about
+        - link "FAQ" [ref=f2e12] [cursor=pointer]:
+          - /url: /faq
+      - link "Pre‑Order ↗" [ref=f2e14] [cursor=pointer]:
+        - /url: /checkout
+        - text: Pre‑Order
+        - generic [ref=f2e15]: ↗
+  - main [ref=f2e16]:
+    - generic [ref=f2e17]:
+      - img [ref=f2e19]:
+        - generic [ref=f2e48]: ॐ
+      - generic [ref=f2e60]:
+        - generic [ref=f2e61]: The Lotus Seat
+        - generic [ref=f2e62]: Pre-order open
+      - generic [ref=f2e64]:
+        - generic [ref=f2e65]:
+          - heading "Sit better. Meditate longer." [level=1] [ref=f2e66]: Sit better.Meditate longer.
+          - paragraph [ref=f2e67]: Most cushions just add padding. The Lotus Seat gently tips you forward, so your back straightens on its own — and stays comfortable long after a normal cushion would have you shifting around.
+          - generic [ref=f2e68]:
+            - link "Pre-order now ↗" [ref=f2e69] [cursor=pointer]:
+              - /url: /checkout
+              - text: Pre-order now
+              - generic [ref=f2e70]: ↗
+            - link "See how it works" [ref=f2e71] [cursor=pointer]:
+              - /url: "#problem"
+          - paragraph [ref=f2e72]:
+            - generic [ref=f2e73]: €199
+            - generic [ref=f2e74]: ·
+            - generic [ref=f2e75]: Ships March 2027
+            - generic [ref=f2e76]: ·
+            - generic [ref=f2e77]: Cancel any time before it ships
+          - generic [ref=f2e78]:
+            - generic [ref=f2e79]:
+              - term [ref=f2e80]: 8°
+              - definition [ref=f2e81]: Forward tilt
+            - generic [ref=f2e82]:
+              - term [ref=f2e83]: Latex
+              - definition [ref=f2e84]: Firm, springy
+            - generic [ref=f2e85]:
+              - term [ref=f2e86]: 30–60m
+              - definition [ref=f2e87]: Comfortable sitting
+        - figure [ref=f2e88]:
+          - generic [ref=f2e89]:
+            - 'img "The Lotus Seat: a cream cotton-linen meditation seat with a terracotta back panel and gold lotus, on a solid cork base" [ref=f2e90]'
+            - generic [ref=f2e91]: 8° tilt
+            - generic [ref=f2e94]: Tailbone relief
+      - generic [ref=f2e97]: Scroll
+    - generic [ref=f2e102]:
+      - generic [ref=f2e103]:
+        - paragraph [ref=f2e104]: 01 — The problem
+        - generic [ref=f2e105]:
+          - heading "It’s almost never your mind that ends a sit early." [level=2] [ref=f2e106]
+          - paragraph [ref=f2e107]: It’s your body. And a softer cushion doesn’t fix any of it — because the real problem isn’t padding, it’s posture.
+      - generic [ref=f2e108]:
+        - generic [ref=f2e110]:
+          - text: "01"
+          - heading "Your back slumps" [level=3] [ref=f2e111]
+          - paragraph [ref=f2e112]: A flat cushion lets your hips roll backward. Your spine curves, your shoulders round, and holding yourself up becomes work.
+        - generic [ref=f2e114]:
+          - text: "02"
+          - heading "Your tailbone aches" [level=3] [ref=f2e115]
+          - paragraph [ref=f2e116]: All your weight presses onto one small spot. After a while, it’s the only thing you can feel.
+        - generic [ref=f2e118]:
+          - text: "03"
+          - heading "Your legs go numb" [level=3] [ref=f2e119]
+          - paragraph [ref=f2e120]: Poor support squeezes the blood flow in your legs, and your feet start to fall asleep within minutes.
+        - generic [ref=f2e122]:
+          - text: "04"
+          - heading "You keep shifting" [level=3] [ref=f2e123]
+          - paragraph [ref=f2e124]: So you fidget and re-adjust to find a bearable position — and every time, your focus goes with it.
+    - generic [ref=f2e127]:
+      - generic [ref=f2e128]:
+        - paragraph [ref=f2e129]: 02 — The solution
+        - heading "A seat that puts you in the right posture — for you." [level=2] [ref=f2e130]
+        - paragraph [ref=f2e131]: You shouldn’t have to concentrate on sitting up straight. The Lotus Seat does the work, so all that’s left is the practice.
+        - list [ref=f2e132]:
+          - listitem [ref=f2e133]:
+            - generic [ref=f2e134]: "01"
+            - generic [ref=f2e135]:
+              - heading "It tips you forward" [level=3] [ref=f2e136]
+              - paragraph [ref=f2e137]: The whole seat leans forward by 8°. That small angle rolls your hips into the right spot, so your back stacks up straight — you don’t have to hold it there.
+          - listitem [ref=f2e138]:
+            - generic [ref=f2e139]: "02"
+            - generic [ref=f2e140]:
+              - heading "It holds you up" [level=3] [ref=f2e141]
+              - paragraph [ref=f2e142]: Firm, springy latex supports your weight without letting you sink. You stay upright the whole sit, not just the first few minutes.
+          - listitem [ref=f2e143]:
+            - generic [ref=f2e144]: "03"
+            - generic [ref=f2e145]:
+              - heading "It takes the pressure off" [level=3] [ref=f2e146]
+              - paragraph [ref=f2e147]: A soft dip down the middle keeps your tailbone from pressing into the seat — the one spot that usually starts to ache first.
+      - figure [ref=f2e149]:
+        - img "Side view of the Lotus Seat, rising from a thin front edge up to a higher back over its cork base" [ref=f2e151]
+    - generic [ref=f2e153]:
+      - generic [ref=f2e154]:
+        - paragraph [ref=f2e155]: The difference you can see
+        - generic [ref=f2e156]:
+          - heading "Same person. Two cushions." [level=2] [ref=f2e157]
+          - paragraph [ref=f2e158]: Nothing about the person changes between these two — only what they’re sitting on.
+      - generic [ref=f2e159]:
+        - figure [ref=f2e161]:
+          - heading "On a flat cushion" [level=3] [ref=f2e163]
+          - img "Side-elevation comparison. On a flat round zafu the pelvis rotates 14 degrees backward, the lumbar spine collapses into a C-curve, and the head carries about 55 millimetres forward of the sacrum — a load the back muscles hold for the whole sit. On the Lotus Seat's 8-degree wedge the pelvis rotates 8 degrees forward, the lumbar curve returns, and the spine stacks over the sacrum." [ref=f2e165]:
+            - generic [ref=f2e166]: FLAT ZAFU
+            - generic [ref=f2e169]:
+              - generic [ref=f2e172]: LOTUS SEAT · LS-01
+              - generic [ref=f2e173]: 8°
+            - generic [ref=f2e176]: Δ 55 mm
+            - generic [ref=f2e195]: PELVIS −14°
+            - generic [ref=f2e196]: C-CURVE · LOADED
+          - paragraph [ref=f2e197]: Hips roll back. The spine curves into a C, and the head drifts out in front of the body.
+        - figure [ref=f2e199]:
+          - heading "On the Lotus Seat" [level=3] [ref=f2e201]
+          - img "Side-elevation comparison. On a flat round zafu the pelvis rotates 14 degrees backward, the lumbar spine collapses into a C-curve, and the head carries about 55 millimetres forward of the sacrum — a load the back muscles hold for the whole sit. On the Lotus Seat's 8-degree wedge the pelvis rotates 8 degrees forward, the lumbar curve returns, and the spine stacks over the sacrum." [ref=f2e203]:
+            - generic [ref=f2e204]: FLAT ZAFU
+            - generic [ref=f2e207]:
+              - generic [ref=f2e210]: LOTUS SEAT · LS-01
+              - generic [ref=f2e211]: 8°
+            - generic [ref=f2e214]: Δ 4 mm
+            - generic [ref=f2e233]: PELVIS +8°
+            - generic [ref=f2e234]: STACKED · NEUTRAL
+          - paragraph [ref=f2e235]: Hips tip forward. The spine stacks up straight, and the head sits balanced right over the body.
+    - generic [ref=f2e238]:
+      - generic [ref=f2e239]:
+        - paragraph [ref=f2e240]: 03 — The design
+        - heading "Simple to sit on. Considered underneath." [level=2] [ref=f2e241]
+        - paragraph [ref=f2e242]: Three layers, each doing one job. Together they hold you in a posture that would otherwise take real effort to keep.
+        - list [ref=f2e243]:
+          - listitem [ref=f2e244]:
+            - generic [ref=f2e245]: "01"
+            - generic [ref=f2e246]:
+              - heading "A gentle tilt" [level=3] [ref=f2e247]
+              - paragraph [ref=f2e248]: The seat leans forward 8°, so your hips do the right thing on their own — no propping, no folded blankets.
+          - listitem [ref=f2e249]:
+            - generic [ref=f2e250]: "02"
+            - generic [ref=f2e251]:
+              - heading "Springy, not sinking" [level=3] [ref=f2e252]
+              - paragraph [ref=f2e253]: Natural latex pushes back and keeps its shape. Memory foam lets you sink in and slump; latex holds you up and breathes.
+          - listitem [ref=f2e254]:
+            - generic [ref=f2e255]: "03"
+            - generic [ref=f2e256]:
+              - heading "Room for your tailbone" [level=3] [ref=f2e257]
+              - paragraph [ref=f2e258]: A shaped dip down the middle keeps the pressure off the spot that usually aches first.
+      - figure "The seat, cut through from the side" [ref=f2e260]:
+        - 'img "A cut-through of the Lotus Seat from the side: a tilted cork base at the bottom, a firm latex base layer above it, a shaped top layer that rises toward the back, and a dip down the middle that takes pressure off the tailbone." [ref=f2e265]':
+          - generic [ref=f2e266]: FLOOR
+          - generic [ref=f2e271]: 8°
+          - generic [ref=f2e273]: DIP FOR YOUR TAILBONE
+          - generic [ref=f2e276]: SHAPED TOP
+          - generic [ref=f2e277]: higher at the back
+          - generic [ref=f2e279]: FIRM LATEX
+          - generic [ref=f2e280]: springy support
+          - generic [ref=f2e282]: TILTED CORK BASE
+    - generic [ref=f2e283]:
+      - img [ref=f2e285]:
+        - generic [ref=f2e314]: ॐ
+      - generic [ref=f2e315]:
+        - generic [ref=f2e316]:
+          - generic [ref=f2e317]:
+            - paragraph [ref=f2e318]: See it from every side
+            - heading "The seat, in three dimensions." [level=2] [ref=f2e319]
+          - paragraph [ref=f2e320]: A real 3D model, turning on its own — cork base, latex core and woven cover, from every angle.
+        - figure [ref=f2e321]:
+          - img "The Lotus Seat, cream cushion with a terracotta back and gold lotus on a cork base" [ref=f2e323]
+    - generic [ref=f2e326]:
+      - generic [ref=f2e327]:
+        - paragraph [ref=f2e328]: 04 — The details
+        - heading "Three honest materials, nothing you don’t need." [level=2] [ref=f2e329]
+      - generic [ref=f2e330]:
+        - article [ref=f2e332]:
+          - img "The bare cork base, its grain visible in raking light" [ref=f2e334]
+          - generic [ref=f2e335]:
+            - heading "Cork base" [level=3] [ref=f2e336]
+            - paragraph [ref=f2e337]: A solid, grippy base that stays put on any floor. Naturally antibacterial, and harvested without cutting down a single tree.
+        - article [ref=f2e339]:
+          - img "The latex cushion lifted clear of its cork base, showing its full depth" [ref=f2e341]
+          - generic [ref=f2e342]:
+            - heading "Natural latex" [level=3] [ref=f2e343]
+            - paragraph [ref=f2e344]: Firm, springy and breathable. It supports you without going flat or trapping heat, sit after sit.
+        - article [ref=f2e346]:
+          - img "The woven cover from behind, with the lotus embroidered on the raised back" [ref=f2e348]
+          - generic [ref=f2e349]:
+            - heading "Woven cotton cover" [level=3] [ref=f2e350]
+            - paragraph [ref=f2e351]: Soft, durable and removable for washing. Finished with a small lotus stitched into the back panel.
+      - generic [ref=f2e353]:
+        - paragraph [ref=f2e355]: The plain facts
+        - generic [ref=f2e356]:
+          - generic [ref=f2e357]:
+            - term [ref=f2e358]: Size
+            - definition [ref=f2e359]: 500 × 440 mm
+          - generic [ref=f2e360]:
+            - term [ref=f2e361]: Weight
+            - definition [ref=f2e362]: About 2 kg
+          - generic [ref=f2e363]:
+            - term [ref=f2e364]: Forward tilt
+            - definition [ref=f2e365]: 8°
+          - generic [ref=f2e366]:
+            - term [ref=f2e367]: Base
+            - definition [ref=f2e368]: Natural cork
+          - generic [ref=f2e369]:
+            - term [ref=f2e370]: Cushion
+            - definition [ref=f2e371]: Natural latex
+          - generic [ref=f2e372]:
+            - term [ref=f2e373]: Cover
+            - definition [ref=f2e374]: Cotton-linen, removable & washable
+          - generic [ref=f2e375]:
+            - term [ref=f2e376]: Warranty
+            - definition [ref=f2e377]: 2 years · 30-day returns
+    - generic [ref=f2e379]:
+      - generic [ref=f2e380]:
+        - generic [ref=f2e381]:
+          - paragraph [ref=f2e382]: The pictures
+          - heading "A closer look at the real thing." [level=2] [ref=f2e383]
+        - paragraph [ref=f2e384]: Photos of the actual seat — every side, up close. No renders, no stock.
+      - generic [ref=f2e385]:
+        - figure "FRONT · THREE-QUARTER G-01" [ref=f2e387]:
+          - img "The Lotus Seat in three-quarter front elevation — cream cotton-linen cushion, terracotta yoke and cork base" [ref=f2e388]
+          - generic [ref=f2e389]:
+            - generic [ref=f2e390]: FRONT · THREE-QUARTER
+            - generic [ref=f2e391]: G-01
+        - figure "SIDE PROFILE G-02" [ref=f2e393]:
+          - img "Side profile of the seat, the comfort layer ramping from a thin front edge to a raised rear crest" [ref=f2e394]
+          - generic [ref=f2e395]:
+            - generic [ref=f2e396]: SIDE PROFILE
+            - generic [ref=f2e397]: G-02
+        - figure "REAR · LOTUS DETAIL G-03" [ref=f2e399]:
+          - img "Rear view of the seat showing the tone-on-tone lotus embroidery on the raised back panel" [ref=f2e400]
+          - generic [ref=f2e401]:
+            - generic [ref=f2e402]: REAR · LOTUS DETAIL
+            - generic [ref=f2e403]: G-03
+        - figure "COVER · CLOSE G-04" [ref=f2e405]:
+          - img "Close-up of the woven cotton-linen cover and quilted contour seams" [ref=f2e406]
+          - generic [ref=f2e407]:
+            - generic [ref=f2e408]: COVER · CLOSE
+            - generic [ref=f2e409]: G-04
+        - figure "CORK BASE G-05" [ref=f2e411]:
+          - img "The bare cork composite base, its grain and moulded rim visible in raking light" [ref=f2e412]
+          - generic [ref=f2e413]:
+            - generic [ref=f2e414]: CORK BASE
+            - generic [ref=f2e415]: G-05
+        - figure "LATEX CORE G-06" [ref=f2e417]:
+          - img "The latex cushion lifted clear of its cork tray, showing the full depth of the core" [ref=f2e418]
+          - generic [ref=f2e419]:
+            - generic [ref=f2e420]: LATEX CORE
+            - generic [ref=f2e421]: G-06
+    - generic [ref=f2e423]:
+      - generic [ref=f2e424]:
+        - paragraph [ref=f2e425]:
+          - generic [ref=f2e426]: REFERENCE
+          - text: FAQ
+        - heading "Common questions." [level=2] [ref=f2e428]
+      - generic [ref=f2e429]:
+        - generic [ref=f2e430]:
+          - heading [level=3] [ref=f2e431]:
+            - button "01 How is this different from a normal meditation cushion?" [expanded] [ref=f2e432]:
+              - generic [ref=f2e433]:
+                - generic [ref=f2e434]: "01"
+                - generic [ref=f2e435]: How is this different from a normal meditation cushion?
+          - paragraph [ref=f2e440]: A normal cushion just adds padding under you. The Lotus Seat is shaped to tilt you forward by 8°, which rolls your hips into the right position so your back straightens on its own. Better posture is what makes it comfortable — not softness.
+        - heading [level=3] [ref=f2e442]:
+          - button "02 Why latex instead of memory foam?" [ref=f2e443]:
+            - generic [ref=f2e444]:
+              - generic [ref=f2e445]: "02"
+              - generic [ref=f2e446]: Why latex instead of memory foam?
+        - heading [level=3] [ref=f2e451]:
+          - button "03 Which ways of sitting does it work for?" [ref=f2e452]:
+            - generic [ref=f2e453]:
+              - generic [ref=f2e454]: "03"
+              - generic [ref=f2e455]: Which ways of sitting does it work for?
+        - heading [level=3] [ref=f2e460]:
+          - button "04 Is it good for beginners?" [ref=f2e461]:
+            - generic [ref=f2e462]:
+              - generic [ref=f2e463]: "04"
+              - generic [ref=f2e464]: Is it good for beginners?
+        - heading [level=3] [ref=f2e469]:
+          - button "05 How long can I sit comfortably?" [ref=f2e470]:
+            - generic [ref=f2e471]:
+              - generic [ref=f2e472]: "05"
+              - generic [ref=f2e473]: How long can I sit comfortably?
+        - heading [level=3] [ref=f2e478]:
+          - button "06 How do I clean it?" [ref=f2e479]:
+            - generic [ref=f2e480]:
+              - generic [ref=f2e481]: "06"
+              - generic [ref=f2e482]: How do I clean it?
+        - heading [level=3] [ref=f2e487]:
+          - button "07 When will it ship?" [ref=f2e488]:
+            - generic [ref=f2e489]:
+              - generic [ref=f2e490]: "07"
+              - generic [ref=f2e491]: When will it ship?
+        - heading [level=3] [ref=f2e496]:
+          - button "08 What if it doesn’t work for me?" [ref=f2e497]:
+            - generic [ref=f2e498]:
+              - generic [ref=f2e499]: "08"
+              - generic [ref=f2e500]: What if it doesn’t work for me?
+    - generic [ref=f2e504]:
+      - img [ref=f2e506]:
+        - generic [ref=f2e535]: ॐ
+      - generic [ref=f2e548]:
+        - paragraph [ref=f2e549]: Pre-order open
+        - heading "Reserve yours." [level=2] [ref=f2e551]
+        - paragraph [ref=f2e552]: The Lotus Seat is made in small batches. Pre-order now to claim one from the first run. We charge today to hold your seat, and you can cancel for a full refund any time before it ships.
+        - generic [ref=f2e553]:
+          - link "Pre-Order Now ↗" [ref=f2e554] [cursor=pointer]:
+            - /url: /checkout
+            - text: Pre-Order Now
+            - generic [ref=f2e555]: ↗
+          - link "View full specifications" [ref=f2e556] [cursor=pointer]:
+            - /url: /product
+        - generic [ref=f2e557]:
+          - generic [ref=f2e558]:
+            - term [ref=f2e559]: Ships March 2027
+            - definition [ref=f2e560]: First production run, fulfilled in order of receipt
+          - generic [ref=f2e561]:
+            - term [ref=f2e562]: Cancel any time before dispatch
+            - definition [ref=f2e563]: Full refund, no questions asked
+          - generic [ref=f2e564]:
+            - term [ref=f2e565]: 30-day returns
+            - definition [ref=f2e566]: From delivery, if it does not suit your practice
+          - generic [ref=f2e567]:
+            - term [ref=f2e568]: 2-year warranty
+            - definition [ref=f2e569]: Materials and workmanship
+  - contentinfo [ref=f2e570]:
+    - generic [ref=f2e571]:
+      - generic [ref=f2e572]:
+        - generic [ref=f2e573]:
+          - link "Lotus Seat" [ref=f2e574] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f2e575]: An ergonomic meditation seat engineered around the biomechanics of seated posture. Sit better, meditate longer.
+          - generic [ref=f2e576]:
+            - link "Instagram" [ref=f2e577] [cursor=pointer]:
+              - /url: "#"
+            - link "Facebook" [ref=f2e582] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=f2e585]:
+          - heading "Product" [level=4] [ref=f2e586]
+          - list [ref=f2e587]:
+            - listitem [ref=f2e588]:
+              - link "The Seat" [ref=f2e589] [cursor=pointer]:
+                - /url: /product
+            - listitem [ref=f2e590]:
+              - link "The Science" [ref=f2e591] [cursor=pointer]:
+                - /url: /science
+            - listitem [ref=f2e592]:
+              - link "FAQ" [ref=f2e593] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=f2e594]:
+          - heading "Guides" [level=4] [ref=f2e595]
+          - list [ref=f2e596]:
+            - listitem [ref=f2e597]:
+              - link "Meditation Cushion Guide" [ref=f2e598] [cursor=pointer]:
+                - /url: /meditation-cushion-guide
+            - listitem [ref=f2e599]:
+              - link "Cushions for Back Pain" [ref=f2e600] [cursor=pointer]:
+                - /url: /meditation-cushion-for-back-pain
+            - listitem [ref=f2e601]:
+              - link "Vipassana & Retreat Sitting" [ref=f2e602] [cursor=pointer]:
+                - /url: /vipassana-meditation-cushion
+        - generic [ref=f2e603]:
+          - heading "Company" [level=4] [ref=f2e604]
+          - list [ref=f2e605]:
+            - listitem [ref=f2e606]:
+              - link "About" [ref=f2e607] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f2e608]:
+              - link "Contact" [ref=f2e609] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f2e610]:
+          - heading "Legal" [level=4] [ref=f2e611]
+          - list [ref=f2e612]:
+            - listitem [ref=f2e613]:
+              - link "Shipping & Returns" [ref=f2e614] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=f2e615]:
+              - link "Privacy Policy" [ref=f2e616] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=f2e617]:
+              - link "Terms & Conditions" [ref=f2e618] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=f2e619]:
+        - paragraph [ref=f2e620]: © 2026 THE LOTUS SEAT · ALL RIGHTS RESERVED
+        - link "Pre-Order Now ↗" [ref=f2e621] [cursor=pointer]:
+          - /url: /checkout
+          - text: Pre-Order Now
+          - generic [ref=f2e622]: ↗

@@ -83,11 +83,11 @@ const points = [
 
 export default function Design() {
   return (
-    <section id="design" className="scroll-mt-16 py-20 md:py-28 bg-paper border-t border-line">
+    <section id="design" className="scroll-mt-16 py-20 md:py-28 grad-mist border-t border-line">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-x-14 gap-y-12 items-center">
           <div>
-            <p className="mono-label text-[0.72rem] mb-4 text-cork-deep">03 — The design</p>
+            <p className="mono-label text-[0.72rem] mb-4">03 — The design</p>
             <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.02] text-[clamp(1.9rem,4vw,3rem)]">
               Simple to sit on. Considered underneath.
             </h2>

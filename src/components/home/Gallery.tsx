@@ -65,11 +65,11 @@ const shots: readonly Shot[] = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-surface border-y border-line">
+    <section id="gallery" className="py-20 md:py-28 grad-rose border-y border-line">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-12">
           <div>
-            <p className="mono-label text-[0.72rem] mb-4 text-cork-deep">The pictures</p>
+            <p className="mono-label text-[0.72rem] mb-4">The pictures</p>
             <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.03] text-[clamp(1.9rem,4vw,3rem)] max-w-lg">
               A closer look at the real thing.
             </h2>

@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import type { CushionScene } from '@/components/showcase/cushionScene'
+import { OmMandala } from './Motifs'
 
 const MODEL_URL = '/models/cushion-v7.obj'
 
@@ -92,23 +93,24 @@ export default function Product3D() {
   }, [])
 
   return (
-    <section id="in-3d" className="scroll-mt-16 py-20 md:py-28 bg-paper border-t border-line overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <section id="in-3d" className="scroll-mt-16 py-20 md:py-28 grad-dusk on-dusk relative border-t border-line overflow-hidden">
+      <div aria-hidden className="absolute inset-0 tech-grid opacity-80" />
+      <OmMandala className="absolute top-16 right-6 w-40 h-40 text-glow opacity-40 hidden sm:block" />
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
           <div>
-            <p className="mono-label text-[0.72rem] mb-4 text-cork-deep">See it from every side</p>
-            <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.03] text-[clamp(1.9rem,4vw,3rem)] max-w-lg">
+            <p className="text-[0.72rem] uppercase tracking-[0.18em] font-medium text-glow/80 mb-4">See it from every side</p>
+            <h2 className="font-display font-medium text-glow tracking-[-0.01em] leading-[1.03] text-[clamp(2.2rem,5vw,3.5rem)] max-w-lg">
               The seat, in three dimensions.
             </h2>
           </div>
-          <p className="text-ink-soft text-sm max-w-xs leading-relaxed">
+          <p className="text-glow/80 text-sm max-w-xs leading-relaxed">
             A real 3D model, turning on its own — cork base, latex core and woven cover,
             from every angle.
           </p>
         </div>
 
-        <figure className="reg-frame relative border border-line bg-surface/40 overflow-hidden">
-          <div aria-hidden className="absolute inset-0 tech-grid opacity-30" />
+        <figure className="reg-frame relative border border-glow/25 bg-glow/5 overflow-hidden">
           <div className="relative aspect-[16/10] w-full">
             {/* Fallback photo — shown until the model has drawn its first frame. */}
             <Image

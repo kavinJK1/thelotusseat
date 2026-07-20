@@ -18,11 +18,11 @@ const points = [
 
 export default function Solution() {
   return (
-    <section id="solution" className="scroll-mt-16 py-20 md:py-28 bg-paper">
+    <section id="solution" className="scroll-mt-16 py-20 md:py-28 grad-rose">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid lg:grid-cols-[1fr_1fr] gap-x-14 gap-y-12 items-center">
           <div>
-            <p className="mono-label text-[0.72rem] mb-4 text-cork-deep">02 — The solution</p>
+            <p className="mono-label text-[0.72rem] mb-4">02 — The solution</p>
             <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.02] text-[clamp(1.9rem,4vw,3rem)] max-w-lg">
               A seat that puts you in the right posture — for you.
             </h2>

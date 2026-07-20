@@ -21,10 +21,10 @@ const states = [
 
 export default function Posture() {
   return (
-    <section id="posture" className="scroll-mt-16 py-20 md:py-28 bg-surface border-y border-line">
+    <section id="posture" className="scroll-mt-16 py-20 md:py-28 grad-sky border-y border-line">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <FadeIn>
-          <p className="mono-label text-[0.72rem] mb-4 text-cork-deep">The difference you can see</p>
+          <p className="mono-label text-[0.72rem] mb-4">The difference you can see</p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
             <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.03] text-[clamp(1.9rem,4vw,3rem)] max-w-lg">
               Same person. Two cushions.
@@ -39,7 +39,7 @@ export default function Posture() {
         <div className="mt-10 grid sm:grid-cols-2 gap-5">
           {states.map((s) => (
             <FadeIn key={s.cap}>
-              <figure className="reg-frame border border-line bg-paper h-full">
+              <figure className="reg-frame border border-glow/60 bg-glow/60 backdrop-blur-sm h-full">
                 <figcaption className="border-b border-line px-4 py-3">
                   <h3 className="font-display font-semibold text-ink text-[1.05rem] tracking-[-0.01em]">{s.cap}</h3>
                 </figcaption>

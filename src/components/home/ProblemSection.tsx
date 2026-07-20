@@ -25,10 +25,10 @@ const problems = [
 
 export default function ProblemSection() {
   return (
-    <section id="problem" className="scroll-mt-16 py-20 md:py-28 bg-surface border-y border-line">
+    <section id="problem" className="scroll-mt-16 py-20 md:py-28 grad-mist border-y border-line">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <FadeIn>
-          <p className="mono-label text-[0.72rem] mb-4 text-cork-deep">01 — The problem</p>
+          <p className="mono-label text-[0.72rem] mb-4">01 — The problem</p>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.03] text-[clamp(1.9rem,4vw,3rem)] max-w-xl">
               It’s almost never your mind that ends a sit early.
@@ -40,12 +40,12 @@ export default function ProblemSection() {
           </div>
         </FadeIn>
 
-        <div className="grid sm:grid-cols-2 gap-px bg-line border border-line">
+        <div className="grid sm:grid-cols-2 gap-4">
           {problems.map((p, i) => (
             <FadeIn key={p.n} delay={i * 60}>
-              <div className="h-full bg-surface px-6 py-7">
-                <span className="font-mono text-[0.8rem] text-cork-deep tabular-nums">{p.n}</span>
-                <h3 className="font-display font-semibold text-ink text-[1.15rem] tracking-[-0.01em] mt-2">
+              <div className="h-full rounded-3xl bg-glow/50 border border-glow/60 backdrop-blur-sm px-6 py-7">
+                <span className="font-display text-cork-deep text-lg tabular-nums">{p.n}</span>
+                <h3 className="font-display font-semibold text-ink text-[1.35rem] tracking-[-0.01em] mt-1">
                   {p.title}
                 </h3>
                 <p className="text-ink-soft text-[0.95rem] leading-relaxed mt-2 max-w-sm">

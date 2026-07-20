@@ -1,43 +1,55 @@
 @import "tailwindcss";
 
 /*
-  The Lotus Seat — "instrument-grade" design system.
-  Register: brand. Aesthetic lane: technical documentation / measured drawing.
-  Graphite ink on a *warm* drafting-paper — ivory/soft-sand rather than cool grey —
-  with an earned natural-cork accent leaned into. The measured-drawing rigour of the
-  old cool system is kept; only the temperature moved, toward the master brief's
-  warm-white / ivory / natural-beige palette. Warmth now lives in the ground *and*
-  the accent, never in decoration. All colours in OKLCH.
+  The Lotus Seat — "dreaming sky" design system.
+  Aesthetic lane: ethereal, celestial, devotional. Soft cloud-gradients of lavender,
+  rose and periwinkle; an elegant high-contrast serif for every heading; deep indigo
+  ink on the light grounds and white ink on the deep-blue ones. Motifs (om-mandala,
+  lotus, sparkle) recede into the background as light, never clutter.
+
+  Legibility is kept where the reference decks lost it: body copy always clears WCAG
+  AA — indigo on the pale grounds, white only where the ground is deep enough to hold
+  it. All colours in OKLCH.
 */
 
 @theme {
-  /* Type — engineered grotesque + a technical mono reserved for real data */
+  /* Type — elegant serif display, calm sans body, script for one accent word */
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-serif-display), ui-serif, Georgia, serif;
+  --font-serif: var(--font-serif-display), ui-serif, Georgia, serif;
+  --font-script: var(--font-script), "Snell Roundhand", cursive;
   --font-mono: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
-  /* Back-compat: legacy `font-serif` usages now resolve to the grotesque,
-     not Playfair. No serif ships anywhere on the site. */
-  --font-serif: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 
-  /* Core palette — warm ivory ground, graphite ink kept near-black (matte-black
-     accent per brief). Hue ~85 = ivory/sand; ink carries a whisper of the same
-     warmth so black-on-ivory never reads blue. Contrast held at WCAG AA. */
-  --color-paper: oklch(0.987 0.007 90);     /* warm ivory / warm-white page bg */
-  --color-surface: oklch(0.957 0.011 86);   /* soft sand — raised / alt band */
-  --color-ink: oklch(0.225 0.006 72);       /* graphite matte-black text */
-  --color-ink-soft: oklch(0.452 0.012 68);  /* secondary text — AA on ivory */
-  --color-line: oklch(0.9 0.008 84);        /* hairline rules */
-  --color-line-strong: oklch(0.8 0.012 82); /* emphasised rule / borders */
-  --color-graphite: oklch(0.21 0.006 72);   /* ink-dark fill: buttons, chips */
-  --color-graphite-soft: oklch(0.27 0.007 72); /* their hover state */
+  /* Grounds — pale lavender / rose mist */
+  --color-paper: oklch(0.95 0.024 320);      /* lavender-rose page mist */
+  --color-surface: oklch(0.915 0.036 328);   /* deeper dusty-rose band */
 
-  /* The one accent — natural cork / clay, leaned into a touch more */
-  --color-cork: oklch(0.635 0.116 52);
-  --color-cork-bright: oklch(0.7 0.125 55);
-  --color-cork-deep: oklch(0.5 0.104 48);   /* AA cork text on paper */
+  /* Ink — deep indigo (readable), plus a softer secondary that still clears AA */
+  --color-ink: oklch(0.36 0.105 277);        /* deep indigo text */
+  --color-ink-soft: oklch(0.468 0.092 280);  /* secondary indigo — AA on grounds */
 
-  /* Back-compat aliases so untouched inner pages don't visually break.
-     Old warm names now point at the cool clinical values. */
+  /* Lines — soft lavender hairlines */
+  --color-line: oklch(0.86 0.03 315);
+  --color-line-strong: oklch(0.77 0.05 305);
+
+  /* Solid fills for buttons / chips — deep indigo */
+  --color-graphite: oklch(0.4 0.13 278);
+  --color-graphite-soft: oklch(0.47 0.13 282);
+
+  /* The celestial family */
+  --color-periwinkle: oklch(0.66 0.115 278);
+  --color-periwinkle-deep: oklch(0.5 0.13 278);
+  --color-lilac: oklch(0.86 0.05 305);
+  --color-rose: oklch(0.84 0.07 350);
+  --color-glow: oklch(0.99 0.01 320);        /* near-white, for motifs on deep grounds */
+
+  /* Accent slot (formerly "cork") — now a soft orchid/violet, used for eyebrows and
+     small marks. Back-compat aliases below keep older components rendering. */
+  --color-cork: oklch(0.6 0.13 315);
+  --color-cork-bright: oklch(0.7 0.12 320);
+  --color-cork-deep: oklch(0.52 0.14 312);   /* AA orchid text on the pale grounds */
+
+  /* Back-compat aliases — old technical names resolve to the new dreamy values. */
   --color-warm-white: var(--color-paper);
   --color-near-black: var(--color-ink);
   --color-warm-grey: var(--color-ink-soft);
@@ -46,9 +58,8 @@
   --color-sand-light: var(--color-cork-bright);
   --color-sand-dark: var(--color-cork-deep);
 
-  --radius-tech: 3px;
+  --radius-tech: 16px;
 
-  /* Semantic z-scale — no arbitrary 9999s */
   --z-sticky: 30;
   --z-nav: 50;
   --z-overlay: 60;
@@ -65,102 +76,133 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "cv11", "ss01";
 }
 
 /* Long-form prose measure + orphan control */
 .prose p { max-width: 68ch; text-wrap: pretty; }
 h1, h2, h3 { text-wrap: balance; }
 
-/* ---- Technical documentation primitives ---- */
+/* ---- Dreaming-sky primitives ---- */
 
-/* Faint measured-grid backdrop (hero / diagram plinths) */
+/* Cloud-gradient grounds. Each is a soft wash of two radial blooms over a base. */
+.grad-dawn {
+  background:
+    radial-gradient(115% 90% at 18% 8%, oklch(0.9 0.06 350 / 0.9), transparent 62%),
+    radial-gradient(120% 100% at 92% 18%, oklch(0.87 0.06 296 / 0.85), transparent 60%),
+    linear-gradient(158deg, oklch(0.93 0.04 340), oklch(0.9 0.05 312) 52%, oklch(0.87 0.06 292));
+}
+.grad-mist {
+  background:
+    radial-gradient(100% 80% at 80% 0%, oklch(0.93 0.045 300 / 0.7), transparent 60%),
+    linear-gradient(180deg, oklch(0.955 0.022 322), oklch(0.925 0.036 306));
+}
+.grad-rose {
+  background:
+    radial-gradient(110% 90% at 15% 100%, oklch(0.88 0.06 350 / 0.75), transparent 62%),
+    linear-gradient(200deg, oklch(0.93 0.035 318), oklch(0.905 0.05 342));
+}
+/* Deep sky — carries WHITE text (like the Enlightenment reference). */
+.grad-dusk {
+  background:
+    radial-gradient(90% 70% at 50% 0%, oklch(0.72 0.1 278 / 0.85), transparent 65%),
+    linear-gradient(172deg, oklch(0.53 0.13 276) 0%, oklch(0.58 0.125 288) 42%, oklch(0.72 0.09 322) 100%);
+}
+.grad-sky {
+  background:
+    radial-gradient(100% 80% at 50% 0%, oklch(0.74 0.1 278 / 0.6), transparent 60%),
+    linear-gradient(180deg, oklch(0.8 0.08 288), oklch(0.9 0.05 336));
+}
+
+/* Sections that sit on a deep ground flip their type to light. */
+.on-dusk { color: var(--color-glow); }
+.on-dusk .text-ink { color: var(--color-glow) !important; }
+.on-dusk .text-ink-soft { color: oklch(0.94 0.02 320 / 0.82) !important; }
+.on-dusk .border-line { border-color: oklch(0.99 0.01 320 / 0.22) !important; }
+.on-dusk .border-line-strong { border-color: oklch(0.99 0.01 320 / 0.35) !important; }
+.on-dusk .bg-line { background-color: oklch(0.99 0.01 320 / 0.2) !important; }
+
+/* Soft starfield / bokeh — the reference decks' floating light. Replaces the old
+   hard measured grid wherever `.tech-grid` was applied, so those overlays now read
+   as drifting light rather than a blueprint. */
 .tech-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklch, var(--color-line) 55%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklch, var(--color-line) 55%, transparent) 1px, transparent 1px);
-  background-size: 44px 44px;
+    radial-gradient(circle at 25% 35%, oklch(1 0 0 / 0.5) 1px, transparent 1.8px),
+    radial-gradient(circle at 75% 65%, oklch(1 0 0 / 0.4) 1px, transparent 1.8px);
+  background-size: 340px 340px, 460px 460px;
 }
 .tech-grid-fade {
-  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 30%, transparent 100%);
 }
 
-/* Mono label used in place of the banned tracked-uppercase eyebrow —
-   a datasheet field marker, applied deliberately, not above every heading. */
-.mono-label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.02em;
-  color: var(--color-ink-soft);
-  font-variant-numeric: tabular-nums;
-}
-
-/* Corner registration ticks for framed technical panels */
-.reg-frame { position: relative; }
-.reg-frame::before,
-.reg-frame::after {
+/* A single soft glow bloom, for behind the product or a heading. */
+.halo { position: relative; }
+.halo::before {
   content: "";
   position: absolute;
-  width: 9px; height: 9px;
-  border-color: var(--color-line-strong);
-  border-style: solid;
+  inset: -12% -8%;
+  z-index: 0;
+  background: radial-gradient(closest-side, oklch(0.92 0.06 330 / 0.6), transparent 75%);
+  filter: blur(18px);
   pointer-events: none;
 }
-.reg-frame::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
-.reg-frame::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
 
-/* Viewfinder chrome: the corner brackets that frame the showcase */
-.viewfinder::before,
-.viewfinder::after,
-.viewfinder > .vf-b::before,
-.viewfinder > .vf-b::after {
-  content: '';
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  border-color: var(--color-line-strong);
-  border-style: solid;
-  pointer-events: none;
-  z-index: 2;
+/* Small tracked label — soft orchid, replacing the old datasheet mono field marker. */
+.mono-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-cork-deep);
+  font-weight: 500;
 }
-.viewfinder::before { top: 18px; left: 18px; border-width: 1px 0 0 1px; }
-.viewfinder::after { top: 18px; right: 18px; border-width: 1px 1px 0 0; }
-.viewfinder > .vf-b::before { bottom: 18px; left: 18px; border-width: 0 0 1px 1px; }
-.viewfinder > .vf-b::after { bottom: 18px; right: 18px; border-width: 0 1px 1px 0; }
+
+/* Framed figures: soft, rounded, faintly luminous — the corner registration ticks
+   of the old technical system are retired. */
+.reg-frame { position: relative; border-radius: var(--radius-tech); overflow: clip; }
+.reg-frame::before,
+.reg-frame::after { content: none; }
+
+/* Viewfinder chrome (used off-homepage) softened to nothing. */
+.viewfinder::before, .viewfinder::after,
+.viewfinder > .vf-b::before, .viewfinder > .vf-b::after { content: none; }
 
 @layer components {
-/* The one shouting voice on the site: the stage's display line. */
+/* The hero's display line — elegant serif, not a shouting grotesque. */
 .display-xl {
-  font-family: var(--font-sans);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 0.86;
-  font-size: clamp(2.6rem, 8vw, 6rem);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 0.98;
+  font-size: clamp(2.8rem, 8vw, 6rem);
 }
 
-/* Marker hand for the sketch chapter — the designer's own annotations */
+/* The one script accent — a single word, never a sentence. */
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  line-height: 1;
+}
+
 .hand {
   font-family: var(--font-hand), 'Comic Sans MS', cursive;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
 }
 }
 
-/* Accessible focus ring on every interactive element */
+/* Headings default to the serif display voice. */
+h1, h2, h3 { font-family: var(--font-display); }
+
+/* Accessible focus ring — indigo, on every interactive element. */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-cork-deep);
+  outline: 2px solid var(--color-periwinkle-deep);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
-/* Hide scrollbars on the horizontal material strip without losing scroll */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; }
 
-/* Motion is opt-in to health: honour user preference globally */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

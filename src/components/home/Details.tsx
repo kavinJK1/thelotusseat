@@ -34,20 +34,20 @@ const specs = [
 
 export default function Details() {
   return (
-    <section id="details" className="py-20 md:py-28 bg-surface border-y border-line">
+    <section id="details" className="py-20 md:py-28 grad-mist border-y border-line">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <FadeIn>
-          <p className="mono-label text-[0.72rem] mb-4 text-cork-deep">04 — The details</p>
+          <p className="mono-label text-[0.72rem] mb-4">04 — The details</p>
           <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.03] text-[clamp(1.9rem,4vw,3rem)] max-w-lg">
             Three honest materials, nothing you don’t need.
           </h2>
         </FadeIn>
 
         {/* Materials */}
-        <div className="mt-12 grid md:grid-cols-3 gap-px bg-line border border-line">
+        <div className="mt-12 grid md:grid-cols-3 gap-4">
           {materials.map((m, i) => (
             <FadeIn key={m.name} delay={i * 60}>
-              <article className="h-full bg-paper">
+              <article className="h-full rounded-3xl bg-glow/55 border border-glow/60 overflow-hidden">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image src={m.photo} alt={m.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
                 </div>
@@ -62,7 +62,7 @@ export default function Details() {
 
         {/* The plain facts */}
         <FadeIn>
-          <div className="mt-8 reg-frame border border-line-strong bg-paper">
+          <div className="mt-8 reg-frame border border-glow/60 bg-glow/55 backdrop-blur-sm">
             <div className="border-b border-line-strong px-5 sm:px-7 py-4">
               <p className="font-display font-semibold text-ink text-lg tracking-[-0.01em]">The plain facts</p>
             </div>

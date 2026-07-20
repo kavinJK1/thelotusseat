@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Archivo, Caveat, Spline_Sans_Mono } from 'next/font/google'
+import { Archivo, Caveat, Spline_Sans_Mono, Cormorant_Garamond, Pinyon_Script } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -28,6 +28,23 @@ const caveat = Caveat({
   variable: '--font-hand',
   subsets: ['latin'],
   weight: ['500', '600'],
+})
+
+// Elegant high-contrast serif — the display voice of the dreamy redesign. Carries
+// every heading, echoing the "WHAT IS / ENLIGHTENMENT" reference decks.
+const cormorant = Cormorant_Garamond({
+  variable: '--font-serif-display',
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  style: ['normal', 'italic'],
+})
+
+// Formal calligraphy — used for a single accent word (the hero's "Life"), never a
+// sentence: script is beautiful and nearly unreadable in bulk.
+const pinyon = Pinyon_Script({
+  variable: '--font-script',
+  subsets: ['latin'],
+  weight: ['400'],
 })
 
 export const metadata: Metadata = {
@@ -74,7 +91,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${splineMono.variable} ${caveat.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${splineMono.variable} ${caveat.variable} ${cormorant.variable} ${pinyon.variable}`}>
       <body className="font-sans antialiased">
         {/* Site-wide identity graph. Page-level nodes (Product, FAQPage, Article)
             reference these by @id rather than redeclaring the brand. */}
