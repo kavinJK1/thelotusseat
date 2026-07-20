@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditation Seat — Find Your Ground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg:    #080705;
+    --cream: #f0e6d0;
+    --gold:  #c4975a;
+    --terra: #b8896e;
+    --cork:  #b5703a;
+    --dim:   rgba(240,230,208,0.45);
+    --line:  rgba(240,230,208,0.12);
+  }
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── Canvas ──────────────────────────────────────── */
+  #canvas-wrap {
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  }
+  #three-canvas { width: 100%; height: 100%; display: block; }
+
+  /* ── Nav ─────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50; pointer-events: none;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 40px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400; letter-spacing: 0.08em;
+  }
+  .nav-tag {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); opacity: 0.8;
+  }
+
+  /* ── Progress sidebar ────────────────────────────── */
+  #progress {
+    position: fixed; left: 28px; top: 50%; transform: translateY(-50%);
+    z-index: 50; display: flex; flex-direction: column; gap: 9px;
+    pointer-events: none;
+  }
+  .prog-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--line); transition: background 0.35s, transform 0.35s;
+  }
+  .prog-dot.active { background: var(--gold); transform: scale(1.6); }
+
+  /* ── Gradient veils ──────────────────────────────── */
+  .fade-top {
+    position: fixed; top: 0; left: 0; right: 0; height: 160px; z-index: 5;
+    background: linear-gradient(to bottom, var(--bg), transparent);
+    pointer-events: none;
+  }
+  .fade-bottom {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 120px; z-index: 5;
+    background: linear-gradient(to top, var(--bg), transparent);
+    pointer-events: none;
+  }
+
+  /* ── Shared typography helpers ───────────────────── */
+  .tag {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 5.5vw, 76px); font-weight: 300; line-height: 1.0;
+  }
+  .body-copy {
+    font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--dim);
+    max-width: 300px;
+  }
+
+  /* ── Scroll root ─────────────────────────────────── */
+  #scroll-root { position: relative; z-index: 10; pointer-events: none; }
+  .section { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+
+  /* ── HERO ────────────────────────────────────────── */
+  #hero { flex-direction: column; gap: 0; }
+  #hero-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 1.1s ease, transform 1.1s ease;
+  }
+  #hero-inner.show { opacity: 1; transform: translateY(0); }
+  #hero-eyebrow { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+  #hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 9vw, 118px); font-weight: 300;
+    line-height: 0.93; letter-spacing: -0.02em; text-align: center;
+  }
+  #hero-title em { font-style: italic; color: var(--gold); }
+  #hero-sub { font-size: 13px; font-weight: 300; color: var(--dim); margin-top: 4px; }
+  #hero-hint {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    opacity: 0; transition: opacity 1s ease 0.9s;
+  }
+  #hero-hint.show { opacity: 1; }
+  #hero-hint span { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
+  .scroll-bar {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:.25} 50%{opacity:1} }
+
+  /* ── ROTATE (200vh) ──────────────────────────────── */
+  #section-rotate { height: 200vh; align-items: flex-start; }
+  #rotate-sticky {
+    position: sticky; top: 0; height: 100vh; width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 8vw;
+  }
+  .side-label { opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; }
+  .side-label.left { transform: translateX(-18px); }
+  .side-label.right { transform: translateX(18px); text-align: right; }
+  .side-label.show { opacity: 1; transform: translateX(0); }
+  .side-label .display { font-size: clamp(26px, 3.5vw, 48px); }
+  .side-label .body-copy { margin-top: 10px; }
+  .side-label.right .body-copy { margin-left: auto; }
+  #deg-readout {
+    position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 11vw, 130px); font-weight: 300;
+    color: var(--gold); opacity: 0.12; letter-spacing: -0.04em;
+    pointer-events: none;
+  }
+
+  /* ── SPLIT (150vh) ───────────────────────────────── */
+  #section-split { height: 150vh; align-items: flex-start; }
+  #split-sticky {
+    position: sticky; top: 0; height: 100vh; width: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #split-text {
+    text-align: center; opacity: 0; transform: translateY(18px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  #split-text.show { opacity: 1; transform: translateY(0); }
+  #split-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 68px); font-weight: 300; line-height: 1.1;
+  }
+  #split-text h2 em { font-style: italic; color: var(--gold); }
+  #split-text p { margin-top: 14px; font-size: 13px; color: var(--dim); font-weight: 300; }
+
+  /* ── FEATURE SECTIONS (base + cushion) ───────────── */
+  #section-base, #section-cushion { height: 150vh; align-items: flex-start; }
+  #base-sticky, #cushion-sticky {
+    position: sticky; top: 0; height: 100vh; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+  }
+  .feat-panel { padding: 0 7vw; }
+  .feat-panel.right { text-align: right; }
+  .feat-panel .tag, .feat-panel .display, .feat-panel .body-copy, .feat-stats {
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .feat-panel .display { transition-delay: 0.08s; }
+  .feat-panel .body-copy { transition-delay: 0.18s; margin-top: 18px; }
+  .feat-stats { transition-delay: 0.30s; margin-top: 28px; display: flex; flex-direction: column; gap: 13px; }
+  .feat-panel.right .feat-stats { align-items: flex-end; }
+  .feat-panel .tag.show,
+  .feat-panel .display.show,
+  .feat-panel .body-copy.show,
+  .feat-stats.show { opacity: 1; transform: translateY(0); }
+  .stat { display: flex; align-items: baseline; gap: 8px; }
+  .feat-panel.right .stat { flex-direction: row-reverse; }
+  .stat-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px; font-weight: 300; color: var(--gold); line-height: 1;
+  }
+  .stat-l { font-size: 11px; color: var(--dim); letter-spacing: 0.05em; }
+
+  /* ── SVG connector lines ─────────────────────────── */
+  .conn-svg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; overflow: visible;
+    opacity: 0; transition: opacity 0.8s ease 0.5s;
+  }
+  .conn-svg.show { opacity: 1; }
+  .conn-line {
+    stroke: var(--gold); stroke-width: 0.6; fill: none; opacity: 0.55;
+    stroke-dasharray: 300; stroke-dashoffset: 300;
+    transition: stroke-dashoffset 1.3s ease;
+  }
+  .conn-svg.show .conn-line { stroke-dashoffset: 0; }
+  .conn-line:nth-child(3) { transition-delay: 0.85s; }
+  .conn-line:nth-child(5) { transition-delay: 1.1s; }
+  .conn-dot {
+    fill: var(--gold); opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .conn-svg.show .conn-dot { opacity: 1; }
+  .conn-dot:nth-child(2) { transition-delay: 1.3s; }
+  .conn-dot:nth-child(4) { transition-delay: 1.55s; }
+  .conn-dot:nth-child(6) { transition-delay: 1.8s; }
+
+  /* ── FINAL (120vh) ───────────────────────────────── */
+  #section-final { height: 120vh; align-items: flex-start; }
+  #final-sticky {
+    position: sticky; top: 0; height: 100vh; width: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: 0;
+  }
+  #final-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(46px, 7.5vw, 100px); font-weight: 300;
+    line-height: 0.97; letter-spacing: -0.02em;
+    opacity: 0; transition: opacity 1.2s ease;
+  }
+  #final-title em { font-style: italic; color: var(--gold); }
+  #final-title.show { opacity: 1; }
+  #final-cta {
+    margin-top: 42px; display: flex; gap: 14px;
+    opacity: 0; transition: opacity 1s ease 0.4s;
+    pointer-events: all;
+  }
+  #final-cta.show { opacity: 1; }
+  .btn {
+    padding: 13px 32px; font-family: 'DM Sans', sans-serif;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    border-radius: 40px; cursor: pointer; transition: all 0.3s ease; border: none;
+  }
+  .btn-fill { background: var(--gold); color: var(--bg); font-weight: 500; }
+  .btn-fill:hover { background: var(--cream); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: var(--cream); border: 1px solid var(--line); font-weight: 300; }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  /* ── Grain overlay ───────────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 200; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.028; mix-blend-mode: overlay;
+  }
+</style>
+</head>
+<body>
+
+<!-- Fixed UI chrome -->
+<div class="fade-top"></div>
+<div class="fade-bottom"></div>
+
+<nav>
+  <span class="nav-logo">Āsana</span>
+  <span class="nav-tag">Meditation Seat</span>
+</nav>
+
+<div id="progress">
+  <div class="prog-dot active"></div>
+  <div class="prog-dot"></div>
+  <div class="prog-dot"></div>
+  <div class="prog-dot"></div>
+  <div class="prog-dot"></div>
+  <div class="prog-dot"></div>
+</div>
+
+<!-- THREE.JS canvas -->
+<div id="canvas-wrap">
+  <canvas id="three-canvas"></canvas>
+</div>
+
+<!-- ══════════════ SCROLL CONTENT ══════════════ -->
+<div id="scroll-root">
+
+  <!-- 0. HERO -->
+  <section class="section" id="hero">
+    <div id="hero-inner">
+      <div id="hero-eyebrow">Handcrafted Meditation Seat</div>
+      <h1 id="hero-title">Find Your<br><em>Ground</em></h1>
+      <p id="hero-sub">Designed for those who sit with intention</p>
+    </div>
+    <div id="hero-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- 1. ROTATE (200vh) -->
+  <section class="section" id="section-rotate">
+    <div id="rotate-sticky">
+      <div class="side-label left" id="sl-left">
+        <div class="tag">Design</div>
+        <div class="display">Every angle,<br>considered</div>
+        <p class="body-copy" style="margin-top:12px">Crafted from every perspective — because the details only reveal themselves when you look closer.</p>
+      </div>
+      <div class="side-label right" id="sl-right">
+        <div class="tag" style="text-align:right">Craftsmanship</div>
+        <div class="display">Two materials,<br>one purpose</div>
+        <p class="body-copy" style="margin-top:12px;text-align:right">Natural coconut coir below. Cloud-soft fabric above. A harmony of function and feeling.</p>
+      </div>
+      <div id="deg-readout">0°</div>
+    </div>
+  </section>
+
+  <!-- 2. SPLIT (150vh) -->
+  <section class="section" id="section-split">
+    <div id="split-sticky">
+      <div id="split-text">
+        <h2>Two parts.<br>One <em>perfect</em> whole.</h2>
+        <p>Engineered for comfort. Built to last.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BASE FEATURES (150vh) -->
+  <section class="section" id="section-base">
+    <div id="base-sticky">
+      <div class="feat-panel">
+        <div class="tag" id="bt">Base Layer</div>
+        <div class="display" id="bh">Cork &amp;<br>Coir Core</div>
+        <p class="body-copy" id="bb">A dense cork tray with a recessed bed holds everything grounded. The angled geometry tilts your pelvis forward — the key to effortless, sustained meditation posture.</p>
+        <div class="feat-stats" id="bs">
+          <div class="stat"><span class="stat-n">15°</span><span class="stat-l">Forward tilt · spinal alignment</span></div>
+          <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Natural cork &amp; coconut coir</span></div>
+        </div>
+      </div>
+      <!-- SVG callout lines point toward the 3D model on the right -->
+      <div style="position:relative;width:100%;height:100%;grid-column:2">
+        <svg class="conn-svg" id="base-svg" viewBox="0 0 500 700" preserveAspectRatio="none">
+          <circle class="conn-dot" cx="120" cy="340" r="4"/>
+          <line class="conn-line" x1="122" y1="340" x2="320" y2="420"/>
+          <circle class="conn-dot" cx="320" cy="420" r="3"/>
+          <line class="conn-line" x1="120" y1="380" x2="310" y2="500"/>
+          <circle class="conn-dot" cx="310" cy="500" r="3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CUSHION FEATURES (150vh) -->
+  <section class="section" id="section-cushion">
+    <div id="cushion-sticky">
+      <!-- empty left col — 3D model occupies that visual space -->
+      <div style="position:relative;width:100%;height:100%;grid-column:1">
+        <svg class="conn-svg" id="cushion-svg" viewBox="0 0 500 700" preserveAspectRatio="none">
+          <circle class="conn-dot" cx="380" cy="250" r="4"/>
+          <line class="conn-line" x1="378" y1="250" x2="200" y2="180"/>
+          <circle class="conn-dot" cx="200" cy="180" r="3"/>
+          <line class="conn-line" x1="378" y1="290" x2="200" y2="380"/>
+          <circle class="conn-dot" cx="200" cy="380" r="3"/>
+        </svg>
+      </div>
+      <div class="feat-panel right">
+        <div class="tag" id="ct" style="text-align:right">Cushion Layer</div>
+        <div class="display" id="ch" style="text-align:right">Impossibly<br>Soft</div>
+        <p class="body-copy" id="cb" style="text-align:right;margin-left:auto">Wrapped in woven linen with a hand-embroidered lotus, the cushion is contoured with a coccyx relief and stitched U-seams so pressure melts away — sit longer, without distraction.</p>
+        <div class="feat-stats" id="cs" style="align-items:flex-end">
+          <div class="stat" style="flex-direction:row-reverse"><span class="stat-n">14cm</span><span class="stat-l">Sculpted wedge depth</span></div>
+          <div class="stat" style="flex-direction:row-reverse"><span class="stat-n">∞</span><span class="stat-l">Sessions without losing shape</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FINAL (120vh) -->
+  <section class="section" id="section-final">
+    <div id="final-sticky">
+      <div id="final-title">The seat that<br>holds you <em>still</em></div>
+      <div id="final-cta">
+        <button class="btn btn-fill">Shop Now</button>
+        <button class="btn btn-ghost">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /scroll-root -->
+
+<!-- ── Scripts ────────────────────────────────────────────────────────── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// ── Renderer ──────────────────────────────────────────────────────────────────
+var canvas   = document.getElementById('three-canvas');
+var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: false });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type    = THREE.PCFSoftShadowMap;
+renderer.outputEncoding    = THREE.sRGBEncoding;
+renderer.toneMapping       = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+
+// ── Scene / Camera ────────────────────────────────────────────────────────────
+var scene = new THREE.Scene();
+scene.background = new THREE.Color(0xF4EFE8);
+
+var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.01, 100);
+camera.position.set(0.28, 0.28, 0.68);
+camera.lookAt(0, 0.10, 0);
+
+// ── Lighting ──────────────────────────────────────────────────────────────────
+scene.add(new THREE.AmbientLight(0xF5EEE0, 0.55));
+
+var keyLight = new THREE.DirectionalLight(0xFFFAF2, 1.20);
+keyLight.position.set(-1.4, 1.8, 0.5);
+keyLight.castShadow = true;
+keyLight.shadow.mapSize.set(2048, 2048);
+keyLight.shadow.camera.near   = 0.1;
+keyLight.shadow.camera.far    = 6;
+keyLight.shadow.camera.left   = -1.2;
+keyLight.shadow.camera.right  =  1.2;
+keyLight.shadow.camera.top    =  1.2;
+keyLight.shadow.camera.bottom = -1.2;
+keyLight.shadow.radius = 4;
+scene.add(keyLight);
+
+var fillLight = new THREE.DirectionalLight(0xFFEEDD, 0.25);
+fillLight.position.set(1.5, 0.8, 0.5);
+scene.add(fillLight);
+
+var topLight = new THREE.DirectionalLight(0xE8EEFF, 0.15);
+topLight.position.set(0, 2, 0);
+scene.add(topLight);
+
+// ── Floor texture ─────────────────────────────────────────────────────────────
+function buildFloorTex() {
+  var cv = document.createElement('canvas');
+  cv.width = 1024; cv.height = 256;
+  var ctx = cv.getContext('2d');
+  ctx.fillStyle = '#DBD6CF'; ctx.fillRect(0,0,1024,256);
+  for (var i=1; i<5; i++) {
+    ctx.strokeStyle='rgba(130,122,112,0.15)'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(0,(256/5)*i); ctx.lineTo(1024,(256/5)*i); ctx.stroke();
+  }
+  for (var i=0; i<100; i++) {
+    var y=Math.random()*256;
+    ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(1024,y+(Math.random()-0.5)*5);
+    ctx.strokeStyle='rgba(130,120,108,'+(0.03+Math.random()*0.06)+')';
+    ctx.lineWidth=0.5+Math.random(); ctx.stroke();
+  }
+  var t=new THREE.CanvasTexture(cv);
+  t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(5,2); return t;
+}
+
+var floor = new THREE.Mesh(
+  new THREE.PlaneGeometry(8,8),
+  new THREE.MeshStandardMaterial({ color:0xDDD8D0, roughness:0.90, map:buildFloorTex() })
+);
+floor.rotation.x = -Math.PI/2; floor.receiveShadow = true; scene.add(floor);
+
+var wall = new THREE.Mesh(new THREE.PlaneGeometry(8,5),
+  new THREE.MeshStandardMaterial({ color:0xF0EBE3, roughness:0.96 }));
+wall.position.set(0, 2.5, -1.5); scene.add(wall);
+
+// ── Seat group ────────────────────────────────────────────────────────────────
+var seatGroup = new THREE.Group();
+scene.add(seatGroup);
+var cushionNode = null, baseNode = null;
+
+// ── Animation state ───────────────────────────────────────────────────────────
+var S = { rotY:-0.45, cushionOffY:0, baseOffY:0,
+          camX:0.28, camY:0.28, camZ:0.68, lookY:0.10 };
+// Detailed model is authored in centimetres; scale each mesh down to metres so the
+// scroll-tuned camera / lights / shadows keep working unchanged.
+var MODEL_SCALE = 0.01;
+// Cushion rests nestled into the cork tray's recessed bed (~2.6cm up).
+var CUSHION_REST_Y = 0.026;
+
+/* ================= geometry helpers (cm space) ================= */
+function smoothstep(t){ t=Math.max(0,Math.min(1,t)); return t*t*(3-2*t); }
+
+/* clamp a point into a rounded-rectangle footprint (half extents a,b, radius r) */
+function roundCorner(x, z, a, b, r){
+  var cx = Math.max(-(a-r), Math.min(a-r, x));
+  var cz = Math.max(-(b-r), Math.min(b-r, z));
+  var dx = x-cx, dz = z-cz;
+  var d = Math.hypot(dx, dz);
+  if(d > r){ return [cx + dx*r/d, cz + dz*r/d]; }
+  return [x, z];
+}
+
+/* build a slab: segmented box displaced to rounded footprint + sculpted top */
+function buildSlab(W, D, cornerR, topFn, bulge){
+  var nx=90, ny=10, nz=90;
+  var geo = new THREE.BoxGeometry(1,1,1,nx,ny,nz);
+  var pos = geo.attributes.position;
+  var uv  = geo.attributes.uv;
+  for(var i=0;i<pos.count;i++){
+    var X = pos.getX(i)*W, Y = pos.getY(i), Z = pos.getZ(i)*D;
+    var c1 = roundCorner(X,Z,W/2,D/2,cornerR); X=c1[0]; Z=c1[1];
+    var yF = Y + 0.5;                          // 0 bottom .. 1 top
+    var h = topFn(X,Z);
+    var s = 1 + bulge*Math.sin(Math.PI*yF);    // gentle side puff
+    X*=s; Z*=s;
+    var c2 = roundCorner(X,Z,W/2*(1+bulge),D/2*(1+bulge),cornerR); X=c2[0]; Z=c2[1];
+    pos.setXYZ(i, X, yF*h, Z);
+    uv.setXY(i, X/W+0.5, Z/D+0.5);
+  }
+  geo.computeVertexNormals();
+  return geo;
+}
+
+/* ================= CUSHION ================= */
+/* front = +Z. 44 x 42 cm footprint, wedge 4cm front -> 14cm back, ~15 deg */
+var CW=44, CD=42, ovalZ = -0.1*CD;            // oval centre: 60% from front
+function cushionTop(x,z){
+  var t = (CD/2 - z)/CD;                       // 0 front .. 1 back
+  var h = 4 + 10*smoothstep(t);                // wedge S-curve
+  h += 1.4*(1-Math.pow(2*x/CW,2));             // side-to-side dome
+  /* coccyx oval relief ~8x12cm, 1.5cm deep */
+  var e = Math.pow(x/5.5,2) + Math.pow((z-ovalZ)/8,2);
+  h -= 1.6*Math.pow(Math.max(0,1-e),2);
+  /* stitched groove ring around the oval */
+  var e2 = Math.sqrt(Math.pow(x/8,2) + Math.pow((z-ovalZ)/11,2));
+  h -= 0.5*Math.exp(-Math.pow((e2-1)/0.16,2));
+  /* two long U-seams sweeping from the front corners */
+  var e3 = Math.sqrt(Math.pow(x/(CW*0.46),2) + Math.pow((z-CD*0.52)/(CD*1.05),2));
+  h -= 0.45*Math.exp(-Math.pow((e3-1)/0.075,2));
+  /* seam groove where terracotta arch meets cream */
+  var archZ = -CD*0.16 - 0.16*Math.pow(x/ (CW/2),2)*CD;
+  h -= 0.35*Math.exp(-Math.pow((z-archZ)/1.6,2)) * (t>0.45?1:0);
+  return Math.max(2.5, h);
+}
+
+/* --- cushion fabric texture (planar, canvas top = front) --- */
+function cushionTexture(){
+  var S=1024, c=document.createElement('canvas'); c.width=c.height=S;
+  var g=c.getContext('2d');
+  // cream base
+  g.fillStyle='#d6cbb2'; g.fillRect(0,0,S,S);
+  // woven noise
+  for(var i=0;i<26000;i++){
+    var x=Math.random()*S, y=Math.random()*S;
+    g.fillStyle = Math.random()<0.5 ? 'rgba(255,250,235,0.10)' : 'rgba(120,100,75,0.07)';
+    g.fillRect(x,y,1.6,1.6);
+  }
+  var BK = S;                                  // back edge at bottom
+  // terracotta arch across the rear
+  g.fillStyle='#9a5f43';
+  g.beginPath();
+  g.moveTo(0, BK*0.60);
+  g.quadraticCurveTo(S*0.5, BK*0.78, S, BK*0.60);
+  g.lineTo(S, S); g.lineTo(0, S); g.closePath(); g.fill();
+  // cream half-oval window at back-centre
+  g.fillStyle='#d9cfb8';
+  g.beginPath();
+  g.moveTo(S*0.16, S);
+  g.quadraticCurveTo(S*0.17, S*0.63, S*0.5, S*0.62);
+  g.quadraticCurveTo(S*0.83, S*0.63, S*0.84, S);
+  g.closePath(); g.fill();
+  // subtle noise over drawn shapes
+  for(var i=0;i<9000;i++){
+    var x=Math.random()*S, y=S*0.55+Math.random()*S*0.45;
+    g.fillStyle = Math.random()<0.5 ? 'rgba(255,245,225,0.08)' : 'rgba(90,60,40,0.06)';
+    g.fillRect(x,y,1.6,1.6);
+  }
+  // ---- lotus embroidery (gold thread) centred in the cream window ----
+  g.save();
+  g.translate(S*0.5, S*0.80); g.scale(1.5,1.5);
+  g.strokeStyle='#c8a030'; g.lineWidth=2.6; g.lineCap='round';
+  function petal(rot, len, wid){
+    g.save(); g.rotate(rot);
+    g.beginPath();
+    g.moveTo(0,0);
+    g.quadraticCurveTo( wid, -len*0.55, 0, -len);
+    g.quadraticCurveTo(-wid, -len*0.55, 0, 0);
+    g.stroke(); g.restore();
+  }
+  petal(0, 52, 13);
+  petal(-0.62, 44, 11); petal(0.62, 44, 11);
+  petal(-1.15, 34, 9);  petal(1.15, 34, 9);
+  // base water petals
+  g.beginPath(); g.moveTo(-26,14); g.quadraticCurveTo(-13,32, 0,26); g.stroke();
+  g.beginPath(); g.moveTo( 26,14); g.quadraticCurveTo( 13,32, 0,26); g.stroke();
+  // stamens
+  g.lineWidth=2;
+  [[0,4,0,16],[-5,5,-9,15],[5,5,9,15]].forEach(function(p){
+    g.beginPath(); g.moveTo(p[0],p[1]); g.lineTo(p[2],p[3]); g.stroke();
+    g.beginPath(); g.arc(p[2],p[3]+3,2.4,0,7); g.fillStyle='#c8a030'; g.fill();
+  });
+  g.restore();
+  // ---- quilting stitch lines (dashed, tone-on-tone) on sitting zone ----
+  g.strokeStyle='rgba(120,100,70,0.55)'; g.lineWidth=2; g.setLineDash([7,5]);
+  // ring echo around oval
+  g.beginPath();
+  g.ellipse(S*0.5, S*0.5 - 0.1*S, S*0.20, S*0.28, 0, 0, Math.PI*2); g.stroke();
+  // two sweeping U seams
+  g.beginPath();
+  g.moveTo(S*0.10, S*0.05);
+  g.quadraticCurveTo(S*0.10, S*0.62, S*0.40, S*0.60);
+  g.stroke();
+  g.beginPath();
+  g.moveTo(S*0.90, S*0.05);
+  g.quadraticCurveTo(S*0.90, S*0.62, S*0.60, S*0.60);
+  g.stroke();
+  g.setLineDash([]);
+  var tex = new THREE.CanvasTexture(c);
+  tex.anisotropy = 8;
+  return tex;
+}
+
+/* piping seam along the top edge (thin cream tube following footprint at top height) */
+function pipingCurve(){
+  var pts=[];
+  var a=CW/2*1.015, b=CD/2*1.015, r=5;
+  for(var i=0;i<=200;i++){
+    var th=i/200*Math.PI*2;
+    var x=Math.cos(th)*a, z=Math.sin(th)*b;
+    var cc=roundCorner(x,z,a,b,r); x=cc[0]; z=cc[1];
+    pts.push(new THREE.Vector3(x, cushionTop(x,z)-0.15, z));
+  }
+  return new THREE.CatmullRomCurve3(pts, true);
+}
+
+/* ================= CORK BASE ================= */
+/* tray: 48 x 46, wedge rim (higher back), recessed bed for the cushion */
+var BW=48, BD=46;
+function corkTop(x,z){
+  var t = (BD/2 - z)/BD;                       // 0 front .. 1 back
+  var outer = 4.6 + 2.2*t;                      // sloped rim, higher at back
+  /* recess: inner rounded rect inset 2.8 */
+  var a=BW/2-2.8, b=BD/2-2.8, r=4;
+  var cx=Math.max(-(a-r),Math.min(a-r,x));
+  var cz=Math.max(-(b-r),Math.min(b-r,z));
+  var d=Math.hypot(x-cx,z-cz);                  // 0 deep inside .. grows outward
+  var inside = 1 - smoothstep((d - (r-1.2))/1.4);
+  return outer - 2.4*inside;
+}
+function corkTexture(){
+  var S=1024, c=document.createElement('canvas'); c.width=c.height=S;
+  var g=c.getContext('2d');
+  g.fillStyle='#c08b52'; g.fillRect(0,0,S,S);
+  var shades=['#d7a76b','#b17a42','#e0b57c','#a06a35','#cf9a5c','#8f5e2e'];
+  for(var i=0;i<70000;i++){
+    g.fillStyle=shades[(Math.random()*shades.length)|0];
+    g.globalAlpha=0.25+Math.random()*0.5;
+    var x=Math.random()*S, y=Math.random()*S, w=1+Math.random()*3.2;
+    g.fillRect(x,y,w,w*(0.6+Math.random()*0.8));
+  }
+  g.globalAlpha=1;
+  var tex=new THREE.CanvasTexture(c);
+  tex.anisotropy=8;
+  return tex;
+}
+
+// ── Build meshes ──────────────────────────────────────────────────────────────
+var cushionMat = new THREE.MeshStandardMaterial({ map: cushionTexture(), roughness:0.92, metalness:0.0 });
+var cushionMesh = new THREE.Mesh(buildSlab(CW, CD, 5, cushionTop, 0.02), cushionMat);
+cushionMesh.castShadow = cushionMesh.receiveShadow = true;
+cushionMesh.scale.setScalar(MODEL_SCALE);
+
+var pipingMesh = new THREE.Mesh(
+  new THREE.TubeGeometry(pipingCurve(), 220, 0.32, 8, true),
+  new THREE.MeshStandardMaterial({ color:0xe9e2d0, roughness:0.7 })
+);
+pipingMesh.castShadow = true;
+pipingMesh.scale.setScalar(MODEL_SCALE);
+
+cushionNode = new THREE.Group();
+cushionNode.add(cushionMesh, pipingMesh);
+cushionNode.position.y = CUSHION_REST_Y;
+seatGroup.add(cushionNode);
+
+var corkMat  = new THREE.MeshStandardMaterial({ map: corkTexture(), roughness:0.95 });
+var corkMesh = new THREE.Mesh(buildSlab(BW, BD, 5.5, corkTop, 0.0), corkMat);
+corkMesh.castShadow = corkMesh.receiveShadow = true;
+corkMesh.scale.setScalar(MODEL_SCALE);
+
+baseNode = new THREE.Group();
+baseNode.add(corkMesh);
+seatGroup.add(baseNode);
+
+// ── Render loop ───────────────────────────────────────────────────────────────
+(function animate() {
+  requestAnimationFrame(animate);
+  seatGroup.rotation.y = S.rotY;
+  if (cushionNode) cushionNode.position.y = CUSHION_REST_Y + S.cushionOffY;
+  if (baseNode)    baseNode.position.y    = S.baseOffY;
+  camera.position.x += (S.camX - camera.position.x) * 0.07;
+  camera.position.y += (S.camY - camera.position.y) * 0.07;
+  camera.position.z += (S.camZ - camera.position.z) * 0.07;
+  camera.lookAt(0, S.lookY, 0);
+  renderer.render(scene, camera);
+})();
+
+// ── Reveal helpers ────────────────────────────────────────────────────────────
+function show(id){ var el=document.getElementById(id); if(el) el.classList.add('show'); }
+function hide(id){ var el=document.getElementById(id); if(el) el.classList.remove('show'); }
+function showAll(ids){ ids.forEach(show); }
+function hideAll(ids){ ids.forEach(hide); }
+
+// ── GSAP Scroll triggers ──────────────────────────────────────────────────────
+// Hero drift
+gsap.to(S, { camZ:0.60, camY:0.22, camX:0.20, lookY:0.08,
+  scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom top', scrub:1.2 }});
+
+// 1. Rotate 360 (with side-label reveal)
+gsap.timeline({ scrollTrigger:{ trigger:'#section-rotate', start:'top top', end:'bottom top', scrub:1.5 }})
+  .to(S, { rotY: S.rotY + Math.PI*2, ease:'none' });
+
+ScrollTrigger.create({ trigger:'#section-rotate', start:'top 70%', end:'bottom top',
+  onEnter:     function(){ showAll(['sl-left','sl-right']); },
+  onEnterBack: function(){ showAll(['sl-left','sl-right']); },
+  onLeaveBack: function(){ hideAll(['sl-left','sl-right']); }
+});
+
+ScrollTrigger.create({ trigger:'#section-rotate', start:'top top', end:'bottom top',
+  onUpdate: function(self){ document.getElementById('deg-readout').textContent=Math.round(self.progress*360)+'°'; }
+});
+
+// 2. Split — cushion lifts off the base, then settles back
+gsap.timeline({ scrollTrigger:{
+  trigger:'#section-split', start:'top top', end:'60% top', scrub:1.3,
+  onEnter:     function(){ show('split-text'); },
+  onLeaveBack: function(){ hide('split-text'); }
+}})
+.to(S, { cushionOffY:0.10, ease:'power2.out' }, 0)
+.to(S, { baseOffY:-0.08,   ease:'power2.out' }, 0)
+.to(S, { camX:0.0, camY:0.25, camZ:0.80, lookY:0.10 }, 0);
+
+gsap.timeline({ scrollTrigger:{ trigger:'#section-split', start:'75% top', end:'bottom top', scrub:1 }})
+.to(S, { cushionOffY:0, baseOffY:0 }, 0);
+
+// 3. Base feature
+gsap.timeline({ scrollTrigger:{
+  trigger:'#section-base', start:'top top', end:'bottom top', scrub:1.2,
+  onEnter:     function(){ showAll(['bt','bh','bb','bs','base-svg']); },
+  onEnterBack: function(){ showAll(['bt','bh','bb','bs','base-svg']); },
+  onLeaveBack: function(){ hideAll(['bt','bh','bb','bs','base-svg']); }
+}}).to(S, { rotY:Math.PI*0.65, camX:-0.12, camY:0.15, camZ:0.62, lookY:0.04 }, 0);
+
+// 4. Cushion feature
+gsap.timeline({ scrollTrigger:{
+  trigger:'#section-cushion', start:'top top', end:'bottom top', scrub:1.2,
+  onEnter:     function(){ showAll(['ct','ch','cb','cs','cushion-svg']); },
+  onEnterBack: function(){ showAll(['ct','ch','cb','cs','cushion-svg']); },
+  onLeaveBack: function(){ hideAll(['ct','ch','cb','cs','cushion-svg']); }
+}}).to(S, { rotY:-0.3, camX:0.25, camY:0.35, camZ:0.62, lookY:0.12 }, 0);
+
+// 5. Final
+gsap.timeline({ scrollTrigger:{
+  trigger:'#section-final', start:'top top', end:'bottom top', scrub:1,
+  onEnter:     function(){ showAll(['final-title','final-cta']); },
+  onLeaveBack: function(){ hideAll(['final-title','final-cta']); }
+}})
+.to(S, { rotY:-0.45, camX:0.28, camY:0.28, camZ:0.68, lookY:0.10 }, 0);
+
+// Progress dots
+['hero','section-rotate','section-split','section-base','section-cushion','section-final']
+  .forEach(function(id,i) {
+    ScrollTrigger.create({ trigger:'#'+id, start:'top center', end:'bottom center',
+      onEnter:     function(){ setDot(i); },
+      onEnterBack: function(){ setDot(i); }
+    });
+  });
+function setDot(i) {
+  document.querySelectorAll('.prog-dot').forEach(function(d,j){ d.classList.toggle('active',j===i); });
+}
+
+setTimeout(function(){
+  document.getElementById('hero-inner').classList.add('show');
+  document.getElementById('hero-hint').classList.add('show');
+}, 200);
+
+window.addEventListener('resize', function(){
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+</script>
+</body>
+</html>

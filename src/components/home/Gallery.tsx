@@ -69,18 +69,13 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-12">
           <div>
-            <p className="mono-label text-[0.66rem] mb-5 flex items-center gap-2">
-              <span className="text-cork-deep">FIG. 06</span>
-              <span className="w-6 h-px bg-line-strong" />
-              GALLERY
-            </p>
+            <p className="mono-label text-[0.72rem] mb-4 text-cork-deep">The pictures</p>
             <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.03] text-[clamp(1.9rem,4vw,3rem)] max-w-lg">
-              Every angle of the actual seat.
+              A closer look at the real thing.
             </h2>
           </div>
           <p className="text-ink-soft text-sm max-w-xs leading-relaxed">
-            The first production unit, photographed as-is. No renders standing in for the
-            object, no borrowed serenity.
+            Photos of the actual seat — every side, up close. No renders, no stock.
           </p>
         </div>
 

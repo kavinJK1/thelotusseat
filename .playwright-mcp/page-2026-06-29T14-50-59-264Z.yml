@@ -1,0 +1,117 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - img [ref=e5]
+      - list [ref=e7]:
+        - listitem [ref=e8]: PATENT
+        - listitem [ref=e9]: FEATURES
+        - listitem [ref=e10]: MADE IN ITALY
+        - listitem [ref=e11]: CONTACT
+        - listitem [ref=e12]:
+          - link "it" [ref=e13] [cursor=pointer]:
+            - /url: https://lunarwheel.it/it/
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - img [ref=e19]
+        - generic [ref=e22]:
+          - heading "The quietest wheel in the universe." [level=1] [ref=e23]
+          - generic [ref=e26]:
+            - text: Lunar crossed the atmosphere.
+            - text: It is now among us.
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - text: Lunar is the first
+            - text: pneumatic tire designed for
+            - text: 4- and 2-wheeled cabin size luggage.
+          - generic [ref=e31]: A made in Italy patent that originates from the world’s easiest invention. Which is it?
+        - generic [ref=e33]:
+          - generic:
+            - generic [ref=e35]:
+              - text: In the assembly phase a
+              - text: natural air chamber is formed
+            - generic [ref=e36]:
+              - text: Isolating all noise
+              - text: and reducing vibrations.
+        - generic [ref=e42]: Do you want to test how quiet it is?
+        - generic [ref=e44]:
+          - generic:
+            - generic [ref=e46]: Sssshhh.
+            - generic [ref=e47]: Listen carefully. No noise at all!
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - text: No one can hear Lunar
+            - text: in the cosmic void.
+          - generic [ref=e52]: Or on the Earth’s noisiest surfaces.
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - img [ref=e57]
+            - generic [ref=e58]: "001"
+            - generic [ref=e59]: Zero noise
+            - paragraph [ref=e61]: The natural air chamber that is formed inside the pneumatic tire during the assembly phase, isolates all noise and makes Lunar the quietest wheel in the universe.
+          - generic [ref=e62]:
+            - img [ref=e63]
+            - generic [ref=e64]: "002"
+            - generic [ref=e65]: 0 Gravity
+            - paragraph [ref=e67]: The air chamber reduces vibrations and allows the tires to roll with minimum friction on any surface. Maneuvering your wheeled luggage will always be a lunar experience, even on pebbles, gravel, stones, and cobbles.
+          - generic [ref=e68]:
+            - img [ref=e69]
+            - generic [ref=e70]: "003"
+            - generic [ref=e71]: Discretion
+            - paragraph [ref=e73]: The Lunar wheels cancel the noise pollution caused by wheeled luggage. And they don’t even damage the most delicate surfaces, such as your home hardwood floor. Extremely well-behaved, aren’t they?
+        - generic [ref=e76]:
+          - generic [ref=e77]: The Lunar wheels are designed for cabin size suitcases and wheeled luggage, but can also be developed on strollers, shopping trolleys, golf push carts, industrial carts, stair climbing hand trucks, hospital beds, wheelchairs, walkers, scooters, and much more.
+          - generic [ref=e78]:
+            - text: Are you thinking of another terrestrial project
+            - text: that could use the Lunar wheels?
+          - link "Contact us" [ref=e80] [cursor=pointer]:
+            - /url: mailto:lunar@lunarwheel.it
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - text: What is the
+            - text: origin of Lunar?
+            - text: Which corner
+            - text: of the universe
+            - text: does it come from?
+          - generic [ref=e86]: Made in Italy patent and manufacturing process.
+          - generic [ref=e87]:
+            - paragraph [ref=e88]: Lunar has been entirely conceived, designed, and manufactured in Italy and its story has three protagonists.
+            - paragraph [ref=e89]:
+              - text: Adriano Bucchia
+              - text: Lunar’s Venetian inventor. In his city, millions of tourists amble about the streets with rolling suitcases whose plastic wheels make unbearably loud noises. After one year of research, Adriano designed a wheel that cancels all noise. His lab is in via Einstein. And how could it be otherwise?
+            - paragraph [ref=e90]:
+              - text: Gruppo Favaron
+              - text: The group designed the first Lunar prototype. This leading Italian company specialized in the processing of plastic materials, immediately believed in Adriano Bucchia’s invention, and decided to develop and manufacture it.
+            - paragraph [ref=e91]:
+              - text: Crash Baggage
+              - text: Crash Baggage is the world’s leading manufacturer of dented suitcases. The brand has contributed to this project with its expertise, creativity, and “Handle without care” philosophy.
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - text: Lunar belongs to another dimension.
+            - text: But you can find the wheels on the Earth.
+          - link "Contact us" [ref=e96] [cursor=pointer]:
+            - /url: mailto:lunar@lunarwheel.it
+      - contentinfo [ref=e97]:
+        - generic [ref=e98]:
+          - img [ref=e100] [cursor=pointer]
+          - paragraph [ref=e102]:
+            - text: Crash Baggage SRL
+            - text: "Contact person: Francesco Pavia"
+            - text: "Email:"
+            - link "lunar@lunarwheel.it" [ref=e103] [cursor=pointer]:
+              - /url: mailto:lunar@lunarwheel.it
+            - text: "Phone: +39 0413086381"
+          - paragraph [ref=e105]:
+            - link "PRIVACY POLICY" [ref=e106] [cursor=pointer]:
+              - /url: https://lunarwheel.it/
+        - img [ref=e108]
+  - navigation "Language Switcher" [ref=e109]:
+    - list [ref=e110]:
+      - listitem [ref=e111]:
+        - link "Switch to English (English)" [ref=e112] [cursor=pointer]:
+          - /url: https://lunarwheel.it/
+          - text: English
+      - listitem [ref=e113]:
+        - link "Switch to Italian (Italiano)" [ref=e114] [cursor=pointer]:
+          - /url: https://lunarwheel.it/it/
+          - text: Italiano
+          - generic [ref=e115]: (Italian)

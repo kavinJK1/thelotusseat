@@ -4,21 +4,21 @@ import { ASSURANCES } from './assurances'
 
 export default function CTASection() {
   return (
-    <section className="py-20 md:py-28 bg-paper border-t border-line">
+    <section id="order" className="scroll-mt-16 py-20 md:py-28 bg-paper border-t border-line">
       <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <FadeIn>
           <div className="reg-frame border border-line-strong bg-surface px-6 sm:px-12 py-14 text-center">
             <p className="mono-label text-[0.66rem] mb-6 flex items-center justify-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cork inline-block" />
-              <span className="text-cork-deep">PRE-ORDER OPEN</span>
-              <span>· FIRST PRODUCTION RUN</span>
+              <span className="text-cork-deep">Pre-order open</span>
             </p>
             <h2 className="font-display font-semibold text-ink tracking-[-0.03em] leading-[1.02] text-[clamp(2rem,4.6vw,3.25rem)] max-w-2xl mx-auto">
-              Reserve the seat your practice deserves.
+              Reserve yours.
             </h2>
             <p className="mt-6 text-ink-soft text-lg leading-relaxed max-w-lg mx-auto">
-              Join the first run of The Lotus Seat. Your card is charged today to reserve a
-              unit — and you can cancel for a full refund any time before it ships.
+              The Lotus Seat is made in small batches. Pre-order now to claim one from the
+              first run. We charge today to hold your seat, and you can cancel for a full
+              refund any time before it ships.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link

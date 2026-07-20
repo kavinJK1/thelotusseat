@@ -1,0 +1,83 @@
+- generic [active] [ref=f7e1]:
+  - generic [ref=f7e4]:
+    - generic:
+      - generic:
+        - generic:
+          - paragraph: 1fps
+          - paragraph: 1440x900
+        - generic:
+          - paragraph: 00:00:00
+    - generic [ref=f7e5]:
+      - generic [ref=f7e9]:
+        - generic [ref=f7e10]:
+          - generic [ref=f7e11]: Timeless
+          - generic [ref=f7e12]: Craft
+        - generic [ref=f7e14]:
+          - generic [ref=f7e15]: pentaprism
+          - generic [ref=f7e20]: focus screen
+          - generic [ref=f7e25]: focus screen box
+      - generic [ref=f7e40]:
+        - paragraph [ref=f7e44]: Film negative
+        - paragraph [ref=f7e47]: white balanced
+        - paragraph [ref=f7e50]: film positive
+        - paragraph [ref=f7e53]: Colors corrected
+    - main [ref=f7e54]:
+      - generic [ref=f7e58]:
+        - generic [ref=f7e59]:
+          - generic [ref=f7e60]: Timeless
+          - generic [ref=f7e61]: Craft
+        - generic [ref=f7e63]:
+          - generic [ref=f7e64]:
+            - paragraph [ref=f7e66]: In September 1971, Canon released the F-1, forever changing the landscape of professional photography. This flagship SLR camera represented Canon's bold entry into the professional market, challenging the dominance of Nikon with extraordinary build quality, reliability, and a comprehensive system of interchangeable components.
+            - generic [ref=f7e67]: pentaprism
+          - generic [ref=f7e71]:
+            - paragraph [ref=f7e73]: The Canon F-1 wasn't just a camera—it was a statement that Canon had arrived as a serious contender in professional photography, backed by the vast FL and FD lens ecosystem that would power Canon's success for decades to come. Each component of the Canon F-1 was engineered with professional demands in mind, creating a camera system that could withstand the rigors of photojournalism, the precision requirements of studio work, and the reliability needs of photographers working in diverse and challenging environments worldwide.
+            - generic [ref=f7e74]: focus screen
+          - generic [ref=f7e78]: focus screen box
+      - paragraph [ref=f7e86]: Hover ona lens part
+      - generic [ref=f7e88]:
+        - paragraph
+        - paragraph
+      - generic [ref=f7e91]:
+        - paragraph [ref=f7e93]: Introduced in the 1930s for still photography, 35mm film became the gold standard due to its balance of portability, image quality, and affordability. Each roll of 35mm film typically contains 24 or 36 exposures, with each frame measuring 24x36mm. This aspect ratio (3:2) became the default for most consumer cameras and heavily influenced digital sensor formats. The film features perforations along both edges for transport mechanisms and is housed in a light-tight metal canister. Upon exposure, the film must be developed chemically, using C-41 (for color negatives), E-6 (for color slide film), or black-and-white developers such as D-76 or Rodinal.
+        - generic [ref=f7e95]:
+          - paragraph [ref=f7e97]: Photographers today have access to a wide array of 35mm films, each with its own sensory characteristics shaped by the chemical composition of its emulsion layers, ISO sensitivity, grain structure, and intended lighting conditions. Selecting the appropriate film stock is both a technical and artistic decision—one that influences not only exposure and development but also the emotional tone of the final image.
+          - generic [ref=f7e98]:
+            - generic [ref=f7e99]:
+              - paragraph [ref=f7e100]: Film Stock
+              - paragraph [ref=f7e101]: ISO
+            - generic [ref=f7e102]:
+              - generic [ref=f7e104]:
+                - paragraph [ref=f7e105]: "01."
+                - paragraph [ref=f7e106]: Kodak Portra 400
+                - paragraph [ref=f7e107]: "400"
+              - generic [ref=f7e109]:
+                - paragraph [ref=f7e110]: "02."
+                - paragraph [ref=f7e111]: Ilford HP5 Plus
+                - paragraph [ref=f7e112]: "400"
+              - generic [ref=f7e114]:
+                - paragraph [ref=f7e115]: "03."
+                - paragraph [ref=f7e116]: Kodak Ektar 100
+                - paragraph [ref=f7e117]: "100"
+              - generic [ref=f7e119]:
+                - paragraph [ref=f7e120]: "04."
+                - paragraph [ref=f7e121]: Fujifilm Superia X-TRA 400
+                - paragraph [ref=f7e122]: "400"
+              - generic [ref=f7e124]:
+                - paragraph [ref=f7e125]: "05."
+                - paragraph [ref=f7e126]: Cinestill 800T
+                - paragraph [ref=f7e127]: "800"
+        - paragraph [ref=f7e130]: "Color negative film is composed of a complex series of layered materials, each meticulously engineered to respond to specific wavelengths of light. At the core is a transparent film base, typically made of triacetate or polyester, which provides structural support. Above this lies a subbing layer that facilitates adhesion between the base and the emulsion. The emulsion itself is divided into three primary light-sensitive layers, each responsive to a distinct portion of the visible spectrum: blue, green, and red light. These layers are separated by dye filters—such as yellow and UV-absorbing layers—to control unwanted light contamination and improve spectral precision. Additional layers, including anti-halation coatings and protective top coats, reduce glare and shield the film from mechanical damage. Together, these layers form a sophisticated photochemical system that captures color information with remarkable accuracy and depth, enabling the analog reproduction of real-world scenes onto a physical medium."
+      - generic [ref=f7e133]:
+        - paragraph [ref=f7e139]: Film base
+        - paragraph [ref=f7e145]: Subbing layer
+        - paragraph [ref=f7e151]: Red light sensitive layer
+        - paragraph [ref=f7e157]: Green light sensitive layer
+        - paragraph [ref=f7e163]: Yellow filter
+        - paragraph [ref=f7e169]: Blue light sensitive layer
+        - paragraph [ref=f7e175]: UV Filter
+        - paragraph [ref=f7e181]: Protective layer
+    - link [ref=f7e185] [cursor=pointer]:
+      - /url: https://www.awwwards.com/sites/35mm
+  - paragraph [ref=f7e193]: 0%
+  - text: ▾ Empty

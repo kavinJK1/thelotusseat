@@ -1,0 +1,250 @@
+[    1061ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[    1105ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[    1311ms] [WARNING] THREE.WebGLShadowMap: PCFSoftShadowMap has been deprecated. Using PCFShadowMap instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[   55863ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[   55891ms] [LOG] [Fast Refresh] done in 23ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[   68159ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[   68188ms] [LOG] [Fast Refresh] done in 20ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  101066ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  101094ms] [LOG] [Fast Refresh] done in 18ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  113094ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  113121ms] [LOG] [Fast Refresh] done in 25ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  190825ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  190851ms] [LOG] [Fast Refresh] done in 33ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  289600ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  289618ms] TypeError: Cannot read properties of undefined (reading 'x')
+    at PostureProof (http://localhost:3000/_next/static/chunks/src_components_120s-4j._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252Fshowcase%252FPostureProof.tsx+%255Bapp-client%255D+%2528ecmascript%2529:321:38)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:15037:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6081:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9555:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9449:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9098:47)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10263:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10179:316)
+    at flushSyncWork$1 (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9230:86)
+    at Object.scheduleRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:299:13)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:384:38)
+    at applyUpdate (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:878:31)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:886:13
+[  289639ms] [LOG] [Fast Refresh] done in 42ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  304370ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  304372ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  304454ms] [LOG] [Fast Refresh] done in 36ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  304545ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  304554ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  304584ms] [WARNING] Image with src "/images/product/seat-elevation.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  304590ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <Home>
+        <section>
+        <section>
+        <section>
+        <CushionScrollShowcase>
+          <section ref={{current:null}} aria-label="The Lotus ..." className="relative h...">
+            <div className="sticky top...">
+              <canvas>
+              <div ref={{current:null}} style={{opacity:0, ...}} className="absolute i...">
+                <div>
+                <div className="relative h...">
+                  <div>
+                  <figure className="lg:w-[62%]...">
+                    <figcaption>
+                    <div className="p-2 sm:p-4">
+                      <div className="hidden sm:...">
+                        <PostureProof ref={{current:null}}>
+                          <svg viewBox="55 100 435..." className="w-full h-full" role="img" aria-label={"Side-ele..."}>
+                            <line>
+                            <g>
+                            <g>
+                            <line>
+                            <g>
+                            <g>
+                              <path>
+                              <path>
+                              <circle>
+                              <g>
+                              <path>
+                              <rect>
+                              <rect>
+                              <rect>
+                              <rect>
+                              <rect
+                                ref={function ref}
+                                x="-4.5"
+                                y="-6"
+                                width="9"
+                                height="12"
+                                rx="2"
++                               transform="translate(235 265) rotate(-95.19442890773482)"
+-                               transform="translate(235 265) rotate(-95.19442890773483)"
+                                fill="var(--color-paper)"
+                                stroke="var(--color-ink)"
+                                strokeWidth="1.5"
+                              >
+                              ...
+                              ...
+                            ...
+                      <div className="sm:hidden ...">
+                        <PostureProof ref={{current:null}} compact={true}>
+                          <svg viewBox="55 100 435..." className="w-full h-full" role="img" aria-label={"Side-ele..."}>
+                            <line>
+                            <g>
+                            <g>
+                            <g>
+                              <path>
+                              <path>
+                              <circle>
+                              <g>
+                              <path>
+                              <rect>
+                              <rect>
+                              <rect>
+                              <rect>
+                              <rect
+                                ref={function ref}
+                                x="-4.5"
+                                y="-6"
+                                width="9"
+                                height="12"
+                                rx="2"
++                               transform="translate(235 265) rotate(-95.19442890773482)"
+-                               transform="translate(235 265) rotate(-95.19442890773483)"
+                                fill="var(--color-paper)"
+                                stroke="var(--color-ink)"
+                                strokeWidth="1.5"
+                              >
+                              ...
+                              ...
+                            ...
+              ...
+        ...
+    ...
+ @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:3318
+[  304720ms] [WARNING] THREE.WebGLShadowMap: PCFSoftShadowMap has been deprecated. Using PCFShadowMap instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  312945ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  312953ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  312984ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <Home>
+        <section>
+        <section>
+        <section>
+        <CushionScrollShowcase>
+          <section ref={{current:null}} aria-label="The Lotus ..." className="relative h...">
+            <div className="sticky top...">
+              <canvas>
+              <div ref={{current:null}} style={{opacity:0, ...}} className="absolute i...">
+                <div>
+                <div className="relative h...">
+                  <div>
+                  <figure className="lg:w-[62%]...">
+                    <figcaption>
+                    <div className="p-2 sm:p-4">
+                      <div className="hidden sm:...">
+                        <PostureProof ref={{current:null}}>
+                          <svg viewBox="55 100 435..." className="w-full h-full" role="img" aria-label={"Side-ele..."}>
+                            <line>
+                            <g>
+                            <g>
+                            <line>
+                            <g>
+                            <g>
+                              <path>
+                              <path>
+                              <circle>
+                              <g>
+                              <path>
+                              <rect>
+                              <rect>
+                              <rect>
+                              <rect>
+                              <rect
+                                ref={function ref}
+                                x="-4.5"
+                                y="-6"
+                                width="9"
+                                height="12"
+                                rx="2"
++                               transform="translate(235 265) rotate(-95.19442890773482)"
+-                               transform="translate(235 265) rotate(-95.19442890773483)"
+                                fill="var(--color-paper)"
+                                stroke="var(--color-ink)"
+                                strokeWidth="1.5"
+                              >
+                              ...
+                              ...
+                            ...
+                      <div className="sm:hidden ...">
+                        <PostureProof ref={{current:null}} compact={true}>
+                          <svg viewBox="55 100 435..." className="w-full h-full" role="img" aria-label={"Side-ele..."}>
+                            <line>
+                            <g>
+                            <g>
+                            <g>
+                              <path>
+                              <path>
+                              <circle>
+                              <g>
+                              <path>
+                              <rect>
+                              <rect>
+                              <rect>
+                              <rect>
+                              <rect
+                                ref={function ref}
+                                x="-4.5"
+                                y="-6"
+                                width="9"
+                                height="12"
+                                rx="2"
++                               transform="translate(235 265) rotate(-95.19442890773482)"
+-                               transform="translate(235 265) rotate(-95.19442890773483)"
+                                fill="var(--color-paper)"
+                                stroke="var(--color-ink)"
+                                strokeWidth="1.5"
+                              >
+                              ...
+                              ...
+                            ...
+              ...
+        ...
+    ...
+ @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:3318
+[  312984ms] [WARNING] Image with src "/images/product/seat-elevation.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  313102ms] [WARNING] THREE.WebGLShadowMap: PCFSoftShadowMap has been deprecated. Using PCFShadowMap instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  416858ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  416886ms] [LOG] [Fast Refresh] done in 25ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477

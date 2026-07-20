@@ -1,0 +1,401 @@
+- generic [active] [ref=f26e1]:
+  - banner [ref=f26e2]:
+    - generic [ref=f26e3]:
+      - link "Lotus Seat LS‑01" [ref=f26e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f26e5]: Lotus Seat
+        - generic [ref=f26e6]: LS‑01
+      - navigation [ref=f26e7]:
+        - link "Product" [ref=f26e8] [cursor=pointer]:
+          - /url: /product
+        - link "About" [ref=f26e9] [cursor=pointer]:
+          - /url: /about
+        - link "The Science" [ref=f26e10] [cursor=pointer]:
+          - /url: /science
+        - link "FAQ" [ref=f26e11] [cursor=pointer]:
+          - /url: /faq
+      - link "Pre‑Order ↗" [ref=f26e13] [cursor=pointer]:
+        - /url: /contact
+        - text: Pre‑Order
+        - generic [ref=f26e14]: ↗
+  - main [ref=f26e15]:
+    - generic [ref=f26e16]:
+      - generic [ref=f26e19]:
+        - generic [ref=f26e20]: MEDITATION SEAT · MODEL LS‑01
+        - generic [ref=f26e21]: PRE‑ORDER OPEN
+      - generic [ref=f26e23]:
+        - generic [ref=f26e24]:
+          - heading "Sit better. Meditate longer." [level=1] [ref=f26e25]: Sit better.Meditate longer.
+          - paragraph [ref=f26e26]: An ergonomic meditation seat engineered around the biomechanics of posture — an 8° base tilt, a ramped natural-latex system, and a central relief channel. Comfort by design, not by softness.
+          - generic [ref=f26e27]:
+            - link "Pre-Order Now ↗" [ref=f26e28] [cursor=pointer]:
+              - /url: /contact
+              - text: Pre-Order Now
+              - generic [ref=f26e29]: ↗
+            - link "See the engineering" [ref=f26e30] [cursor=pointer]:
+              - /url: "#engineering"
+          - generic [ref=f26e31]:
+            - generic [ref=f26e32]:
+              - term [ref=f26e33]: 08°
+              - definition [ref=f26e34]: Base tilt
+            - generic [ref=f26e35]:
+              - term [ref=f26e36]: 100%
+              - definition [ref=f26e37]: Natural latex
+            - generic [ref=f26e38]:
+              - term [ref=f26e39]: 30–60m
+              - definition [ref=f26e40]: Comfortable sit
+        - figure "FIG. A — ELEVATION" [ref=f26e41]:
+          - generic [ref=f26e43]:
+            - 'img "The Lotus Seat in three-quarter elevation: a cream cotton-linen cushion with a terracotta yoke and gold lotus embroidery, seated on a solid cork base" [ref=f26e44]'
+            - generic [ref=f26e45]: 8° TILT
+            - generic [ref=f26e48]: RELIEF CH.
+          - generic [ref=f26e51]:
+            - generic [ref=f26e52]: W 500 mm
+            - generic [ref=f26e53]: D 440 mm
+            - generic [ref=f26e54]: CORK · LATEX · COTTON
+      - generic [ref=f26e55]: SCROLL
+    - paragraph [ref=f26e62]: Most meditation cushions offer nothing but padding. The Lotus Seat is an engineered system — it tilts the pelvis, supports the sacrum, and distributes weight so that sitting still stops being the hard part.
+    - generic [ref=f26e64]:
+      - generic [ref=f26e66]:
+        - generic [ref=f26e67]:
+          - paragraph [ref=f26e68]:
+            - generic [ref=f26e69]: DIAGNOSIS
+            - text: FAILURE MODES
+          - heading "Softness treats the symptom, not the structure." [level=2] [ref=f26e71]
+        - paragraph [ref=f26e72]: Five recurring ways an ordinary cushion sabotages the sit — each of them postural, none of them solved by more padding.
+      - generic [ref=f26e73]:
+        - generic [ref=f26e75]:
+          - generic [ref=f26e76]: P-01
+          - heading "Slouching & back pain" [level=3] [ref=f26e77]
+          - paragraph [ref=f26e78]: Flat cushions let the pelvis tip backward, forcing the spine to curve and the shoulders to round.
+        - generic [ref=f26e80]:
+          - generic [ref=f26e81]: P-02
+          - heading "Tailbone pressure" [level=3] [ref=f26e82]
+          - paragraph [ref=f26e83]: Pressure concentrates directly on the coccyx, creating a persistent ache that derails focus.
+        - generic [ref=f26e85]:
+          - generic [ref=f26e86]: P-03
+          - heading "Leg numbness" [level=3] [ref=f26e87]
+          - paragraph [ref=f26e88]: Poor weight distribution compresses nerves and blood vessels in the legs within minutes.
+        - generic [ref=f26e90]:
+          - generic [ref=f26e91]: P-04
+          - heading "Sessions cut short" [level=3] [ref=f26e92]
+          - paragraph [ref=f26e93]: When sitting hurts, attention goes to the pain, not the practice. The sit ends early.
+        - generic [ref=f26e95]:
+          - generic [ref=f26e96]: P-05
+          - heading "Constant adjusting" [level=3] [ref=f26e97]
+          - paragraph [ref=f26e98]: Fidgeting to find a bearable position repeatedly pulls the mind out of deeper states.
+    - region "The Lotus Seat, from sketch to structure to material, and the posture it produces" [ref=f26e99]:
+      - generic [ref=f26e100]:
+        - 'img "The Lotus Seat as a designer''s sketch: the cushion drawn in marker over its cork base, with handwritten callouts naming the sculpted raised back, the hand-set gold lotus, the central relief channel that keeps the coccyx clear, the ramped latex core tapering from 32 to 50 millimetres, and the solid cork base that forms the 8-degree wedge." [ref=f26e104]':
+          - generic [ref=f26e116]: Sculpted raised back
+          - generic [ref=f26e119]: Gold lotus, hand-set
+          - generic [ref=f26e122]: Relief channel — coccyx clear
+          - generic [ref=f26e125]: Ramped latex 32→50mm
+          - generic [ref=f26e128]: Solid cork base — 8° wedge
+          - generic [ref=f26e131]: Lotus Seat — LS-01
+        - generic:
+          - heading "Made for stillness" [level=3]
+          - paragraph: A sculpted seat on a solid cork base. Scroll to take it apart.
+        - generic:
+          - heading "The wedge" [level=3]
+          - paragraph: An 18 mm front-to-back rise. The pelvis tips forward; the spine stops fighting.
+        - generic:
+          - heading "Relief channel" [level=3]
+          - paragraph: A sculpted centre channel lifts the coccyx clear of contact.
+        - generic:
+          - heading "The lotus" [level=3]
+          - paragraph: Hand-set in gold on the raised rear panel — the only ornament on the object.
+        - generic:
+          - heading "Cork base" [level=3]
+          - paragraph: "The seat lifts away from a solid cork tray: the wedge, the grip, the floor protection."
+        - generic:
+          - heading "LS-01" [level=3]
+          - paragraph: Woven cotton-linen · natural latex · solid cork.
+        - generic:
+          - generic: LS-01 · 8° WEDGE
+          - generic: 500 × 440 MM · ILD 45–85
+        - generic:
+          - generic: SIT
+          - generic: 00:00
+        - generic:
+          - generic:
+            - generic: SKETCH
+            - generic: STRUCTURE
+            - generic: MATERIAL
+            - generic: POSTURE
+            - generic: TEARDOWN
+    - generic [ref=f26e134]:
+      - generic [ref=f26e135]:
+        - paragraph [ref=f26e136]:
+          - generic [ref=f26e137]: FIG. 01
+          - text: CONSTRUCTION
+        - heading "Ergonomics, in cross-section." [level=2] [ref=f26e139]
+        - paragraph [ref=f26e140]: Meditation discomfort is postural, not a matter of softness. Every layer of the seat resolves a specific point in the kinetic chain from floor to skull.
+        - list [ref=f26e141]:
+          - listitem [ref=f26e142]:
+            - generic [ref=f26e143]: "01"
+            - generic [ref=f26e144]:
+              - heading "8° base tilt" [level=3] [ref=f26e145]
+              - paragraph [ref=f26e146]: The inclined cork base rotates the pelvis forward into its natural lordotic curve — the spine stacks upright without muscular effort.
+          - listitem [ref=f26e147]:
+            - generic [ref=f26e148]: "02"
+            - generic [ref=f26e149]:
+              - heading "Responsive latex, not memory foam" [level=3] [ref=f26e150]
+              - paragraph [ref=f26e151]: Latex returns to shape instantly. It supports weight without letting the body sink and lose posture — session after session.
+          - listitem [ref=f26e152]:
+            - generic [ref=f26e153]: "03"
+            - generic [ref=f26e154]:
+              - heading "Relief where it’s needed" [level=3] [ref=f26e155]
+              - paragraph [ref=f26e156]: A sculpted central channel lifts the coccyx clear of contact — the single most common reason a sit ends too soon.
+      - figure "SECTION A–A · SIDE ELEVATION SCALE ~1:8" [ref=f26e158]:
+        - generic [ref=f26e159]:
+          - generic [ref=f26e160]: SECTION A–A · SIDE ELEVATION
+          - generic [ref=f26e161]: SCALE ~1:8
+        - 'img "Cross-section of The Lotus Seat: an 8-degree inclined cork composite base, a 70 mm responsive natural-latex base layer, a ramped comfort layer tapering from 32 mm at the front to 50 mm at the rear, and a central relief channel 10 to 15 mm deep." [ref=f26e165]':
+          - generic [ref=f26e166]: DATUM · FLOOR
+          - generic [ref=f26e171]: 8°
+          - generic [ref=f26e173]: RELIEF CHANNEL
+          - generic [ref=f26e174]: 10–15 mm · COCCYX OFF-LOAD
+          - generic [ref=f26e177]: RAMPED LAYER
+          - generic [ref=f26e178]: 32→50 mm
+          - generic [ref=f26e179]: ILD 45–55
+          - generic [ref=f26e181]: LATEX BASE
+          - generic [ref=f26e182]: 70 mm · ILD 75–85
+          - generic [ref=f26e184]: INCLINED CORK BASE
+    - generic [ref=f26e185]:
+      - generic [ref=f26e186]:
+        - paragraph [ref=f26e187]:
+          - generic [ref=f26e188]: FIG. 03
+          - text: SYSTEMS
+        - heading "Five systems. One long sit." [level=2] [ref=f26e190]
+      - generic [ref=f26e192]:
+        - figure "F-01 · DETAIL" [ref=f26e195]:
+          - generic:
+            - 'img "Side elevation of The Lotus Seat: the cushion rises front to back over a solid cork base, forming the 8° wedge"'
+        - generic [ref=f26e204]:
+          - generic [ref=f26e206]:
+            - text: F-01
+            - heading "8° ergonomic tilt" [level=3] [ref=f26e207]
+            - paragraph [ref=f26e208]: The inclined cork composite base rotates the pelvis into its natural forward position — realigning the whole spine without muscular effort.
+            - paragraph [ref=f26e209]: NATURAL CORK COMPOSITE · 8° · ANTI-SLIP BASE
+          - generic [ref=f26e211]:
+            - text: F-02
+            - heading "Responsive latex base" [level=3] [ref=f26e212]
+            - paragraph [ref=f26e213]: 70 mm of natural latex at ILD 75–85. Supportive, not sinking — it returns to shape instantly, holding posture session after session.
+            - paragraph [ref=f26e214]: NATURAL LATEX · ILD 75–85 · 70 mm
+          - generic [ref=f26e216]:
+            - text: F-03
+            - heading "Ramped comfort layer" [level=3] [ref=f26e217]
+            - paragraph [ref=f26e218]: 32 mm at the front, 50 mm at the rear — an 18 mm graduated ramp that cradles the sacrum and lower back, working with the base tilt.
+            - paragraph [ref=f26e219]: NATURAL LATEX · ILD 45–55 · 32→50 mm
+          - generic [ref=f26e221]:
+            - text: F-04
+            - heading "Central relief channel" [level=3] [ref=f26e222]
+            - paragraph [ref=f26e223]: A shallow oval channel, 10–15 mm deep, lifts the coccyx clear of contact. Tailbone pressure is a leading reason sessions end too soon.
+            - paragraph [ref=f26e224]: 10–15 mm DEPTH · COCCYX OFF-LOAD
+          - generic [ref=f26e226]:
+            - text: F-05
+            - heading "Breathable cover" [level=3] [ref=f26e227]
+            - paragraph [ref=f26e228]: Upholstery-grade cotton-poly linen at 300–350 GSM in warm ivory. A tone-on-tone lotus embroidery on the rear panel — the only ornament.
+            - paragraph [ref=f26e229]: COTTON-POLY LINEN · 300–350 GSM · IVORY
+    - generic [ref=f26e230]:
+      - generic [ref=f26e231]:
+        - paragraph [ref=f26e232]:
+          - generic [ref=f26e233]: FIG. 04
+          - text: MATERIALS
+        - generic [ref=f26e235]:
+          - heading "Three materials, each chosen on the merits." [level=2] [ref=f26e236]
+          - paragraph [ref=f26e237]: No synthetics, no shortcuts. Cork, latex, and woven cotton — selected for durability, breathability, and environmental honesty.
+      - generic [ref=f26e238]:
+        - article [ref=f26e239]:
+          - generic [ref=f26e240]:
+            - img "The bare cork tray, its grain and moulded rim visible in raking light" [ref=f26e241]
+            - generic [ref=f26e242]: BASE
+            - generic [ref=f26e243]: M-01
+          - generic [ref=f26e244]:
+            - heading "Natural cork composite" [level=3] [ref=f26e245]
+            - paragraph [ref=f26e246]: Sustainably harvested — cork bark regenerates after every harvest, so no trees are cut. Naturally antimicrobial, lightweight, and built to last decades.
+            - paragraph [ref=f26e247]: ANTIMICROBIAL · LIGHTWEIGHT · GRIP · RENEWABLE
+        - article [ref=f26e248]:
+          - generic [ref=f26e249]:
+            - img "The latex cushion resting on its cork tray, seen from the side — the full depth of the core" [ref=f26e250]
+            - generic [ref=f26e251]: CUSHION
+            - generic [ref=f26e252]: M-02
+          - generic [ref=f26e253]:
+            - heading "Natural latex" [level=3] [ref=f26e254]
+            - paragraph [ref=f26e255]: Tapped from rubber trees, not synthesised. Responds instantly — unlike memory foam, which lets the body sink and lose posture. Biodegradable and breathable.
+            - paragraph [ref=f26e256]: ILD 45–85 · INSTANT RESPONSE · BREATHABLE
+        - article [ref=f26e257]:
+          - generic [ref=f26e258]:
+            - 'img "The woven cover from above: quilted contour seams, terracotta yoke and the gold lotus embroidery" [ref=f26e259]'
+            - generic [ref=f26e260]: COVER
+            - generic [ref=f26e261]: M-03
+          - generic [ref=f26e262]:
+            - heading "Cotton-poly upholstery" [level=3] [ref=f26e263]
+            - paragraph [ref=f26e264]: 300–350 GSM woven fabric in warm ivory. Low-stretch, pre-shrunk, breathable across long sessions — finished with a tone-on-tone lotus embroidery.
+            - paragraph [ref=f26e265]: 300–350 GSM · IVORY · PRE-SHRUNK · LOTUS DETAIL
+      - generic [ref=f26e267]: SCROLL TO COMPARE →
+    - generic [ref=f26e273]:
+      - generic [ref=f26e274]:
+        - generic [ref=f26e275]:
+          - paragraph [ref=f26e276]: SPECIFICATION
+          - paragraph [ref=f26e277]: Model LS-01
+        - generic [ref=f26e278]: REV. APRE-PRODUCTION
+      - generic [ref=f26e279]:
+        - generic [ref=f26e280]:
+          - term [ref=f26e281]: Width
+          - definition [ref=f26e282]: 500 mm
+        - generic [ref=f26e283]:
+          - term [ref=f26e284]: Depth
+          - definition [ref=f26e285]: 440 mm
+        - generic [ref=f26e286]:
+          - term [ref=f26e287]: Base tilt angle
+          - definition [ref=f26e288]: 8°
+        - generic [ref=f26e289]:
+          - term [ref=f26e290]: Base material
+          - definition [ref=f26e291]: Natural cork composite
+        - generic [ref=f26e292]:
+          - term [ref=f26e293]: Base cushion
+          - definition [ref=f26e294]: Natural latex · ILD 75–85 · 70 mm
+        - generic [ref=f26e295]:
+          - term [ref=f26e296]: Top cushion
+          - definition [ref=f26e297]: Natural latex · ILD 45–55 · 32–50 mm ramped
+        - generic [ref=f26e298]:
+          - term [ref=f26e299]: Relief channel depth
+          - definition [ref=f26e300]: 10–15 mm
+        - generic [ref=f26e301]:
+          - term [ref=f26e302]: Cover fabric
+          - definition [ref=f26e303]: Cotton-poly / linen · 300–350 GSM
+        - generic [ref=f26e304]:
+          - term [ref=f26e305]: Cover colour
+          - definition [ref=f26e306]: Warm ivory / natural cream
+        - generic [ref=f26e307]:
+          - term [ref=f26e308]: Detail
+          - definition [ref=f26e309]: Tone-on-tone lotus embroidery
+        - generic [ref=f26e310]:
+          - term [ref=f26e311]: Postures
+          - definition [ref=f26e312]: Siddhasana · Sukhasana · Burmese · Half Lotus
+    - generic [ref=f26e317]:
+      - paragraph [ref=f26e318]:
+        - generic [ref=f26e319]: THE PRACTICE
+        - text: WHY IT MATTERS
+      - heading "When sitting is effortless, the practice is all that’s left." [level=2] [ref=f26e321]
+      - paragraph [ref=f26e322]: The Lotus Seat is built for anyone who takes the sit seriously — first session or ten-thousandth. Every component exists to remove one more obstacle between you and the stillness you came for.
+      - link "Pre-Order Now ↗" [ref=f26e323] [cursor=pointer]:
+        - /url: /contact
+        - text: Pre-Order Now
+        - generic [ref=f26e324]: ↗
+    - generic [ref=f26e326]:
+      - generic [ref=f26e327]:
+        - paragraph [ref=f26e328]:
+          - generic [ref=f26e329]: REFERENCE
+          - text: FAQ
+        - heading "Common questions." [level=2] [ref=f26e331]
+      - generic [ref=f26e332]:
+        - generic [ref=f26e333]:
+          - heading [level=3] [ref=f26e334]:
+            - button "01 Why this seat over a regular meditation cushion?" [expanded] [ref=f26e335]:
+              - generic [ref=f26e336]:
+                - generic [ref=f26e337]: "01"
+                - generic [ref=f26e338]: Why this seat over a regular meditation cushion?
+          - paragraph [ref=f26e343]: A regular cushion offers padding but does nothing for posture. The Lotus Seat actively positions the pelvis — through its 8° tilt and ramped latex layers — so the spine aligns naturally without effort. That structural difference is what allows longer, more comfortable sits.
+        - heading [level=3] [ref=f26e345]:
+          - button "02 Why natural latex instead of memory foam?" [ref=f26e346]:
+            - generic [ref=f26e347]:
+              - generic [ref=f26e348]: "02"
+              - generic [ref=f26e349]: Why natural latex instead of memory foam?
+        - heading [level=3] [ref=f26e354]:
+          - button "03 Which postures and styles does it support?" [ref=f26e355]:
+            - generic [ref=f26e356]:
+              - generic [ref=f26e357]: "03"
+              - generic [ref=f26e358]: Which postures and styles does it support?
+        - heading [level=3] [ref=f26e363]:
+          - button "04 Is it suitable for beginners?" [ref=f26e364]:
+            - generic [ref=f26e365]:
+              - generic [ref=f26e366]: "04"
+              - generic [ref=f26e367]: Is it suitable for beginners?
+        - heading [level=3] [ref=f26e372]:
+          - button "05 How do I care for and clean it?" [ref=f26e373]:
+            - generic [ref=f26e374]:
+              - generic [ref=f26e375]: "05"
+              - generic [ref=f26e376]: How do I care for and clean it?
+        - heading [level=3] [ref=f26e381]:
+          - button "06 How long can I comfortably sit on it?" [ref=f26e382]:
+            - generic [ref=f26e383]:
+              - generic [ref=f26e384]: "06"
+              - generic [ref=f26e385]: How long can I comfortably sit on it?
+        - heading [level=3] [ref=f26e390]:
+          - button "07 When will orders ship?" [ref=f26e391]:
+            - generic [ref=f26e392]:
+              - generic [ref=f26e393]: "07"
+              - generic [ref=f26e394]: When will orders ship?
+        - heading [level=3] [ref=f26e399]:
+          - button "08 What about warranty and returns?" [ref=f26e400]:
+            - generic [ref=f26e401]:
+              - generic [ref=f26e402]: "08"
+              - generic [ref=f26e403]: What about warranty and returns?
+    - generic [ref=f26e410]:
+      - paragraph [ref=f26e411]:
+        - generic [ref=f26e413]: PRE-ORDER OPEN
+        - generic [ref=f26e414]: · FIRST PRODUCTION RUN
+      - heading "Reserve the seat your practice deserves." [level=2] [ref=f26e415]
+      - paragraph [ref=f26e416]: Join the first run of The Lotus Seat. We’ll confirm your shipping window by email — no charge until your unit is ready.
+      - generic [ref=f26e417]:
+        - link "Pre-Order Now ↗" [ref=f26e418] [cursor=pointer]:
+          - /url: /contact
+          - text: Pre-Order Now
+          - generic [ref=f26e419]: ↗
+        - link "View full specifications" [ref=f26e420] [cursor=pointer]:
+          - /url: /product
+  - contentinfo [ref=f26e421]:
+    - generic [ref=f26e422]:
+      - generic [ref=f26e423]:
+        - generic [ref=f26e424]:
+          - link "Lotus Seat" [ref=f26e425] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f26e426]: An ergonomic meditation seat engineered around the biomechanics of seated posture. Sit better, meditate longer.
+          - generic [ref=f26e427]:
+            - link "Instagram" [ref=f26e428] [cursor=pointer]:
+              - /url: "#"
+            - link "Facebook" [ref=f26e433] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=f26e436]:
+          - heading "Product" [level=4] [ref=f26e437]
+          - list [ref=f26e438]:
+            - listitem [ref=f26e439]:
+              - link "The Seat" [ref=f26e440] [cursor=pointer]:
+                - /url: /product
+            - listitem [ref=f26e441]:
+              - link "The Science" [ref=f26e442] [cursor=pointer]:
+                - /url: /science
+            - listitem [ref=f26e443]:
+              - link "FAQ" [ref=f26e444] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=f26e445]:
+          - heading "Company" [level=4] [ref=f26e446]
+          - list [ref=f26e447]:
+            - listitem [ref=f26e448]:
+              - link "About" [ref=f26e449] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f26e450]:
+              - link "Contact" [ref=f26e451] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f26e452]:
+          - heading "Legal" [level=4] [ref=f26e453]
+          - list [ref=f26e454]:
+            - listitem [ref=f26e455]:
+              - link "Shipping & Returns" [ref=f26e456] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=f26e457]:
+              - link "Privacy Policy" [ref=f26e458] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=f26e459]:
+              - link "Terms & Conditions" [ref=f26e460] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=f26e461]:
+        - paragraph [ref=f26e462]: © 2026 THE LOTUS SEAT · ALL RIGHTS RESERVED
+        - link "Pre-Order Now ↗" [ref=f26e463] [cursor=pointer]:
+          - /url: /contact
+          - text: Pre-Order Now
+          - generic [ref=f26e464]: ↗
+  - button "Open Next.js Dev Tools" [ref=f26e470] [cursor=pointer]

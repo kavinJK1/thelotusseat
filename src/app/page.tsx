@@ -1,15 +1,11 @@
 import Hero from '@/components/home/Hero'
-import ProductIntro from '@/components/home/ProductIntro'
 import ProblemSection from '@/components/home/ProblemSection'
-import Comparison from '@/components/home/Comparison'
-import CushionScrollShowcase from '@/components/showcase/CushionScrollShowcase'
-import WhySection from '@/components/home/WhySection'
-import Features from '@/components/home/Features'
-import Materials from '@/components/home/Materials'
-import MeditationPostures from '@/components/home/MeditationPostures'
+import Solution from '@/components/home/Solution'
+import Posture from '@/components/home/Posture'
+import Design from '@/components/home/Design'
+import Product3D from '@/components/home/Product3D'
+import Details from '@/components/home/Details'
 import Gallery from '@/components/home/Gallery'
-import Specs from '@/components/home/Specs'
-import Lifestyle from '@/components/home/Lifestyle'
 import HomeFAQ from '@/components/home/HomeFAQ'
 import CTASection from '@/components/home/CTASection'
 import { homeFaqs } from '@/components/home/homeFaqs'
@@ -17,36 +13,27 @@ import JsonLd from '@/components/seo/JsonLd'
 import { faqSchema, graph, productSchema } from '@/lib/seo/schema'
 
 /**
- * The homepage argues in one order: state the claim, diagnose why ordinary cushions
- * fail, *show* the postural mechanism (the scroll scene and its measured plate),
- * then open the object up — construction, systems, materials, specification.
- *
- * The old Benefits grid is deliberately gone: the posture proof demonstrates what
- * that grid asserted, and repeating it in six cells weakened both.
+ * One simple line of argument, in plain words: here's the problem, here's the fix,
+ * here's the proof you can see, here's how it's built, here's what it's made of —
+ * then the pictures, the questions, and the order. Every section says one new thing;
+ * nothing is repeated twice in different clothes.
  */
 export default function Home() {
   return (
     <>
-      {/* The Product node lives here rather than on /product because `/` is the URL
-          that ranks and the one an answer engine will cite for "meditation seat". */}
       <JsonLd data={graph(productSchema(), faqSchema(homeFaqs))} />
       <Hero />
-      <ProductIntro />
+      {/* Information */}
       <ProblemSection />
-      {/* Answers "why not a normal cushion?" before the 500vh showcase, which makes the
-          same argument far better but 300vh deep — where a skimming visitor never gets
-          to it. Stated once here, demonstrated at length below. */}
-      <Comparison />
-      <CushionScrollShowcase />
-      <WhySection />
-      <Features />
-      <Materials />
-      {/* Brief §6–7: introduce the classical seated postures, then show the object
-          from every angle, before the specification closes the argument. */}
-      <MeditationPostures />
+      <Solution />
+      {/* The difference you can see */}
+      <Posture />
+      <Design />
+      {/* The seat in the round */}
+      <Product3D />
+      <Details />
+      {/* The pictures */}
       <Gallery />
-      <Specs />
-      <Lifestyle />
       <HomeFAQ />
       <CTASection />
     </>

@@ -1,0 +1,154 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "The Lotus Seat" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "Product" [ref=e6] [cursor=pointer]:
+          - /url: /product
+        - link "About" [ref=e7] [cursor=pointer]:
+          - /url: /about
+        - link "The Science" [ref=e8] [cursor=pointer]:
+          - /url: /science
+        - link "FAQ" [ref=e9] [cursor=pointer]:
+          - /url: /faq
+      - link "Pre-Order Now" [ref=e10] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e15]:
+        - generic [ref=e17]:
+          - paragraph [ref=e18]: Engineering
+          - heading "Six components. One system." [level=2] [ref=e19]
+        - generic [ref=e20]:
+          - generic [ref=e22]:
+            - text: "01"
+            - heading "Ergonomic Tilted Base" [level=3] [ref=e23]
+            - paragraph [ref=e24]: An 8° inclined cork composite base gently tilts the pelvis into its natural forward position. This pelvic tilt is the foundation of effortless upright posture — it propagates through the entire spine without any muscular effort required.
+            - list [ref=e25]:
+              - listitem [ref=e26]: Natural cork composite
+              - listitem [ref=e28]: 8° ergonomic tilt
+              - listitem [ref=e30]: Anti-slip base finish
+          - generic [ref=e33]:
+            - text: "02"
+            - heading "Responsive Latex Cushion (Base)" [level=3] [ref=e34]
+            - paragraph [ref=e35]: A 70 mm flat natural latex base layer provides the structural foundation. At ILD 75–85 (soft firmness), it offers meaningful support without excessive give — the seat holds its position rather than collapsing under weight.
+            - list [ref=e36]:
+              - listitem [ref=e37]: Natural latex
+              - listitem [ref=e39]: ILD 75–85 (soft firmness)
+              - listitem [ref=e41]: 70 mm thick
+              - listitem [ref=e43]: Flat profile, no cut-outs
+          - generic [ref=e46]:
+            - text: "03"
+            - heading "Ramped Comfort Layer" [level=3] [ref=e47]
+            - paragraph [ref=e48]: The top latex layer is thicker at the rear (50 mm) and tapers toward the front (32 mm). This graduated thickness works in concert with the base tilt to support the sacrum and lower back while the hips settle naturally.
+            - list [ref=e49]:
+              - listitem [ref=e50]: Natural latex
+              - listitem [ref=e52]: ILD 45–55 (soft)
+              - listitem [ref=e54]: 50 mm rear / 32 mm front
+              - listitem [ref=e56]: Graduated ramp profile
+          - generic [ref=e59]:
+            - text: "04"
+            - heading "Central Relief Channel" [level=3] [ref=e60]
+            - paragraph [ref=e61]: A shallow central channel (10–15 mm depth) is sculpted into the cushion surface to lift the coccyx away from contact with the seat. Tailbone pressure is one of the leading causes of short meditation sessions.
+            - list [ref=e62]:
+              - listitem [ref=e63]: 10–15 mm depth
+              - listitem [ref=e65]: Precisely sculpted channel
+              - listitem [ref=e67]: Maintains cushion firmness
+              - listitem [ref=e69]: Coccyx off-loading design
+          - generic [ref=e72]:
+            - text: "05"
+            - heading "Breathable Cover" [level=3] [ref=e73]
+            - paragraph [ref=e74]: An upholstery-grade woven cotton-poly and linen blend in warm ivory cream. The 300–350 GSM weight provides durability without rigidity. A tone-on-tone lotus motif is embroidered on the rear panel — the only decorative element on an otherwise minimal form.
+            - list [ref=e75]:
+              - listitem [ref=e76]: Cotton-poly / linen blend
+              - listitem [ref=e78]: 300–350 GSM
+              - listitem [ref=e80]: Warm ivory / natural cream
+              - listitem [ref=e82]: Tone-on-tone lotus embroidery
+          - generic [ref=e85]:
+            - text: "06"
+            - heading "Stable Cork Base" [level=3] [ref=e86]
+            - paragraph [ref=e87]: The 500 × 440 mm cork base provides a generous, stable foundation that minimises micro-adjustments during sitting. Cork is naturally antimicrobial, lightweight, and provides excellent grip on most floor surfaces.
+            - list [ref=e88]:
+              - listitem [ref=e89]: 500 mm width
+              - listitem [ref=e91]: 440 mm depth
+              - listitem [ref=e93]: Natural cork composite
+              - listitem [ref=e95]: Antimicrobial surface
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - paragraph [ref=e100]: Materials
+          - heading "Natural by design." [level=2] [ref=e101]
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - generic [ref=e104]: Base
+            - generic [ref=e105]: Natural cork composite, 8° ergonomic tilt
+          - generic [ref=e106]:
+            - generic [ref=e107]: Base Cushion
+            - generic [ref=e108]: Natural latex foam, ILD 75–85, 70 mm
+          - generic [ref=e109]:
+            - generic [ref=e110]: Top Cushion
+            - generic [ref=e111]: Natural latex foam, ILD 45–55, 32–50 mm ramped
+          - generic [ref=e112]:
+            - generic [ref=e113]: Cover
+            - generic [ref=e114]: Cotton-poly / linen blend, 300–350 GSM, warm ivory
+          - generic [ref=e115]:
+            - generic [ref=e116]: Embroidery
+            - generic [ref=e117]: Tone-on-tone lotus motif, rear panel
+      - generic [ref=e119]:
+        - heading "Ready to experience the difference?" [level=2] [ref=e120]
+        - paragraph [ref=e121]: Pre-orders are open. Limited to our first production run.
+        - link "Pre-Order Now" [ref=e122] [cursor=pointer]:
+          - /url: /contact
+  - contentinfo [ref=e123]:
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - generic [ref=e126]:
+          - link "The Lotus Seat" [ref=e127] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e128]: Sit Better. Meditate Longer. A premium ergonomic meditation seat designed for serious practitioners.
+          - generic [ref=e129]:
+            - link "Instagram" [ref=e130] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e131]
+            - link "Facebook" [ref=e135] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e136]
+        - generic [ref=e138]:
+          - heading "Product" [level=4] [ref=e139]
+          - list [ref=e140]:
+            - listitem [ref=e141]:
+              - link "The Seat" [ref=e142] [cursor=pointer]:
+                - /url: /product
+            - listitem [ref=e143]:
+              - link "The Science" [ref=e144] [cursor=pointer]:
+                - /url: /science
+            - listitem [ref=e145]:
+              - link "FAQ" [ref=e146] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=e147]:
+          - heading "Company" [level=4] [ref=e148]
+          - list [ref=e149]:
+            - listitem [ref=e150]:
+              - link "About" [ref=e151] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e152]:
+              - link "Contact" [ref=e153] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e154]:
+          - heading "Legal" [level=4] [ref=e155]
+          - list [ref=e156]:
+            - listitem [ref=e157]:
+              - link "Shipping & Returns" [ref=e158] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=e159]:
+              - link "Privacy Policy" [ref=e160] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e161]:
+              - link "Terms & Conditions" [ref=e162] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=e163]:
+        - paragraph [ref=e164]: © 2026 The Lotus Seat. All rights reserved.
+        - link "Pre-Order Now" [ref=e165] [cursor=pointer]:
+          - /url: /contact
+  - button "Open Next.js Dev Tools" [ref=e171] [cursor=pointer]:
+    - img [ref=e172]

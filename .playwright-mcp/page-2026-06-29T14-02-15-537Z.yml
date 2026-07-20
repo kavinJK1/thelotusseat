@@ -1,0 +1,285 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "The Lotus Seat" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "Product" [ref=e6] [cursor=pointer]:
+          - /url: /product
+        - link "About" [ref=e7] [cursor=pointer]:
+          - /url: /about
+        - link "The Science" [ref=e8] [cursor=pointer]:
+          - /url: /science
+        - link "FAQ" [ref=e9] [cursor=pointer]:
+          - /url: /faq
+      - link "Pre-Order Now" [ref=e10] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=e11]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: The Lotus Seat
+      - heading "A meditation seat built around how your body actually works." [level=2] [ref=e17]
+      - paragraph [ref=e18]: Most meditation cushions offer nothing more than padding. The Lotus Seat is different — it is an ergonomically engineered system that tilts your pelvis, supports your sacrum, and distributes your weight so that sitting still feels effortless. Because when your body is aligned, your mind can go deeper.
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: The Problem
+        - heading "Most meditation cushions only offer softness." [level=2] [ref=e24]
+        - paragraph [ref=e25]: They do nothing to address the structural reasons why sitting is uncomfortable in the first place.
+      - generic [ref=e26]:
+        - generic [ref=e28]:
+          - img [ref=e30]
+          - heading "Slouching & Back Pain" [level=3] [ref=e32]
+          - paragraph [ref=e33]: Standard cushions let your pelvis tip backward, forcing your spine to curve and your shoulders to round.
+        - generic [ref=e35]:
+          - img [ref=e37]
+          - heading "Tailbone Pressure" [level=3] [ref=e40]
+          - paragraph [ref=e41]: Flat cushions concentrate pressure directly on the coccyx, creating a persistent ache that derails your focus.
+        - generic [ref=e43]:
+          - img [ref=e45]
+          - heading "Leg Numbness" [level=3] [ref=e49]
+          - paragraph [ref=e50]: Poor weight distribution compresses nerves and blood vessels in your legs within minutes of sitting.
+        - generic [ref=e52]:
+          - img [ref=e54]
+          - heading "Short Sessions" [level=3] [ref=e57]
+          - paragraph [ref=e58]: When sitting is uncomfortable, your mind focuses on the pain — not the practice. Sessions end before they should.
+        - generic [ref=e60]:
+          - img [ref=e62]
+          - heading "Constant Adjusting" [level=3] [ref=e64]
+          - paragraph [ref=e65]: Fidgeting to find a comfortable position pulls you out of deep states — and keeps you there.
+    - generic [ref=e68]:
+      - generic [ref=e70]:
+        - paragraph [ref=e71]: Why The Lotus Seat
+        - heading "Ergonomics meets the ancient art of seated meditation." [level=2] [ref=e72]
+        - paragraph [ref=e73]: "The Lotus Seat combines two innovations that work in harmony: an 8° inclined cork base that gently tilts the pelvis forward into its natural position, and a high-resilience natural latex cushion that supports your weight without allowing excessive sinking."
+        - paragraph [ref=e74]: Together, they create the conditions for an upright, stable, comfortable posture — the foundation every meditation tradition points toward, and the thing most cushions fail to deliver.
+        - generic [ref=e75]:
+          - generic [ref=e79]:
+            - paragraph [ref=e80]: 8° Ergonomic Tilt
+            - paragraph [ref=e81]: Angles the pelvis forward into its natural lordotic curve — no effort required.
+          - generic [ref=e85]:
+            - paragraph [ref=e86]: Natural Latex Support
+            - paragraph [ref=e87]: Responsive, not compressive. Returns to shape instantly and holds your posture in place.
+      - generic [ref=e89]:
+        - generic [ref=e95]:
+          - paragraph [ref=e96]: 8°
+          - paragraph [ref=e97]: Ergonomic tilt angle
+        - generic [ref=e98]:
+          - paragraph [ref=e99]: 100%
+          - paragraph [ref=e100]: Natural latex
+    - generic [ref=e102]:
+      - generic [ref=e104]:
+        - paragraph [ref=e105]: Key Benefits
+        - heading "Every detail designed for your practice." [level=2] [ref=e106]
+      - generic [ref=e107]:
+        - generic [ref=e109]:
+          - img [ref=e111]
+          - heading "Naturally Upright Spine" [level=3] [ref=e114]
+          - paragraph [ref=e115]: The pelvic tilt places your spine in its natural S-curve without muscular effort.
+        - generic [ref=e117]:
+          - img [ref=e119]
+          - heading "Healthy Pelvic Positioning" [level=3] [ref=e122]
+          - paragraph [ref=e123]: Hips slightly higher than knees creates ideal conditions for long sitting.
+        - generic [ref=e125]:
+          - img [ref=e127]
+          - heading "Tailbone Relief" [level=3] [ref=e130]
+          - paragraph [ref=e131]: The sculpted central channel lifts pressure off the coccyx — the most common pain point.
+        - generic [ref=e133]:
+          - img [ref=e135]
+          - heading "Even Weight Distribution" [level=3] [ref=e138]
+          - paragraph [ref=e139]: Load is spread across the full sitting surface, reducing pressure points throughout.
+        - generic [ref=e141]:
+          - img [ref=e143]
+          - heading "Longer Sessions" [level=3] [ref=e145]
+          - paragraph [ref=e146]: Physical comfort frees your mind to settle deeper, naturally extending your practice.
+        - generic [ref=e148]:
+          - img [ref=e150]
+          - heading "Breathable Construction" [level=3] [ref=e153]
+          - paragraph [ref=e154]: Natural materials stay cool and comfortable throughout your practice.
+    - generic [ref=e156]:
+      - generic [ref=e158]:
+        - paragraph [ref=e159]: Product Features
+        - heading "Six features. One system." [level=2] [ref=e160]
+      - generic [ref=e161]:
+        - generic [ref=e166]:
+          - text: "01"
+          - heading "Ergonomic Tilted Base" [level=3] [ref=e167]
+          - paragraph [ref=e168]: An 8° inclined cork composite base gently tilts the pelvis into a natural forward position. This single change propagates upward through the entire spine, reducing muscular effort and encouraging an effortlessly upright posture.
+          - paragraph [ref=e169]: Natural cork composite · 8° tilt · Anti-slip base
+        - generic [ref=e174]:
+          - text: "02"
+          - heading "Responsive Latex Cushion" [level=3] [ref=e175]
+          - paragraph [ref=e176]: High-resilience natural latex — not memory foam — returns to shape quickly and provides consistent support. Unlike memory foam which allows excessive sinking and heat retention, latex maintains your posture and stays breathable throughout long sessions.
+          - paragraph [ref=e177]: Natural latex · High-resilience · ILD 75–85
+        - generic [ref=e182]:
+          - text: "03"
+          - heading "Central Relief Channel" [level=3] [ref=e183]
+          - paragraph [ref=e184]: A shallow sculpted channel (10–15 mm) runs along the centre of the cushion, lifting the coccyx away from surface contact. Tailbone pressure is one of the most common reasons practitioners cut sessions short.
+          - paragraph [ref=e185]: 10–15 mm depth · Precisely sculpted · Maintains firmness
+        - generic [ref=e190]:
+          - text: "04"
+          - heading "Ramped Comfort Layer" [level=3] [ref=e191]
+          - paragraph [ref=e192]: The top layer is thicker at the rear (50 mm) and tapers to the front (32 mm). This ramp supports the sacrum and lower back while allowing the front of the pelvis to settle — working in harmony with the base tilt.
+          - paragraph [ref=e193]: 50 mm rear · 32 mm front · Natural latex ILD 45–55
+        - generic [ref=e198]:
+          - text: "05"
+          - heading "Breathable Construction" [level=3] [ref=e199]
+          - paragraph [ref=e200]: An upholstery-grade woven cotton-poly and linen blend cover in warm ivory cream keeps air flowing around natural materials. A tone-on-tone lotus embroidery on the back panel adds a quiet mark of craft.
+          - paragraph [ref=e201]: 300–350 GSM fabric · Warm ivory · Lotus embroidery
+        - generic [ref=e206]:
+          - text: "06"
+          - heading "Stable Foundation" [level=3] [ref=e207]
+          - paragraph [ref=e208]: The cork base and cushion system work together to minimise micro-movements during sitting. Stability is not just comfort — it is the physical prerequisite for accessing deeper meditative states without constant readjustment.
+          - paragraph [ref=e209]: Cork composite · 500 × 440 mm footprint
+    - generic [ref=e211]:
+      - generic [ref=e213]:
+        - paragraph [ref=e214]: Specifications
+        - heading "Built with intention." [level=2] [ref=e215]
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219]: Width
+          - generic [ref=e220]: 500 mm
+        - generic [ref=e221]:
+          - generic [ref=e222]: Depth
+          - generic [ref=e223]: 440 mm
+        - generic [ref=e224]:
+          - generic [ref=e225]: Base Tilt Angle
+          - generic [ref=e226]: 8°
+        - generic [ref=e227]:
+          - generic [ref=e228]: Base Material
+          - generic [ref=e229]: Natural cork composite
+        - generic [ref=e230]:
+          - generic [ref=e231]: Base Layer Cushion
+          - generic [ref=e232]: Natural latex, soft (ILD 75–85), 70 mm
+        - generic [ref=e233]:
+          - generic [ref=e234]: Top Layer Cushion
+          - generic [ref=e235]: Natural latex, soft (ILD 45–55), 32–50 mm ramped
+        - generic [ref=e236]:
+          - generic [ref=e237]: Relief Channel Depth
+          - generic [ref=e238]: 10–15 mm
+        - generic [ref=e239]:
+          - generic [ref=e240]: Cover Fabric
+          - generic [ref=e241]: Cotton-poly / linen blend, 300–350 GSM
+        - generic [ref=e242]:
+          - generic [ref=e243]: Cover Colour
+          - generic [ref=e244]: Warm ivory / natural cream
+        - generic [ref=e245]:
+          - generic [ref=e246]: Detail
+          - generic [ref=e247]: Tone-on-tone lotus embroidery
+        - generic [ref=e248]:
+          - generic [ref=e249]: Suitable Postures
+          - generic [ref=e250]: Siddhasana, Sukhasana, Burmese, Half Lotus, Cross-legged
+    - generic [ref=e256]:
+      - paragraph [ref=e257]: The Practice
+      - heading "When sitting is effortless, meditation becomes possible." [level=2] [ref=e258]
+      - paragraph [ref=e259]: The Lotus Seat is designed for anyone who takes their practice seriously — from first-time meditators to experienced practitioners. Every component exists to remove one more obstacle between you and the stillness you're seeking.
+      - link "Pre-Order Now" [ref=e260] [cursor=pointer]:
+        - /url: /contact
+    - generic [ref=e262]:
+      - generic [ref=e264]:
+        - paragraph [ref=e265]: FAQ
+        - heading "Common questions." [level=2] [ref=e266]
+      - generic [ref=e268]:
+        - generic [ref=e269]:
+          - button "Why this seat over a regular meditation cushion?" [ref=e270]:
+            - generic [ref=e271]: Why this seat over a regular meditation cushion?
+            - img [ref=e273]
+          - paragraph [ref=e275]: A regular cushion offers padding but does nothing for your posture. The Lotus Seat actively positions your pelvis — through its 8° tilt and ramped latex layers — so your spine aligns naturally without effort. That structural difference is what allows longer, more comfortable sits.
+        - generic [ref=e276]:
+          - button "Why natural latex instead of memory foam?" [ref=e277]:
+            - generic [ref=e278]: Why natural latex instead of memory foam?
+            - img [ref=e280]
+          - paragraph [ref=e282]: Memory foam is compressive — it lets you sink in, which destabilises posture and retains heat. Natural latex is responsive — it pushes back evenly, supports your weight without deforming, and breathes much better. For meditation, where you want consistent support for long periods, latex is significantly superior.
+        - generic [ref=e283]:
+          - button "Which postures and meditation styles does it support?" [ref=e284]:
+            - generic [ref=e285]: Which postures and meditation styles does it support?
+            - img [ref=e287]
+          - paragraph [ref=e289]: "The Lotus Seat is designed for all seated cross-legged postures: Siddhasana, Sukhasana (easy pose), Burmese position, Half Lotus, and variations. It works equally well for mindfulness meditation, breathwork, and Vipassana-style practices."
+        - generic [ref=e290]:
+          - button "Is it suitable for beginners?" [ref=e291]:
+            - generic [ref=e292]: Is it suitable for beginners?
+            - img [ref=e294]
+          - paragraph [ref=e296]: Yes — especially so. Beginners often abandon their practice because of physical discomfort. The ergonomic support makes sitting immediately more accessible, allowing you to build a consistent habit before your body has fully adapted to the posture.
+        - generic [ref=e297]:
+          - button "How do I care for and clean the seat?" [ref=e298]:
+            - generic [ref=e299]: How do I care for and clean the seat?
+            - img [ref=e301]
+          - paragraph [ref=e303]: The cover is removable and machine-washable on a gentle cycle in cool water. Lay flat to dry. The cork base and latex cushion should be spot-cleaned only — avoid soaking. Keep out of direct, prolonged sunlight to preserve the natural materials.
+        - generic [ref=e304]:
+          - button "How long can I comfortably sit on it?" [ref=e305]:
+            - generic [ref=e306]: How long can I comfortably sit on it?
+            - img [ref=e308]
+          - paragraph [ref=e310]: This depends on your current practice level, but the Lotus Seat is specifically designed to extend comfortable sitting beyond what most cushions allow. Many practitioners report sitting 30–60 minutes comfortably from early use, with the ergonomic support making a noticeable difference immediately.
+        - generic [ref=e311]:
+          - button "When will orders ship?" [ref=e312]:
+            - generic [ref=e313]: When will orders ship?
+            - img [ref=e315]
+          - paragraph [ref=e317]: The Lotus Seat is currently available for pre-order. We will confirm shipping timelines with each pre-order customer via email. Sign up to receive updates on production and shipping schedules.
+        - generic [ref=e318]:
+          - button "What is the warranty?" [ref=e319]:
+            - generic [ref=e320]: What is the warranty?
+            - img [ref=e322]
+          - paragraph [ref=e324]: The Lotus Seat comes with a 2-year warranty covering defects in materials and workmanship. Natural materials age gracefully and with proper care the seat should last many years.
+        - generic [ref=e325]:
+          - button "What is the returns policy?" [ref=e326]:
+            - generic [ref=e327]: What is the returns policy?
+            - img [ref=e329]
+          - paragraph [ref=e331]: We offer a 30-day satisfaction guarantee. If the seat does not improve your practice after 30 days of use, contact us for a full refund. See our Shipping & Returns page for full details.
+    - generic [ref=e334]:
+      - paragraph [ref=e335]: Ready to begin
+      - heading "Ready to transform your meditation?" [level=2] [ref=e336]
+      - paragraph [ref=e337]: Join the waitlist and be among the first to receive The Lotus Seat. Pre-orders are open now — limited to our first production run.
+      - generic [ref=e338]:
+        - link "Pre-Order Now" [ref=e339] [cursor=pointer]:
+          - /url: /contact
+        - link "View Full Specifications" [ref=e340] [cursor=pointer]:
+          - /url: /product
+  - contentinfo [ref=e341]:
+    - generic [ref=e342]:
+      - generic [ref=e343]:
+        - generic [ref=e344]:
+          - link "The Lotus Seat" [ref=e345] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e346]: Sit Better. Meditate Longer. A premium ergonomic meditation seat designed for serious practitioners.
+          - generic [ref=e347]:
+            - link "Instagram" [ref=e348] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e349]
+            - link "Facebook" [ref=e353] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e354]
+        - generic [ref=e356]:
+          - heading "Product" [level=4] [ref=e357]
+          - list [ref=e358]:
+            - listitem [ref=e359]:
+              - link "The Seat" [ref=e360] [cursor=pointer]:
+                - /url: /product
+            - listitem [ref=e361]:
+              - link "The Science" [ref=e362] [cursor=pointer]:
+                - /url: /science
+            - listitem [ref=e363]:
+              - link "FAQ" [ref=e364] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=e365]:
+          - heading "Company" [level=4] [ref=e366]
+          - list [ref=e367]:
+            - listitem [ref=e368]:
+              - link "About" [ref=e369] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e370]:
+              - link "Contact" [ref=e371] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e372]:
+          - heading "Legal" [level=4] [ref=e373]
+          - list [ref=e374]:
+            - listitem [ref=e375]:
+              - link "Shipping & Returns" [ref=e376] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=e377]:
+              - link "Privacy Policy" [ref=e378] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e379]:
+              - link "Terms & Conditions" [ref=e380] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=e381]:
+        - paragraph [ref=e382]: © 2026 The Lotus Seat. All rights reserved.
+        - link "Pre-Order Now" [ref=e383] [cursor=pointer]:
+          - /url: /contact
